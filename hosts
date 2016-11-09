@@ -1,0 +1,2 @@
+[workgroup]
+localhost   ansible_connection=local

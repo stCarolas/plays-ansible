@@ -1,0 +1,4 @@
+---
+- hosts: workgroup
+  roles:
+  - dotstrap.fzf 
