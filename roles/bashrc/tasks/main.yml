@@ -1,0 +1,14 @@
+---
+- name: Has section for custom config
+  patcher:
+    path: /Users/stCarolas/.bashrc
+    patch_dir: roles/bashrc/files
+    patches:
+      - add_custom_section
+
+- name: Configs
+  patcher:
+    path: /Users/stCarolas/.bashrc
+    patch_dir: roles/bashrc/files
+    exclude:
+    - add_custom_section

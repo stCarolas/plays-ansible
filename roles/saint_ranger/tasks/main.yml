@@ -1,0 +1,22 @@
+---
+- name: install ranger
+  package:
+    name: ranger
+    state: present
+
+- name: generate default ranger config
+  shell: cp /usr/local/Cellar/ranger/1.7.2/libexec/ranger/config/rc.conf /Users/stCarolas/.config/ranger/rc.conf
+
+- name: add empty section for custom config 
+  patcher:
+    path: /Users/stCarolas/.config/ranger/rc.conf
+    patch_dir: roles/saint_ranger/files
+    patches:
+      - add_custom_section
+
+- name: config ranger
+  patcher:
+    path: /Users/stCarolas/.config/ranger/rc.conf
+    patch_dir: roles/saint_ranger/files
+    exclude:
+    - add_custom_section
