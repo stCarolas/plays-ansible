@@ -1,0 +1,12 @@
+*** rc.conf	2016-11-13 14:23:04.000000000 +0300
+--- rc.conf.test	2016-11-13 14:34:01.000000000 +0300
+***************
+*** 599,600 ****
+--- 599,605 ----
+  # patcher item end
++ # patcher item start
++ ff() {
++         ack $1 --type=$2 -l | fzf
++ }
++ # patcher item end
+  # patcher section end

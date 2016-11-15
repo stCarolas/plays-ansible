@@ -3,6 +3,11 @@
 from ansible.module_utils.basic import * 
 import subprocess
 
+def save_patch_in_history(patch_filepath, origin_filepath){
+    history_dir = 
+    if not os.path.exists(directory):
+        os.makedirs(directory)
+}
 def main():
     module = AnsibleModule(
             argument_spec  = dict(
