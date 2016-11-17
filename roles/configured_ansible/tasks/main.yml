@@ -1,0 +1,6 @@
+- name: Has alias for ansible-playbook
+  lineinfile:
+    line: "alias ap=ansible-playbook" 
+    dest: ~/.bashrc
+    state: present
+    regexp: "alias ap=ansible-playbook"

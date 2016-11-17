@@ -1,7 +1,6 @@
 ---
 # tasks file for tmux
 - name: Has tmux
-  become: true
   package:
     name: tmux
     state: present

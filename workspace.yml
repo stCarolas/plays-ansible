@@ -3,5 +3,6 @@
   connection: local
   roles:
     - tmux
-    - ansible_hacking
-    - bash_profile
+    - configured_ansible 
+    - saint_ranger
+    - configured_bash_profile

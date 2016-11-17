@@ -1,42 +1,35 @@
 ---
 - name: Has python-dev
-  become: true
   package:
     name: python-dev 
     state: present
 
 - name: Has git
-  become: true
   package:
     name: git
     state: present
 
 - name: Has pyyaml installed
-  become: true
   pip:
     name: pyyaml
     executable: pip2
 
 - name: Has jinja2 installed
-  become: true
   pip:
     name: jinja2
     executable: pip2
 
 - name: Has nose installed
-  become: true
   pip:
     name: nose
     executable: pip2
 
 - name: Has passlib installed
-  become: true
   pip:
     name: passlib
     executable: pip2
 
 - name: Has pycrypto installed
-  become: true
   pip:
     name: pycrypto
     executable: pip2
