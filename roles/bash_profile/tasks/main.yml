@@ -1,14 +1,6 @@
----
-- name: Has section for custom config
-  patcher:
-    path: /Users/stCarolas/.bash_profile
-    patch_dir: roles/bash_profile/files
-    patches:
-      - add_custom_section
-
-- name: Configs
-  patcher:
-    path: /Users/stCarolas/.bash_profile
-    patch_dir: roles/bash_profile/files
-    exclude:
-    - add_custom_section
+- name: Has .bashrc source added in .bash_profile
+  lineinfile:
+    line: "source .bashrc" 
+    dest: ~/.bash_profile
+    state: present
+    regexp: "source .bashrc" 

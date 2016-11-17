@@ -1,0 +1,57 @@
+---
+- name: Has python-dev
+  become: true
+  package:
+    name: python-dev 
+    state: present
+
+- name: Has git
+  become: true
+  package:
+    name: git
+    state: present
+
+- name: Has pyyaml installed
+  become: true
+  pip:
+    name: pyyaml
+    executable: pip2
+
+- name: Has jinja2 installed
+  become: true
+  pip:
+    name: jinja2
+    executable: pip2
+
+- name: Has nose installed
+  become: true
+  pip:
+    name: nose
+    executable: pip2
+
+- name: Has passlib installed
+  become: true
+  pip:
+    name: passlib
+    executable: pip2
+
+- name: Has pycrypto installed
+  become: true
+  pip:
+    name: pycrypto
+    executable: pip2
+
+- name: Has cloned ansible sources with ansible-hacking
+  git:
+    repo: git@github.com:ansible/ansible.git
+    dest: ~/Coding/soft/ansible
+
+- name: Has alias for ansible test-module
+  blockinfile:
+    marker: "# {mark} ansible test-module alias (ansible managed)"
+    dest: ~/.bashrc
+    content: |
+        test() {
+            source /home/stcarolas/Coding/soft/ansible/hacking/env-setup
+            /home/stcarolas/Coding/soft/ansible/hacking/test-module -m $1 -a $2
+        }

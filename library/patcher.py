@@ -2,11 +2,23 @@
 
 from ansible.module_utils.basic import * 
 import subprocess
+from pathlib import Path
+import os
 
-def save_patch_in_history(patch_filepath, origin_filepath){
-    history_dir = 
-    if not os.path.exists(directory):
-        os.makedirs(directory)
+def get_history_dir(origin_filepath){
+    history_dir = origin_filepath + ".history"
+    if not os.path.exists(history_dir):
+        os.makedirs(history_dir)
+    return history_dir
+}
+
+def is_sync(patchpath, history_dir){
+    patchname = Path(patchpath).name
+    if not os.path.exists(history_dir + patchname):
+        return false
+    diff = subprocess.call(
+        ["diff", ]
+    )
 }
 def main():
     module = AnsibleModule(
@@ -40,8 +52,14 @@ def main():
         for item in exclude:
             patches.remove(item)
 
+    history_dir = get_history_dir(path);
     for patch in patches:
-        subprocess.call(["patch", "-N", "-s", "-r/tmp/test", path, patch_dir + patch], stderr=subprocess.PIPE, stdout=subprocess.PIPE)
+        patchpath = patch_dir + patch
+        subprocess.call(
+                ["patch", "-N", "-s", "-r/tmp/test", path, patchpath],
+                stderr=subprocess.PIPE, 
+                stdout=subprocess.PIPE
+        )
     module.exit_json(changed=True)
     
 if __name__ == '__main__':

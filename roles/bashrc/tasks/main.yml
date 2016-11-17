@@ -1,14 +1,21 @@
----
-- name: Has section for custom config
-  patcher:
-    path: /Users/stCarolas/.bashrc
-    patch_dir: roles/bashrc/files
-    patches:
-      - add_custom_section
+- name: Has alias for ansible-playbook
+  lineinfile:
+    line: "alias gp = ansible-playbook"
+    dest: ~/.bashrc
+    state: present
+    regexp: "alias gp = ansible-playbook"
 
-- name: Configs
-  patcher:
-    path: /Users/stCarolas/.bashrc
-    patch_dir: roles/bashrc/files
-    exclude:
-    - add_custom_section
+- name: Has rg function for opening ranger
+  blockinfile:
+    dest: ~/.bashrc
+    marker: "# {mark} ff function for opening ranger (ansible managed)"
+    create: yes
+    content: |
+        rg() {
+            if [ -z "$RANGER_LEVEL" ]
+            then
+                ranger
+            else
+                exit
+            fi
+        }

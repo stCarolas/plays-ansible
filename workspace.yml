@@ -1,4 +1,7 @@
 ---
-- hosts: workground 
+- hosts: localhost
+  connection: local
   roles:
-    - saint_ranger
+    - tmux
+    - ansible_hacking
+    - bash_profile

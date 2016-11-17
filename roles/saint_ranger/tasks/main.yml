@@ -20,3 +20,18 @@
     patch_dir: roles/saint_ranger/files
     exclude:
     - add_custom_section
+
+- name: Has rg function in bashrc for opening ranger
+  blockinfile:
+    dest: ~/.bashrc
+    marker: "# {mark} ff function for opening ranger (ansible managed)"
+    create: yes
+    content: |
+        rg() {
+            if [ -z "$RANGER_LEVEL" ]
+            then
+                ranger
+            else
+                exit
+            fi
+        }
