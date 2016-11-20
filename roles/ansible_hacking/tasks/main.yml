@@ -1,8 +1,8 @@
 ---
-- name: Has python-dev
-  package:
-    name: python-dev 
-    state: present
+#- name: Has python-dev
+#  package:
+#    name: python-dev 
+#    state: present
 
 - name: Has git
   package:
@@ -45,6 +45,6 @@
     dest: ~/.bashrc
     content: |
         test() {
-            source /home/stcarolas/Coding/soft/ansible/hacking/env-setup
-            /home/stcarolas/Coding/soft/ansible/hacking/test-module -m $1 -a $2
+            source ~/Coding/soft/ansible/hacking/env-setup
+            ~/Coding/soft/ansible/hacking/test-module -m $1 -a $2
         }

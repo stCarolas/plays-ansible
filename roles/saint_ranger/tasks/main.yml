@@ -18,3 +18,17 @@
                 exit
             fi
         }
+
+- name: Has hotkey for vim-fzf
+  lineinfile:
+    dest: ~/.config/ranger/rc.conf
+    line: "map \\f      shell vim $(fzf)"
+    state: present
+    regexp: "map \\f.*"
+
+- name: Has hotkey for Go to Projects
+  lineinfile:
+    dest: ~/.config/ranger/rc.conf
+    line: "map gp      cd ~/Coding/projects"
+    state: present
+    regexp: "map gp.*"
