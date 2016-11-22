@@ -11,3 +11,4 @@
     dest: ~/.bashrc
     state: present
     regexp: 'export PS1=.*'
+

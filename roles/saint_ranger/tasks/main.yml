@@ -32,3 +32,10 @@
     line: "map gp      cd ~/Coding/projects"
     state: present
     regexp: "map gp.*"
+
+- name: Has hotkey for Go to Downloads
+  lineinfile:
+    dest: ~/.config/ranger/rc.conf
+    line: "map gd      cd ~/Downloads"
+    state: present
+    regexp: "map gd.*"
