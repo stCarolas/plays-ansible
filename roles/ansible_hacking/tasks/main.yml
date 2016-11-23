@@ -1,5 +1,5 @@
 ---
-#- name: Has python-dev
+#- name: Has python dev headers
 #  package:
 #    name: python-dev 
 #    state: present

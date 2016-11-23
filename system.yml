@@ -1,0 +1,33 @@
+---
+- hosts: homeground
+  roles:
+    - git
+    - nvm
+    - tmux
+    - configured_ansible 
+    - configured_bash
+    - configured_vim
+    - saint_ranger
+    - ansible_hacking 
+
+- hosts: workground 
+  roles:
+    - cntlm
+    - tunnels
+    - shellinabox
+    - git
+    - nvm
+    - tmux
+    - configured_ansible 
+    - configured_bash
+    - configured_vim
+    - saint_ranger
+    - ansible_hacking 
+    - sql_workbench
+
+- hosts: remote_access_only 
+  roles:
+    - tmux
+    - configured_bash
+    - configured_vim
+    - saint_ranger
