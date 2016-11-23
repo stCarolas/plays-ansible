@@ -1,0 +1,21 @@
+---
+- name: Has local Vundle
+  git:
+    repo: https://github.com/VundleVim/Vundle.vim.git
+    dest: ~/.vim/bundle/Vundle.vim
+
+- name: Has configured vimrc for Vundle, part1  
+  blockinfile: 
+    dest: ~/.vimrc
+    marker: 
+    content: |
+        set nocompatible
+        filetype off
+        set rtp+=~/.vim/bundle/Vundle.vim
+        call vundle#begin()
+        Plugin 'VundleVim/Vundle.vim'
+
+- name: Has configured vimrc for Vundle, part1  
+        Plugin '{{ item }}'
+        call vundle#end()
+        filetype plugin indent on
