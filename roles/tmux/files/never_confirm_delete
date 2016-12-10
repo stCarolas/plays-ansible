@@ -1,0 +1,9 @@
+--- rc.conf	2016-11-08 12:33:46.581650293 +0300
++++ rc.conf1	2016-11-08 12:33:36.815653205 +0300
+@@ -33,3 +33,3 @@
+ # With "multiple", ranger will ask only if you delete multiple files at once.
+-set confirm_on_delete multiple
++# patcher item start
++set confirm_on_delete never
++# patcher item end
+ 

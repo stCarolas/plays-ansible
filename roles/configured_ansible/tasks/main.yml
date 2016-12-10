@@ -1,4 +1,5 @@
 - name: Has alias for ansible-playbook
+  tags: ansible
   lineinfile:
     line: "alias ap=ansible-playbook" 
     dest: ~/.bashrc

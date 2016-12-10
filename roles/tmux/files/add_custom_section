@@ -1,0 +1,13 @@
+--- rc.conf	2016-11-08 12:33:46.581650293 +0300
++++ rc.conf1	2016-11-08 12:39:55.979527256 +0300
+@@ -583 +583,10 @@
+ copytmap <ESC> q Q w <C-c>
++
++
++# patcher section start
++# patcher item start
++#
++# CUSTOM CONFIG
++#
++# patcher item end
++# patcher section end

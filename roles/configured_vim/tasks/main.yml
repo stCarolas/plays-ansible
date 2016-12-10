@@ -1,2 +1,75 @@
----
-# tasks file for vimrc
+- name: Has color settings 
+  tags: vim,vim-color
+  blockinfile : 
+    create    :    yes
+    dest      :    ~/.config/vim/colors
+    marker    :    '"{mark} color and background settings'
+    content   :    |
+        set background=dark
+        set completeopt-=preview
+        set autoindent
+        au InsertEnter * hi StatusLine ctermfg=Red
+        au InsertLeave * hi StatusLine ctermfg=Green 
+
+- name: Has function for install plugins
+  tags: vim,vundle
+  blockinfile : 
+    create    :    yes
+    dest      :    ~/.config/vim/plugins
+    marker    :    '"{mark} install plugins and qiut function'
+    content   :    |
+        function Install()
+            :PluginInstall
+            :qa
+        endfunction
+
+- name: Has overall editing settings
+  tags: vim
+  blockinfile :
+    create    :   yes
+    dest      :   ~/.config/vim/overall
+    marker    :   '"{mark} overall settings'
+    content   :   | 
+        let mapleader = ";"
+        filetype on
+        syntax on
+        set noswapfile
+        set expandtab
+        set shiftwidth=4
+        set tabstop=4
+        set relativenumber
+        set showtabline=2
+        set laststatus=2
+        set backspace=2
+
+- name: Has settings for vim-rooter plugin
+  tags: vim,vim-rooter
+  blockinfile : 
+    create    :   yes
+    dest      :   ~/.config/vim/vim-rooter
+    marker    :   '"{mark} settings for vim-rooter'
+    content   :   |
+        let g:rooter_patterns = ['.git/']
+        let g:rooter_silent_chdir = 0
+
+- name: Has hotkeys settings
+  tags: vim
+  blockinfile :
+    create    :   yes
+    dest      :   ~/.config/vim/hotkeys
+    marker    :   '"{mark} hotkeys settings'
+    content   :   | 
+        imap ii <Esc>
+        map <silent> <leader>m :make<cr>
+        nnoremap ii <Esc>
+        nnoremap <leader>y "+y"
+        vnoremap <leader>y "+y"
+
+- name: Has javacomplete settings
+  tags: vim,vim-javacomplete2
+  blockinfile :
+    create    :   yes
+    dest      :   ~/.config/vim/vim-javacomplete2
+    marker    :   '"{mark} vim-javacomplete2 settings'
+    content   :   | 
+        autocmd FileType java setlocal omnifunc=javacomplete#Complete

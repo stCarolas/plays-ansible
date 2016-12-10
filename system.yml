@@ -1,7 +1,9 @@
 ---
-- hosts: homeground
+- hosts: localhost
+  connection: local
   roles:
     - git
+    - vundle 
     - nvm
     - tmux
     - configured_ansible 

@@ -5,41 +5,49 @@
 #    state: present
 
 - name: Has git
+  tags: ansible-hacking
   package:
     name: git
     state: present
 
 - name: Has pyyaml installed
+  tags: ansible-hacking
   pip:
     name: pyyaml
     executable: pip2
 
 - name: Has jinja2 installed
+  tags: ansible-hacking
   pip:
     name: jinja2
     executable: pip2
 
 - name: Has nose installed
+  tags: ansible-hacking
   pip:
     name: nose
     executable: pip2
 
 - name: Has passlib installed
+  tags: ansible-hacking
   pip:
     name: passlib
     executable: pip2
 
 - name: Has pycrypto installed
+  tags: ansible-hacking
   pip:
     name: pycrypto
     executable: pip2
 
 - name: Has cloned ansible sources with ansible-hacking
+  tags: ansible-hacking
   git:
     repo: git@github.com:ansible/ansible.git
     dest: ~/Coding/soft/ansible
 
 - name: Has alias for ansible test-module
+  tags: ansible-hacking
   blockinfile:
     marker: "# {mark} ansible test-module alias (ansible managed)"
     dest: ~/.bashrc

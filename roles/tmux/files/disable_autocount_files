@@ -1,0 +1,9 @@
+--- rc.conf	2016-11-06 20:56:33.000000000 +0300
++++ rc.conf1	2016-11-06 21:21:53.000000000 +0300
+@@ -44,3 +44,5 @@
+ # Automatically count files in the directory, even before entering them?
+-set automatically_count_files true
++# patcher item start
++set automatically_count_files false
++# patcher item end
+ 

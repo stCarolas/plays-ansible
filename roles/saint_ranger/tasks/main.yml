@@ -1,12 +1,14 @@
 ---
-- name: install ranger
+- name: Has ranger
+  tags: ranger
   package:
     name: ranger
     state: present
 
 - name: Has rg function in bashrc for opening ranger
+  tags: ranger
   blockinfile:
-    dest: ~/.bashrc
+    dest: "{{ bashrc_path }}"
     marker: "# {mark} ff function for opening ranger (ansible managed)"
     create: yes
     content: |
@@ -20,6 +22,7 @@
         }
 
 - name: Has hotkey for vim-fzf
+  tags: ranger
   lineinfile:
     dest: ~/.config/ranger/rc.conf
     line: "map \\f      shell vim $(fzf)"
@@ -27,6 +30,7 @@
     regexp: "map \\f.*"
 
 - name: Has hotkey for Go to Projects
+  tags: ranger
   lineinfile:
     dest: ~/.config/ranger/rc.conf
     line: "map gp      cd ~/Coding/projects"
@@ -34,6 +38,7 @@
     regexp: "map gp.*"
 
 - name: Has hotkey for Go to Downloads
+  tags: ranger
   lineinfile:
     dest: ~/.config/ranger/rc.conf
     line: "map gd      cd ~/Downloads"
