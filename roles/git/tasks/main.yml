@@ -1,2 +1,5 @@
 ---
-# tasks file for git
+- name: Has github cli
+  tags: git, package-install
+  package:
+    name: hub

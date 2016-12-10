@@ -1,7 +1,7 @@
 - name: Has color settings 
   tags: vim,vim-color
   blockinfile : 
-    create    :    yes
+    create    : yes
     dest      :    ~/.config/vim/colors
     marker    :    '"{mark} color and background settings'
     content   :    |
@@ -14,7 +14,7 @@
 - name: Has function for install plugins
   tags: vim,vundle
   blockinfile : 
-    create    :    yes
+    create    : yes
     dest      :    ~/.config/vim/plugins
     marker    :    '"{mark} install plugins and qiut function'
     content   :    |
@@ -26,7 +26,7 @@
 - name: Has overall editing settings
   tags: vim
   blockinfile :
-    create    :   yes
+    create    : yes
     dest      :   ~/.config/vim/overall
     marker    :   '"{mark} overall settings'
     content   :   | 
@@ -68,7 +68,7 @@
 - name: Has javacomplete settings
   tags: vim,vim-javacomplete2
   blockinfile :
-    create    :   yes
+    create    : yes
     dest      :   ~/.config/vim/vim-javacomplete2
     marker    :   '"{mark} vim-javacomplete2 settings'
     content   :   | 
