@@ -85,4 +85,6 @@
     line      : "source ~/.config/vim/{{ item }}"
   with_items:
     - hotkeys
+    - plugins
+    - colors 
     - overall

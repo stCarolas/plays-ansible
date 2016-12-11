@@ -45,16 +45,12 @@
     regexp: Plugin '{{ item }}' 
   with_items:
     - easymotion/vim-easymotion
-    - junegunn/fzf.vim
     - majutsushi/tagbar
     - scrooloose/nerdcommenter
-    - Chiel92/vim-autoformat
     - bkad/CamelCaseMotion
-    - Shougo/denite.nvim
     - artur-shaik/vim-javacomplete2
     - airblade/vim-rooter
     - scrooloose/nerdtree
     - jistr/vim-nerdtree-tabs
     - jiangmiao/auto-pairs
     - vim-syntastic/syntastic
-    - cosminadrianpopescu/vim-sql-workbench

@@ -7,4 +7,5 @@
     - configured_ansible 
     - configured_bash
     - configured_vim
+    - vundle
     - saint_ranger
