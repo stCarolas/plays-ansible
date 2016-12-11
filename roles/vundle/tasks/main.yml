@@ -1,12 +1,11 @@
 - name: Has local Vundle
+  tags: vim
   git:
     repo: https://github.com/VundleVim/Vundle.vim.git
     dest: ~/.vim/bundle/Vundle.vim
-  tags:
-    - plugins 
-    - vim
 
 - name: Has configured vimrc for Vundle, part1  
+  tags: vim
   blockinfile: 
     create: yes
     dest: ~/.config/vim/plugins
@@ -17,25 +16,18 @@
         set rtp+=~/.vim/bundle/Vundle.vim
         call vundle#begin()
         Plugin 'VundleVim/Vundle.vim'
-  tags:
-    - plugins
-    - vim
 
 - name: Has configured vimrc for Vundle, part2  
+  tags: vim
   blockinfile: 
     dest: ~/.config/vim/plugins
     marker: '"{mark} vundle end block'
     content: |
         call vundle#end()
         filetype plugin indent on
-  tags:
-    - plugins
-    - vim
 
 - name: Has installed plugins
-  tags:
-    - plugins
-    - vim
+  tags: vim
   notify: install plugins
   lineinfile:
     insertafter: 'END vundle start block'
@@ -54,12 +46,14 @@
     - jistr/vim-nerdtree-tabs
     - jiangmiao/auto-pairs
     - vim-syntastic/syntastic
+    - itchyny/lightline.vim
 
 - name: Has NERDTree configured
   tags: vim
   blockinfile  :
     dest       : ~/.config/vim/nerdtree
     create     : yes
+    marker    : '"{mark} settings for NERDTree'
     content    : |
         map <silent> <leader>n :NERDTreeTabsToggle<cr>
         map <silent> <leader>N :NERDTreeFind<cr>
@@ -69,12 +63,13 @@
   blockinfile  :
     dest       : ~/.config/vim/tagbar
     create     : yes
+    marker    : '"{mark} settings for TagBar'
     content    : |
-        nnoremap <leader>t :TagbarToogle<cr>
+        nnoremap <leader>t :TagbarToggle<cr>
         nnoremap <leader>T :TagbarOpen<cr><c-w><right>/
 
 - name: Has Vim-Rooter configured
-  tags: vim,vim-rooter
+  tags: vim
   blockinfile : 
     create    : yes
     dest      : ~/.config/vim/vim-rooter

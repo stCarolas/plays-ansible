@@ -1,6 +1,6 @@
 ---
-# tasks file for tmux
 - name: Has tmux
+  tags: tmux, system
   package:
     name: tmux
     state: present
