@@ -54,3 +54,31 @@
     - jistr/vim-nerdtree-tabs
     - jiangmiao/auto-pairs
     - vim-syntastic/syntastic
+
+- name: Has NERDTree configured
+  tags: vim
+  blockinfile  :
+    dest       : ~/.config/vim/nerdtree
+    create     : yes
+    content    : |
+        map <silent> <leader>n :NERDTreeTabsToggle<cr>
+        map <silent> <leader>N :NERDTreeFind<cr>
+
+- name: Has TagBar configured
+  tags: vim
+  blockinfile  :
+    dest       : ~/.config/vim/tagbar
+    create     : yes
+    content    : |
+        nnoremap <leader>t :TagbarToogle<cr>
+        nnoremap <leader>T :TagbarOpen<cr><c-w><right>/
+
+- name: Has Vim-Rooter configured
+  tags: vim,vim-rooter
+  blockinfile : 
+    create    : yes
+    dest      : ~/.config/vim/vim-rooter
+    marker    : '"{mark} settings for vim-rooter'
+    content   : |
+        let g:rooter_patterns = ['.git/']
+        let g:rooter_silent_chdir = 0

@@ -42,15 +42,6 @@
         set laststatus=2
         set backspace=2
 
-- name: Has settings for vim-rooter plugin
-  tags: vim,vim-rooter
-  blockinfile : 
-    create    : yes
-    dest      : ~/.config/vim/vim-rooter
-    marker    : '"{mark} settings for vim-rooter'
-    content   : |
-        let g:rooter_patterns = ['.git/']
-        let g:rooter_silent_chdir = 0
 
 - name: Has hotkeys settings
   tags: vim
@@ -87,4 +78,7 @@
     - hotkeys
     - plugins
     - colors 
+    - nerdtree
     - overall
+    - tagbar
+    - vim-rooter
