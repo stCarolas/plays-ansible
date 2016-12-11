@@ -2,9 +2,9 @@
   tags: vim,vim-color
   blockinfile : 
     create    : yes
-    dest      :    ~/.config/vim/colors
-    marker    :    '"{mark} color and background settings'
-    content   :    |
+    dest      : ~/.config/vim/colors
+    marker    : '"{mark} color and background settings'
+    content   : |
         set background=dark
         set completeopt-=preview
         set autoindent
@@ -15,9 +15,9 @@
   tags: vim,vundle
   blockinfile : 
     create    : yes
-    dest      :    ~/.config/vim/plugins
-    marker    :    '"{mark} install plugins and qiut function'
-    content   :    |
+    dest      : ~/.config/vim/plugins
+    marker    : '"{mark} install plugins and qiut function'
+    content   : |
         function Install()
             :PluginInstall
             :qa
@@ -27,9 +27,9 @@
   tags: vim
   blockinfile :
     create    : yes
-    dest      :   ~/.config/vim/overall
-    marker    :   '"{mark} overall settings'
-    content   :   | 
+    dest      : ~/.config/vim/overall
+    marker    : '"{mark} overall settings'
+    content   : | 
         let mapleader = ";"
         filetype on
         syntax on
@@ -45,31 +45,44 @@
 - name: Has settings for vim-rooter plugin
   tags: vim,vim-rooter
   blockinfile : 
-    create    :   yes
-    dest      :   ~/.config/vim/vim-rooter
-    marker    :   '"{mark} settings for vim-rooter'
-    content   :   |
+    create    : yes
+    dest      : ~/.config/vim/vim-rooter
+    marker    : '"{mark} settings for vim-rooter'
+    content   : |
         let g:rooter_patterns = ['.git/']
         let g:rooter_silent_chdir = 0
 
 - name: Has hotkeys settings
   tags: vim
   blockinfile :
-    create    :   yes
-    dest      :   ~/.config/vim/hotkeys
-    marker    :   '"{mark} hotkeys settings'
-    content   :   | 
+    create    : yes
+    dest      : ~/.config/vim/hotkeys
+    marker    : '"{mark} hotkeys settings'
+    content   : | 
         imap ii <Esc>
         map <silent> <leader>m :make<cr>
         nnoremap ii <Esc>
         nnoremap <leader>y "+y"
         vnoremap <leader>y "+y"
+        nnoremap <leader>ev :vsplit $MYVIMRC<cr>
+        nnoremap <leader>sv :source $MYVIMRC<cr>
 
 - name: Has javacomplete settings
   tags: vim,vim-javacomplete2
   blockinfile :
     create    : yes
-    dest      :   ~/.config/vim/vim-javacomplete2
-    marker    :   '"{mark} vim-javacomplete2 settings'
-    content   :   | 
+    dest      : ~/.config/vim/vim-javacomplete2
+    marker    : '"{mark} vim-javacomplete2 settings'
+    content   : | 
         autocmd FileType java setlocal omnifunc=javacomplete#Complete
+
+- name: Has config files sourced into .vimrc
+  tags: vim, user
+  lineinfile  :
+    dest      : ~/.vimrc
+    create    : yes
+    state     : present
+    line      : "source ~/.config/vim/{{ item }}"
+  with_items:
+    - hotkeys
+    - overall
