@@ -2,6 +2,6 @@
   tags: ansible
   lineinfile:
     line: "alias ap=ansible-playbook" 
-    dest: ~/.bashrc
+    dest: ~/.config/bash/ansible
     state: present
     regexp: "alias ap=ansible-playbook"

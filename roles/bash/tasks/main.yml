@@ -40,8 +40,16 @@
         alias tn='tmux new-session'
         alias tc='tmux new-session -s'
 
-- name: Has .bashrc
+- name: Has .bashrc sourced
   tags: bash
-  assemble: 
-    src: ~/.config/bash
+  lineinfile:
     dest: ~/.bashrc
+    create: yes
+    line: "source ~/.config/bash/{{ item }}"
+  with_items:
+    - ansible
+    - tmux
+    - overall
+    - git
+    - nvm
+    - ranger
