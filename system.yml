@@ -4,8 +4,8 @@
   roles:
     - tmux
     - git
-    - configured_ansible 
-    - configured_bash
-    - configured_vim
+    - ansible 
+    - bash
+    - vim
     - vundle
-    - saint_ranger
+    - ranger
