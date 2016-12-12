@@ -1,5 +1,5 @@
 ---
 - name: Has github cli
-  tags: git, package-install
+  tags: git, system
   package:
     name: hub

@@ -27,7 +27,6 @@
     dest: ~/.config/ranger/rc.conf
     line: "map \\f      shell vim $(fzf)"
     state: present
-    regexp: "map \\f.*"
 
 - name: Has hotkey for Go to Projects
   tags: ranger, user
