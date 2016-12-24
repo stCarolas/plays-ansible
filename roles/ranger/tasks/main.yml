@@ -24,8 +24,9 @@
 - name: Has hotkey for vim-fzf
   tags: ranger, user
   lineinfile:
-    dest: ~/.config/ranger/rc.conf
     line: "map \\f      shell vim $(fzf)"
+    dest: ~/.config/ranger/rc.conf
+    create: yes
     state: present
 
 - name: Has hotkey for Go to Projects

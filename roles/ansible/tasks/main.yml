@@ -3,5 +3,6 @@
   lineinfile:
     line: "alias ap=ansible-playbook" 
     dest: ~/.config/bash/ansible
+    create: yes
     state: present
     regexp: "alias ap=ansible-playbook"

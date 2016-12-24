@@ -1,10 +1,16 @@
+- name: Has config directory
+  tags: vim
+  file:
+    path: ~/.config/vim
+    state: directory
+
 - name: Has color settings 
   tags: vim,vim-color
   blockinfile : 
-    create    : yes
-    dest      : ~/.config/vim/colors
-    marker    : '"{mark} color and background settings'
-    content   : |
+    create : yes
+    dest : ~/.config/vim/colors
+    marker : '"{mark} color and background settings'
+    content : |
         set background=dark
         set completeopt-=preview
         set autoindent
