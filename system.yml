@@ -2,6 +2,7 @@
 - hosts: localhost
   connection: local
   roles:
+    - fzf
     - tmux
     - git
     - ansible 
