@@ -1,0 +1,10 @@
+---
+- name: Has lighline installed
+  tags: vim
+  notify: install plugins
+  lineinfile     :
+    line         : Plugin 'itchyny/lightline.vim'
+    insertbefore : 'BEGIN vundle end block'
+    dest         : "{{ vim_config_dir }}/plugins"
+    state        : present
+    regexp       : Plugin 'itchyny/lightline.vim'

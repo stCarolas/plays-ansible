@@ -1,0 +1,10 @@
+---
+- name: Has Syntastic installed
+  tags: vim
+  notify: install plugins
+  lineinfile     :
+    line         : Plugin 'vim-syntastic/syntastic'
+    insertbefore : 'BEGIN vundle end block'
+    dest         : "{{ vim_config_dir }}/plugins"
+    state        : present
+    regexp       : Plugin 'vim-syntastic/syntastic'

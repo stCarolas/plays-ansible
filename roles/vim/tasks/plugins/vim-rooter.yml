@@ -1,0 +1,29 @@
+---
+- name: Has Vim-Rooter installed
+  tags: vim
+  notify: install plugins
+  lineinfile     :
+    line         : Plugin 'airblade/vim-rooter'
+    insertbefore : 'BEGIN vundle end block'
+    dest         : "{{ vim_config_dir }}/plugins"
+    state        : present
+    regexp       : Plugin 'airblade/vim-rooter'
+
+- name: Has Vim-Rooter configured
+  tags: vim
+  blockinfile : 
+    create    : yes
+    dest      : "{{ vim_config_dir }}/vim-rooter"
+    marker    : '"{mark} settings for vim-rooter'
+    content   : |
+        let g:rooter_patterns = ['.git/']
+        let g:rooter_silent_chdir = 0
+
+- name: Has Vim-Rooter file sourced into .vimrc
+  tags: vim
+  lineinfile  :
+    line      : "source {{ vim_config_dir }}/vim-rooter"
+    dest      : ~/.vimrc
+    create    : yes
+    state     : present
+    regexp    : "source {{ vim_config_dir }}/vim-rooter"

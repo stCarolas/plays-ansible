@@ -1,2 +1,4 @@
 ---
 # defaults file for vimrc
+vim_config_dir: ~/.vim/config
+vim_dir: ~/.vim

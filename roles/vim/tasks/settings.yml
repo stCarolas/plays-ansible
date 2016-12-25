@@ -1,0 +1,30 @@
+---
+- name: Has overall editing settings
+  tags: vim
+  blockinfile :
+    create    : yes
+    dest      : "{{ vim_config_dir }}/settings"
+    marker    : '"{mark} overall settings'
+    content   : | 
+        let mapleader = ";"
+        filetype on
+        syntax on
+        set noswapfile
+        set expandtab
+        set shiftwidth=4
+        set tabstop=4
+        set autoindent
+        set relativenumber
+        set showtabline=2
+        set laststatus=2
+        set backspace=2
+        set completeopt-=preview
+
+- name: Has settings  file sourced into .vimrc
+  tags: vim
+  lineinfile  :
+    line      : "source {{ vim_config_dir }}/settings"
+    dest      : ~/.vimrc
+    create    : yes
+    state     : present
+    regexp    : "source {{ vim_config_dir }}/settings"

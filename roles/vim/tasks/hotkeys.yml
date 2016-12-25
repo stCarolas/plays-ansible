@@ -1,0 +1,24 @@
+---
+- name: Has hotkeys settings
+  tags: vim
+  blockinfile :
+    create    : yes
+    dest      : "{{ vim_config_dir }}/hotkeys"
+    marker    : '"{mark} hotkeys settings'
+    content   : | 
+        imap ii <Esc>
+        map <silent> <leader>m :make<cr>
+        nnoremap ii <Esc>
+        nnoremap <leader>y "+y"
+        vnoremap <leader>y "+y"
+        nnoremap <leader>ev :vsplit $MYVIMRC<cr>
+        nnoremap <leader>sv :source $MYVIMRC<cr>
+
+- name: Has hotkeys  file sourced into .vimrc
+  tags: vim
+  lineinfile  :
+    line      : "source {{ vim_config_dir }}/hotkeys"
+    dest      : ~/.vimrc
+    create    : yes
+    state     : present
+    regexp    : "source {{ vim_config_dir }}/hotkeys"

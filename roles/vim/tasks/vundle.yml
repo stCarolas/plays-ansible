@@ -1,0 +1,50 @@
+---
+- name: Has function for install plugins
+  tags: vim
+  blockinfile : 
+    create    : yes
+    dest      : "{{ vim_config_dir }}/plugins"
+    marker    : '"{mark} install plugins and qiut function'
+    state     : present 
+    content   : |
+        function Install()
+            :PluginInstall
+            :qa
+        endfunction
+
+- name: Has local Vundle
+  tags: vim
+  git   :
+    repo: https://github.com/VundleVim/Vundle.vim.git
+    dest: ~/.vim/bundle/Vundle.vim
+
+- name: Has configured vimrc for Vundle, part1  
+  tags: vim
+  blockinfile : 
+    create    : yes
+    dest      : "{{ vim_config_dir }}/plugins"
+    marker    : '"{mark} vundle start block'
+    content   : |
+        set nocompatible
+        filetype off
+        set rtp+=~/.vim/bundle/Vundle.vim
+        call vundle#begin()
+        Plugin 'VundleVim/Vundle.vim'
+
+- name: Has configured vimrc for Vundle, part2  
+  tags: vim
+  blockinfile  : 
+    dest       : "{{ vim_config_dir }}/plugins"
+    marker     : '"{mark} vundle end block'
+    content    : |
+        call vundle#end()
+        filetype plugin indent on
+
+- name: Has plugins file sourced into .vimrc
+  tags: vim
+  lineinfile  :
+    line      : "source {{ vim_config_dir }}/plugins"
+    dest      : ~/.vimrc
+    create    : yes
+    state     : present
+    regexp    : "source {{ vim_config_dir }}/plugins"

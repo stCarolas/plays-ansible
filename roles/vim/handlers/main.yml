@@ -1,2 +1,8 @@
 ---
-# handlers file for vimrc
+- name: build vim from sources
+  tags: vim, system
+  shell: "cd {{ vim_dir }}/sources && ./configure && make && make install"
+
+- name: install plugins
+  tags: vim
+  command: 'vim -c "exec Install()"'

@@ -10,7 +10,7 @@
   tags: bash
   lineinfile:
     line: 'export PS1="\[\e[1;33m\]\h >> \[\e[0m\]"'
-    dest: ~/.config/bash/overall
+    dest: "{{ bash_config_dir }}/overall"
     state: present
     regexp: 'export PS1=.*'
     create: yes

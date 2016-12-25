@@ -1,0 +1,19 @@
+---
+- name: Has java-autocomplete2 installed
+  tags: vim
+  notify: install plugins
+  lineinfile     :
+    line         : Plugin 'artur-shaik/vim-javacomplete2'
+    insertbefore : 'BEGIN vundle end block'
+    dest         : "{{ vim_config_dir }}/plugins"
+    state        : present
+    regexp       : Plugin 'artur-shaik/vim-javacomplete2' 
+
+- name: Has javacomplete settings
+  tags: vim
+  blockinfile :
+    create    : yes
+    dest      : "{{ vim_config_dir }}/vim-javacomplete2"
+    marker    : '"{mark} vim-javacomplete2 settings'
+    content   : | 
+        autocmd FileType java setlocal omnifunc=javacomplete#Complete

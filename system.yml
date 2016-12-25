@@ -7,5 +7,4 @@
     - ansible 
     - bash
     - vim
-    - vundle
     - ranger

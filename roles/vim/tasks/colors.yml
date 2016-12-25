@@ -1,0 +1,18 @@
+---
+- name: Has color settings 
+  tags: vim
+  blockinfile : 
+    create    : yes
+    dest      : "{{ vim_config_dir }}/colors"
+    marker    : '"{mark} color and background settings'
+    content   : |
+        set background=dark
+
+- name: Has colors  file sourced into .vimrc
+  tags: vim
+  lineinfile  :
+    line      : "source {{ vim_config_dir }}/colors"
+    dest      : ~/.vimrc
+    create    : yes
+    state     : present
+    regexp    : "source {{ vim_config_dir }}/colors"

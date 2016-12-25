@@ -1,0 +1,10 @@
+---
+- name: Has CamelCaseMotion installed
+  tags: vim
+  notify: install plugins
+  lineinfile     :
+    line         : Plugin 'bkad/CamelCaseMotion'
+    insertbefore : 'BEGIN vundle end block'
+    dest         : "{{ vim_config_dir }}/plugins"
+    state        : present
+    regexp       : Plugin 'bkad/CamelCaseMotion'

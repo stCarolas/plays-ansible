@@ -1,0 +1,29 @@
+---
+- name: Has directory for vim
+  tags: vim
+  file:
+    path: "{{ vim_dir }}"
+    state: directory
+
+- name: Has config directory
+  tags: vim
+  file:
+    path: "{{ vim_config_dir }}"
+    state: directory
+
+- name: Has ncurses for vim
+  tags: vim, system
+  package:
+    name: ncurses
+
+- name: Has ncurses-devel for vim
+  tags: vim, system
+  package:
+    name: ncurses-devel
+
+- name: Has vim sources
+  tags: vim, system
+  git:
+    repo: https://github.com/vim/vim.git
+    dest: "{{ vim_dir }}/sources"
+  notify: build vim from sources
