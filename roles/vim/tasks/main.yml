@@ -3,6 +3,7 @@
 - include: colors.yml
 - include: settings.yml
 - include: hotkeys.yml
+- include: gtags.yml
 
 - include: vundle.yml
 

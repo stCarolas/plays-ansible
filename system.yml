@@ -8,4 +8,6 @@
     - ansible 
     - bash
     - vim
+    - vim-fzf
     - ranger
+    - ranger-fzf

@@ -52,6 +52,7 @@ galaxy_info:
   #  - 22
   #  - 23
   #  - 24
+  #  - 25
   #- name: DellOS
   #  versions:
   #  - all
@@ -67,6 +68,10 @@ galaxy_info:
   #  - 10.7
   #  - 10.8
   #  - 10.9
+  #- name: Synology
+  #  versions:
+  #  - all
+  #  - any
   #- name: Junos
   #  versions:
   #  - all
@@ -97,6 +102,7 @@ galaxy_info:
   #  - 2013.03
   #  - 2013.09
   #  - 2016.03
+  #  - 2016.09
   #- name: ArchLinux
   #  versions:
   #  - all

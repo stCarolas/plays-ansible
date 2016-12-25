@@ -1,0 +1,10 @@
+---
+- name: Has GNU Global installed
+  tags: vim, system
+  package:
+    name: global
+    state: present
+
+- name: install gtags plugin
+  tags: vim
+  shell: cp /usr/share/gtags/gtags.vim ~/.vim/plugin/gtags.vim

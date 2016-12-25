@@ -19,18 +19,19 @@
   tags: git,bash
   blockinfile:
     marker: "# {mark} git aliases (ansible managed)"
-    dest: ~/.config/bash/git
+    dest: "{{ bash_config_dir }}/git"
     create: yes
     content: |
         alias gs='git status'
         alias gc='git commit'
         alias ga='git add'
-        alias gp='git push'
+        alias gp='git pull'
+        alias gP='git push'
 
 - name: Has aliases for tmux 
   tags: tmux,bash
   blockinfile:
-    dest: ~/.config/bash/tmux
+    dest: "{{ bash_config_dir }}/tmux"
     create: yes
     content: |
         alias ts='tmux list-session'
@@ -45,7 +46,7 @@
   lineinfile:
     dest: ~/.bashrc
     create: yes
-    line: "source ~/.config/bash/{{ item }}"
+    line: "source {{ bash_config_dir }}/{{ item }}"
   with_items:
     - ansible
     - tmux

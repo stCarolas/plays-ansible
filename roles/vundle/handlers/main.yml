@@ -1,5 +1,0 @@
----
-# handlers file for vundle
-- name: install plugins
-  tags: vim
-  command: 'vim -c "exec Install()"'

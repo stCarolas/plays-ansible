@@ -1,4 +1,9 @@
 ---
+- name: Has git cli
+  tags: git, system
+  package:
+    name: git
+
 - name: Has github cli
   tags: git, system
   package:

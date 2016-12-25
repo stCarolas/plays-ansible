@@ -6,7 +6,7 @@
     state: present
 
 - name: Has rg function in bashrc for opening ranger
-  tags: ranger, user
+  tags: ranger
   blockinfile:
     dest: "{{ bashrc_path }}"
     marker: "# {mark} ff function for opening ranger (ansible managed)"
@@ -21,24 +21,23 @@
             fi
         }
 
-- name: Has hotkey for vim-fzf
-  tags: ranger, user
-  lineinfile:
-    line: "map \\f      shell vim $(fzf)"
-    dest: ~/.config/ranger/rc.conf
-    create: yes
-    state: present
-
 - name: Has hotkey for Go to Projects
-  tags: ranger, user
+  tags: ranger
   lineinfile:
     dest: ~/.config/ranger/rc.conf
     line: "map gp      cd ~/Coding/projects"
     state: present
     regexp: "map gp.*"
 
+- name: Has ; as leader key
+  tags: ranger
+  lineinfile:
+    dest: ~/.config/ranger/rc.conf
+    line: "unmap ;"
+    state: present
+
 - name: Has hotkey for Go to Downloads
-  tags: ranger, user
+  tags: ranger
   lineinfile:
     dest: ~/.config/ranger/rc.conf
     line: "map gd      cd ~/Downloads"

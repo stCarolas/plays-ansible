@@ -1,0 +1,26 @@
+---
+- name: Has fzf integration with vim
+  tags: vim-fzf
+  lineinfile  :
+      line    : set rtp+=~/.fzf
+      dest    : "{{ vim_config_dir }}/plugins"
+      state   : present
+
+- name: Has fzf hotkeys config
+  tags: vim-fzf
+  blockinfile  :
+      dest     : "{{ vim_config_dir }}/fzf"
+      create   : yes
+      state    : present
+      marker   : '"{mark} fzf config'
+      content  : | 
+        nnoremap <leader>o :FZF<cr>
+
+- name: Has fzf config file sourced into .vimrc
+  tags: vim-fzf
+  lineinfile  :
+    line      : "source {{ vim_config_dir }}/fzf"
+    dest      : ~/.vimrc
+    create    : yes
+    state     : present
+    regexp    : "source {{ vim_config_dir }}/fzf"
