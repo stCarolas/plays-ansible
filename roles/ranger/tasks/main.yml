@@ -8,7 +8,7 @@
 - name: Has rg function in bashrc for opening ranger
   tags: ranger
   blockinfile:
-    dest: "{{ bashrc_path }}"
+    dest: "{{ bash_config_dir }}/ranger"
     marker: "# {mark} ff function for opening ranger (ansible managed)"
     create: yes
     content: |
@@ -43,3 +43,10 @@
     line: "map gd      cd ~/Downloads"
     state: present
     regexp: "map gd.*"
+
+- name: Has .bashrc sourced
+  tags: ranger
+  lineinfile:
+    dest: ~/.bashrc
+    create: yes
+    line: "source {{ bash_config_dir }}/ranger"

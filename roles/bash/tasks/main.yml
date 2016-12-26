@@ -15,6 +15,15 @@
     regexp: 'export PS1=.*'
     create: yes
 
+- name: Has configured PS1 
+  tags: bash, system
+  lineinfile:
+    line: 'export PS1="\[\e[1;31m\]\h >> \[\e[0m\]"'
+    dest: "/root/.bashrc"
+    state: present
+    regexp: 'export PS1=.*'
+    create: yes
+
 - name: Has config for git
   tags: git,bash
   blockinfile:
@@ -42,15 +51,12 @@
         alias tc='tmux new-session -s'
 
 - name: Has .bashrc sourced
-  tags: bash
+  tags: tmux
   lineinfile:
     dest: ~/.bashrc
     create: yes
     line: "source {{ bash_config_dir }}/{{ item }}"
   with_items:
-    - ansible
     - tmux
     - overall
     - git
-    - nvm
-    - ranger

@@ -2,7 +2,14 @@
   tags: ansible
   lineinfile:
     line: "alias ap=ansible-playbook" 
-    dest: ~/.config/bash/ansible
+    dest: "{{ bash_config_dir }}/ansible"
     create: yes
     state: present
     regexp: "alias ap=ansible-playbook"
+
+- name: Has .bashrc sourced
+  tags: ansible 
+  lineinfile:
+    dest: ~/.bashrc
+    create: yes
+    line: "source {{ bash_config_dir }}/ansible"
