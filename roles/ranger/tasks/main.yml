@@ -25,6 +25,7 @@
   tags: ranger
   lineinfile:
     dest: ~/.config/ranger/rc.conf
+    create: yes
     line: "map gp      cd ~/Coding/projects"
     state: present
     regexp: "map gp.*"

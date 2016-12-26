@@ -5,6 +5,12 @@
     name: global
     state: present
 
+- name: Has plugin directory
+  tags: vim
+  file:
+    name: ~/.vim/plugin
+    state: directory
+
 - name: install gtags plugin
   tags: vim
   shell: cp /usr/share/gtags/gtags.vim ~/.vim/plugin/gtags.vim
