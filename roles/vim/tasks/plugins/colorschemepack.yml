@@ -1,9 +1,9 @@
 ---
-- name: Has Syntastic installed
+- name: Has  Color Scheme Pack installed
   tags: vim
   notify: install plugins
   lineinfile     :
-    line         : Plugin 'vim-syntastic/syntastic'
+    line         : Plugin 'flazz/vim-colorschemes'
     insertbefore : 'BEGIN vundle end block'
     dest         : "{{ vim_config_dir }}/plugins"
     state        : present

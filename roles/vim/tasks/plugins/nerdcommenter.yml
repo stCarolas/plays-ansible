@@ -7,4 +7,3 @@
     insertbefore : 'BEGIN vundle end block'
     dest         : "{{ vim_config_dir }}/plugins"
     state        : present
-    regexp       : Plugin 'scrooloose/nerdcommenter'

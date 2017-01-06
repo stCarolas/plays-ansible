@@ -7,7 +7,6 @@
     insertbefore : 'BEGIN vundle end block'
     dest         : "{{ vim_config_dir }}/plugins"
     state        : present
-    regexp       : Plugin 'artur-shaik/vim-javacomplete2' 
 
 - name: Has javacomplete settings
   tags: vim

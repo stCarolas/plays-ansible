@@ -7,7 +7,6 @@
     insertbefore : 'BEGIN vundle end block'
     dest         : "{{ vim_config_dir }}/plugins"
     state        : present
-    regexp       : Plugin 'airblade/vim-rooter'
 
 - name: Has Vim-Rooter configured
   tags: vim
@@ -26,4 +25,3 @@
     dest      : ~/.vimrc
     create    : yes
     state     : present
-    regexp    : "source {{ vim_config_dir }}/vim-rooter"

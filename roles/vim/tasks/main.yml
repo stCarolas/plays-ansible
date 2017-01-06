@@ -17,3 +17,4 @@
 - include: plugins/syntastic.yml
 - include: plugins/tagbar.yml
 - include: plugins/vim-rooter.yml
+- include: plugins/colorschemepack.yml

@@ -3,11 +3,10 @@
   tags: vim
   notify: install plugins
   lineinfile     :
-    line         : Plugin 'ajutsushi/tagbar'
+    line         : Plugin 'majutsushi/tagbar'
     insertbefore : 'BEGIN vundle end block'
     dest         : "{{ vim_config_dir }}/plugins"
     state        : present
-    regexp       : Plugin 'ajutsushi/tagbar'
 
 - name: Has TagBar hotkeys configured
   tags: vim
@@ -26,4 +25,3 @@
     dest      : ~/.vimrc
     create    : yes
     state     : present
-    regexp    : "source {{ vim_config_dir }}/tagbar"
