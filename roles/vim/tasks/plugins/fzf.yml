@@ -1,0 +1,37 @@
+---
+- name: Has  FZF-VIM installed
+  tags: vim
+  notify: install plugins
+  lineinfile     :
+    line         : Plugin 'junegunn/fzf.vim'
+    insertbefore : 'BEGIN vundle end block'
+    dest         : "{{ vim_config_dir }}/plugins"
+    state        : present
+
+- name: Has  FZF configured
+  tags: vim
+  lineinfile     :
+    line         : set rtp+=~/.fzf
+    insertbefore : 'BEGIN vundle start block'
+    dest         : "{{ vim_config_dir }}/plugins"
+    state        : present
+
+- name: Has  FZF-VIM configured
+  tags: vim
+  blockinfile    :
+    dest         : "{{ vim_config_dir }}/fzf"
+    create       : yes
+    state        : present
+    marker       : '"{mark} fzf-vim config'
+    content      : |
+        nnoremap <leader>fg :GFiles<cr> 
+        nnoremap <leader>ff :Files<cr> 
+        nnoremap <leader>fb :Buffers<cr> 
+
+- name: Has config  file sourced into .vimrc
+  tags: vim
+  lineinfile    :
+    line        : "source {{ vim_config_dir }}/fzf"
+    dest        : ~/.vimrc
+    create      : yes
+    state       : present

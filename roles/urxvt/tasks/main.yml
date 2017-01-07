@@ -1,14 +1,16 @@
 ---
 # tasks file for urxvt
 - name: Has urxvt installed
-  tags: urxvt, system
-  package: rxvt-unicode
+  tags: urxvt,system
+  package : 
+    name  : rxvt-unicode
 
-- name: Has urxvt "snazzy" color scheme installed
+- name: Has urxvt snazzy color scheme installed
   tags: urxvt
   blockinfile  :
       dest     : ~/.Xresources
       create   : yes
+      marker   : "!{mark} snazzy colors"
       content  : |
         *background:   [97]#282a36
         *foreground:   #eff0eb
@@ -31,8 +33,11 @@
         *color15:     #eff0eb
 
 - name: Has urxvt custom config
+  tags: urxvt
   blockinfile  :
       dest     : ~/.Xresources
+      marker   : "!{mark} view configs"
       content  : |
         *scrollBar:                      false
         *font:                           xft:Inconsolata:size=23
+        *cursorBlink: 1

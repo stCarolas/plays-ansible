@@ -1,6 +1,5 @@
 ---
 - include: vim8.yml
-- include: colors.yml
 - include: settings.yml
 - include: hotkeys.yml
 - include: gtags.yml
@@ -18,3 +17,6 @@
 - include: plugins/tagbar.yml
 - include: plugins/vim-rooter.yml
 - include: plugins/colorschemepack.yml
+- include: plugins/fzf.yml
+
+- include: colors.yml
