@@ -10,5 +10,5 @@
     - vim
     - vim-fzf
     - ranger
-    - urxvt
     - ranger-fzf
+    - urxvt
