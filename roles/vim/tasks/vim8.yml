@@ -27,3 +27,10 @@
     repo: https://github.com/vim/vim.git
     dest: "{{ vim_dir }}/sources"
   notify: build vim from sources
+
+- name: Vim used as system default editor
+  tags: vim
+  lineinfile  :
+      dest    : {{ bash_config_dir }}/vim
+      line    : export EDITOR=vim
+      state   : present

@@ -1,11 +1,3 @@
-- name: Has .bashrc source added in .bash_profile
-  tags: bash
-  lineinfile:
-    line: "source .bashrc" 
-    dest: ~/.bash_profile
-    state: present
-    regexp: "source .bashrc" 
-
 - name: Has configured PS1 
   tags: bash
   lineinfile:
@@ -15,8 +7,8 @@
     regexp: 'export PS1=.*'
     create: yes
 
-- name: Has configured PS1 
-  tags: bash, system
+- name: Has configured PS1 for root
+  tags: [ bash, system ]
   lineinfile:
     line: 'export PS1="\[\e[1;31m\]\h >> \[\e[0m\]"'
     dest: "/root/.bashrc"
@@ -25,7 +17,7 @@
     create: yes
 
 - name: Has config for git
-  tags: git,bash
+  tags: bash
   blockinfile:
     marker: "# {mark} git aliases (ansible managed)"
     dest: "{{ bash_config_dir }}/git"
@@ -38,7 +30,7 @@
         alias gP='git push'
 
 - name: Has aliases for tmux 
-  tags: tmux,bash
+  tags: bash
   blockinfile:
     dest: "{{ bash_config_dir }}/tmux"
     create: yes
@@ -51,7 +43,7 @@
         alias tc='tmux new-session -s'
 
 - name: Has .bashrc sourced
-  tags: tmux
+  tags: bash 
   lineinfile:
     dest: ~/.bashrc
     create: yes
