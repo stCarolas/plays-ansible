@@ -18,5 +18,6 @@
 - include: plugins/vim-rooter.yml
 - include: plugins/colorschemepack.yml
 - include: plugins/fzf.yml
+- include: plugins/vim-vebugger.yml
 
 - include: colors.yml

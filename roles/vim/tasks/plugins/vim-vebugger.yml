@@ -1,0 +1,35 @@
+---
+- name: Has vim-proc installed
+  tags: vim
+  notify: install plugins
+  lineinfile     :
+    line         : Plugin 'Shougo/vimproc.vim'
+    insertbefore : 'BEGIN vundle end block'
+    dest         : "{{ vim_config_dir }}/plugins"
+    state        : present
+
+- name: Has vim-vebuger installed
+  tags: vim
+  notify: install plugins
+  lineinfile     :
+    line         : Plugin 'idanarye/vim-vebugger'
+    insertbefore : 'BEGIN vundle end block'
+    dest         : "{{ vim_config_dir }}/plugins"
+    state        : present
+
+- name: Has vim-vebugger configured
+  tags: vim
+  blockinfile  :
+    dest       : "{{ vim_config_dir }}/vim-vebugger"
+    create     : yes
+    marker     : '"{mark} settings for NERDTree'
+    content    : |
+        " vim-vebugger stub"
+
+- name: Has vim-vebugger config file sourced into .vimrc
+  tags: vim
+  lineinfile  :
+    line      : "source {{ vim_config_dir }}/vim-vebugger"
+    dest      : ~/.vimrc
+    create    : yes
+    state     : present
