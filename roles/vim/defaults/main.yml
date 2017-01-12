@@ -2,4 +2,4 @@
 # defaults file for vimrc
 bash_config_dir: ~/.bash/config
 vim_dir: ~/.vim
-vim_config_dir: {{ vim_dir }}/config
+vim_config_dir: "{{ vim_dir }}/config"

@@ -31,6 +31,6 @@
 - name: Vim used as system default editor
   tags: vim
   lineinfile  :
-      dest    : {{ bash_config_dir }}/vim
+      dest    : "{{ bash_config_dir }}/vim"
       line    : export EDITOR=vim
       state   : present
