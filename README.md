@@ -16,3 +16,4 @@ todos
 - перевести vim с ctags на gnu global
 - разобраться с ansible hacking ролью
 - Option "XKbOptions" "ctrl:swapcaps" в /etc/X11/xorg.conf.d/keyboard.conf 
+- установка VimProcInstall
