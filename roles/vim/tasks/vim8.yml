@@ -13,20 +13,23 @@
 
 - name: Has ncurses for vim
   tags: vim, system
+  become: true
   package:
     name: ncurses
 
 - name: Has ncurses-devel for vim
   tags: vim, system
+  become: true
   package:
     name: ncurses-devel
 
 - name: Has vim sources
   tags: vim, system
+  become: true
   git:
     repo: https://github.com/vim/vim.git
     dest: "{{ vim_dir }}/sources"
-  notify: build vim from sources
+  #notify: build vim from sources
 
 - name: Vim used as system default editor
   tags: vim
@@ -34,3 +37,4 @@
       dest    : "{{ bash_config_dir }}/vim"
       line    : export EDITOR=vim
       state   : present
+      create  : yes

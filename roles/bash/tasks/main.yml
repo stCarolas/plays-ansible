@@ -8,6 +8,7 @@
     create: yes
 
 - name: Has configured PS1 for root
+  become: true
   tags: [ bash, system ]
   lineinfile:
     line: 'export PS1="\[\e[1;31m\]\h >> \[\e[0m\]"'

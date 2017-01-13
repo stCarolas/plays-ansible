@@ -2,6 +2,7 @@
 # tasks file for urxvt
 - name: Has urxvt installed
   tags: urxvt,system
+  become: true
   package : 
     name  : rxvt-unicode
 

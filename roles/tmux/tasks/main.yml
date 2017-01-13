@@ -1,5 +1,6 @@
 ---
 - name: Has tmux
+  become: true
   tags: tmux, system
   package:
     name: tmux

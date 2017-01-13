@@ -1,5 +1,6 @@
 ---
 - name: Has ranger
+  become: true
   tags: ranger, system
   package:
     name: ranger
