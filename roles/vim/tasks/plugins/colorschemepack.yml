@@ -8,6 +8,8 @@
     dest         : "{{ vim_config_dir }}/plugins"
     state        : present
 
+- meta: flush_handlers
+
 - name: Has colors configured
   tags: vim
   lineinfile  :
