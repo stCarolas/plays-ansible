@@ -66,5 +66,5 @@
       create  : yes
       marker  : "# {mark} prefixes"
       content : |
-          set-option -g prefix C-a
+          set-option -g prefix C-h
           bind-key a send-prefix

@@ -19,5 +19,6 @@
 - include: plugins/fzf.yml
 - include: plugins/gtags.yml
 - include: plugins/vim-vebugger.yml
+- include: plugins/vim-http-client.yml
 
 - include: colors.yml
