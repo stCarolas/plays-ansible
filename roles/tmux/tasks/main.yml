@@ -12,11 +12,11 @@
       dest    : "{{ tmux_global_config }}"
       create  : yes
       line    : "set -g {{ item.name }} {{ item.value }}"
+      regexp  : "set -g {{ item.name }}.*"
   with_items:
-      - { name: base-index,             value: 1     }
-      - { name: status,                 value: off   }
-      - { name: set-titles,             value: on    }
-      - { name: allow-rename,           value: off   }
+      - { name: base-index,             value: 1       }
+      - { name: set-titles,             value: "on"    }
+      - { name: allow-rename,           value: "off"   }
 
 - name: Has window options setted 
   tags: tmux
@@ -24,12 +24,13 @@
       dest    : "{{ tmux_global_config }}"
       create  : yes
       line    : "setw -g {{ item.name }} {{ item.value }}"
+      regexp  : "setw -g {{ item.name }}.*"
   with_items:
-      - { name: xterm-keys,             value: on   }
-      - { name: mode-keys,              value: vi   }
-      - { name: automatic-rename,       value: off  }
-      - { name: pane-base-index,        value: 1    }
-      - { name: aggressive-resize,      value: on   }
+      - { name: xterm-keys,             value: "on"   }
+      - { name: mode-keys,              value: "vi"   }
+      - { name: automatic-rename,       value: "off"  }
+      - { name: pane-base-index,        value: 1      }
+      - { name: aggressive-resize,      value: "on"   }
 
 - name: Has switch panes hotkeys setted 
   tags: tmux
@@ -66,5 +67,23 @@
       create  : yes
       marker  : "# {mark} prefixes"
       content : |
-          set-option -g prefix C-h
-          bind-key a send-prefix
+          set-option -g prefix C-n
+          bind-key b send-prefix
+
+- name: Has status bar configured
+  tags: tmux
+  lineinfile  :
+      dest    : "{{ tmux_global_config }}"
+      create  : yes
+      line    : "set -g {{ item.name }} {{ item.value }}"
+      regexp  : "set -g {{ item.name }}.*"
+  with_items:
+      - { name: status-fg,              value: white    }
+      - { name: status-bg,              value: white    }
+      - { name: status-justify,         value: right    }
+      - { name: status-position,        value: top      }
+      - { name: status-interval,        value: 1        }
+      - { name: status-left,            value: '"#[fg=black,bg=white]#{pane_current_path}"'     }
+      - { name: status-left-length,     value: 100      }
+      - { name: status-right,           value: '"#[fg=colour233,bg=colour245,bold]#S #[fg=colour233,bg=colour241,bold] %d/%m #[fg=colour233,bg=colour245,bold] %H:%M:%S "'     }
+      - { name: status-right-length,    value: 30      }

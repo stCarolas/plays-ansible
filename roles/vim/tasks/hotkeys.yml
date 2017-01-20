@@ -9,6 +9,8 @@
         imap ii <Esc>
         map <silent> <leader>m :make<cr>
         nnoremap ii <Esc>
+        nnoremap <silent> <leader>j :bp<cr>
+        nnoremap <silent> <leader>k :bn<cr>
         nnoremap <leader>y "+y"
         vnoremap <leader>y "+y"
         nnoremap <leader>ev :vsplit $MYVIMRC<cr>

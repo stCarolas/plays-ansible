@@ -1,7 +1,7 @@
 - name: Has configured PS1 
   tags: bash
   lineinfile:
-    line: ' export PS1="\n \[\e[04;34m\]\u on \h [tmux session: $([[ -n "${TMUX+set}"  ]] && tmux display-message -p "#S")], \t \d\n\[\e[00;32m\] $(pwd)\n\[\e[0;32m\] >> \[\e[0m\]"'
+    line: ' export PS1="\[\e[0;32m\] >> "'
     dest: "{{ bash_config_dir }}/overall"
     state: present
     regexp: 'export PS1=.*'
