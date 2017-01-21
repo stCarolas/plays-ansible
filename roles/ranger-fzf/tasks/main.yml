@@ -3,7 +3,7 @@
 - name: Has hotkey for vim
   tags: ranger-fzf
   lineinfile:
-    line: "map \\f      shell vim $(fzf)"
+    line: "map ;f      shell vim $(fzf)"
     dest: ~/.config/ranger/rc.conf
     create: yes
     state: present

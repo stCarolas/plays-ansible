@@ -43,6 +43,7 @@
           bind -n M-j select-pane -D
           bind -n M-k select-pane -U
           bind -n M-l select-pane -R
+          bind -n M-f resize-pane -Z
 
 - name: Has switch panes hotkeys setted 
   tags: tmux

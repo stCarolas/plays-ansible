@@ -1,0 +1,26 @@
+---
+- name: Has Vim-BufOnly installed
+  tags: vim
+  notify: install plugins
+  lineinfile     :
+    line         : Plugin 'vim-scripts/BufOnly.vim'
+    insertbefore : 'BEGIN vundle end block'
+    dest         : "{{ vim_config_dir }}/plugins"
+    state        : present
+
+- name: Has Vim-BufOnly configured
+  tags: vim
+  blockinfile : 
+    create    : yes
+    dest      : "{{ vim_config_dir }}/vim-bufonly"
+    marker    : '"{mark} settings for vim-bufonly'
+    content   : |
+        nnoremap <leader>f :BufOnly<cr>
+
+- name: Has Vim-BufOnly file sourced into .vimrc
+  tags: vim
+  lineinfile  :
+    line      : "source {{ vim_config_dir }}/vim-bufonly"
+    dest      : ~/.vimrc
+    create    : yes
+    state     : present

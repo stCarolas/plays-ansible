@@ -13,6 +13,7 @@
     marker: "# {mark} ff function for opening ranger (ansible managed)"
     create: yes
     content: |
+        clear
         rg() {
             if [ -z "$RANGER_LEVEL" ]
             then

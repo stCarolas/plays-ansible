@@ -23,4 +23,3 @@
     dest      : ~/.vimrc
     create    : yes
     state     : present
-    regexp    : "source {{ vim_config_dir }}/fzf"
