@@ -71,7 +71,6 @@
       marker  : "# {mark} prefixes"
       content : |
           set-option -g prefix C-n
-<<<<<<< Updated upstream
           bind-key b send-prefix
 
 - name: Has status bar configured
@@ -91,6 +90,3 @@
       - { name: status-left-length,     value: 100      }
       - { name: status-right,           value: '"#[fg=colour233,bg=colour245,bold]#S #[fg=colour233,bg=colour241,bold] %d/%m #[fg=colour233,bg=colour245,bold] %H:%M:%S "'     }
       - { name: status-right-length,    value: 30      }
-=======
-          bind-key a send-prefix
->>>>>>> Stashed changes
