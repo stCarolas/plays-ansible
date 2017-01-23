@@ -22,6 +22,7 @@
     marker     : '"{mark} settings for vim-http-client'
     content    : |
         " vim-http-client stub"
+        let g:http_client_result_vsplit=0
 
 - name: Has vim-http-client config file sourced into .vimrc
   tags: vim
