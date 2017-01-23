@@ -51,4 +51,11 @@
       content  : |
         *scrollBar:                      false
         *font:                           xft:Inconsolata:size=23
-        *cursorBlink: 1
+        *cursorBlink:   1
+        *dpi:           96
+        *antialias:     true
+        *hinting:       full
+        *fading:        0
+        *tintColor:     #ffffff
+        *shading:       0
+        *inheritPixmap: False

@@ -47,6 +47,14 @@
     state: present
     regexp: "map gd.*"
 
+- name: Has colorscheme setted
+  tags: ranger
+  lineinfile:
+    dest: ~/.config/ranger/rc.conf
+    line: "set colorscheme snow"
+    state: present
+    regexp: "set colorscheme.*"
+
 - name: Has .bashrc sourced
   tags: ranger
   lineinfile:
