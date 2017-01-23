@@ -14,9 +14,11 @@
       line    : "set -g {{ item.name }} {{ item.value }}"
       regexp  : "set -g {{ item.name }}.*"
   with_items:
-      - { name: base-index,             value: 1       }
+      - { name: base-index,             value: 1     }
+      - { name: status,                 value: "off"   }
       - { name: set-titles,             value: "on"    }
       - { name: allow-rename,           value: "off"   }
+      - { name: renumber-windows,       value: "on"   }
 
 - name: Has window options setted 
   tags: tmux
@@ -69,6 +71,7 @@
       marker  : "# {mark} prefixes"
       content : |
           set-option -g prefix C-n
+<<<<<<< Updated upstream
           bind-key b send-prefix
 
 - name: Has status bar configured
@@ -88,3 +91,6 @@
       - { name: status-left-length,     value: 100      }
       - { name: status-right,           value: '"#[fg=colour233,bg=colour245,bold]#S #[fg=colour233,bg=colour241,bold] %d/%m #[fg=colour233,bg=colour245,bold] %H:%M:%S "'     }
       - { name: status-right-length,    value: 30      }
+=======
+          bind-key a send-prefix
+>>>>>>> Stashed changes
