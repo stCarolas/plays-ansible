@@ -88,5 +88,5 @@
       - { name: status-interval,        value: 1        }
       - { name: status-left,            value: '"#[fg=black,bg=white]#{pane_current_path}"'     }
       - { name: status-left-length,     value: 100      }
-      - { name: status-right,           value: '"#[fg=colour233,bg=colour245,bold]#h #[fg=colour233,bg=colour241,bold] %d/%m #[fg=colour233,bg=colour245,bold] %H:%M:%S "'     }
+      - { name: status-right,           value: '"#[fg=black,bg=white,bold]#h #[fg=black,bg=white,bold] %d/%m #[fg=black,bg=white,bold] %H:%M:%S "'     }
       - { name: status-right-length,    value: 30      }
