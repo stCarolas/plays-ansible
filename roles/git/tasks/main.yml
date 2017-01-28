@@ -5,7 +5,19 @@
   package:
     name: git
 
-#- name: Has github cli
-  #tags: git, system
-  #package:
-    #name: hub
+- name: Has config for git
+  tags: bash
+  blockinfile:
+    marker: "# {mark} git aliases (ansible managed)"
+    dest: "{{ bash_config_dir }}/git"
+    create: yes
+    content: |
+        alias gs='git status'
+        alias gc='git commit'
+        alias ga='git add'
+        alias gp='git pull'
+        alias gpull='git pull'
+        alias gP='git push'
+        alias gpush='git push'
+        alias gf='git fetch'
+        alias gd='git diff'

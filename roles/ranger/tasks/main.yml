@@ -6,6 +6,13 @@
     name: ranger
     state: present
 
+- name: Has ranger
+  become: true
+  tags: ranger, system
+  package:
+    name: ranger
+    state: present
+
 - name: Has rg function in bashrc for opening ranger
   tags: ranger
   blockinfile:

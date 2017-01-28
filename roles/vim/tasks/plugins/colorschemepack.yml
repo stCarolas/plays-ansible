@@ -12,11 +12,13 @@
 
 - name: Has colors configured
   tags: vim
-  lineinfile  :
-    line      : colorscheme antares
-    dest      : "{{ vim_config_dir }}/colors"
-    create    : yes
-    state     : present
+  blockinfile  :
+    dest       : "{{ vim_config_dir }}/colors"
+    create     : yes
+    state      : present
+    content    : |
+        colorscheme apprentice
+        hi Normal ctermfg=249
 
 - name: Has colors  file sourced into .vimrc
   tags: vim
