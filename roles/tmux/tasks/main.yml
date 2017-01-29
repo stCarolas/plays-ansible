@@ -15,7 +15,7 @@
       regexp  : "set -g {{ item.name }}.*"
   with_items:
       - { name: base-index,             value: 1     }
-      - { name: status,                 value: "off"   }
+      - { name: status,                 value: "on"   }
       - { name: set-titles,             value: "on"    }
       - { name: allow-rename,           value: "off"   }
       - { name: renumber-windows,       value: "on"   }
@@ -79,7 +79,7 @@
       dest    : "{{ tmux_global_config }}"
       create  : yes
       line    : "set -g {{ item.name }} {{ item.value }}"
-      regexp  : "set -g {{ item.name }}.*"
+      regexp  : "set -g {{ item.name }} .*"
   with_items:
       - { name: status-fg,              value: white    }
       - { name: status-bg,              value: white    }
@@ -88,5 +88,5 @@
       - { name: status-interval,        value: 1        }
       - { name: status-left,            value: '"#[fg=black,bg=white]#{pane_current_path}"'     }
       - { name: status-left-length,     value: 100      }
-      - { name: status-right,           value: '"#[fg=black,bg=white,bold]#h #[fg=black,bg=white,bold] %d/%m #[fg=black,bg=white,bold] %H:%M:%S "'     }
+      - { name: status-right,           value: '"#[fg=black,bg=white,bold]#h #[fg=white,bg=black,bold] %d/%m #[fg=black,bg=white,bold] %H:%M:%S "'     }
       - { name: status-right-length,    value: 30      }

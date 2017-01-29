@@ -6,11 +6,11 @@
     name: ranger
     state: present
 
-- name: Has ranger
-  become: true
-  tags: ranger, system
-  package:
-    name: ranger
+- name: Has ; as leader key
+  tags: ranger
+  lineinfile:
+    dest: ~/.config/ranger/rc.conf
+    line: "unmap ;"
     state: present
 
 - name: Has rg function in bashrc for opening ranger
@@ -20,10 +20,10 @@
     marker: "# {mark} ff function for opening ranger (ansible managed)"
     create: yes
     content: |
-        clear
         rg() {
             if [ -z "$RANGER_LEVEL" ]
             then
+                clear
                 ranger
             else
                 exit
@@ -35,24 +35,17 @@
   lineinfile:
     dest: ~/.config/ranger/rc.conf
     create: yes
-    line: "map gp      cd ~/Coding/projects"
+    line: "map ;jp      cd ~/Coding/projects"
     state: present
-    regexp: "map gp.*"
-
-- name: Has ; as leader key
-  tags: ranger
-  lineinfile:
-    dest: ~/.config/ranger/rc.conf
-    line: "unmap ;"
-    state: present
+    regexp: "map ;jp.*"
 
 - name: Has hotkey for Go to Downloads
   tags: ranger
   lineinfile:
     dest: ~/.config/ranger/rc.conf
-    line: "map gd      cd ~/Downloads"
+    line: "map ;jd      cd ~/Downloads"
     state: present
-    regexp: "map gd.*"
+    regexp: "map ;jd.*"
 
 - name: Has colorscheme setted
   tags: ranger

@@ -5,7 +5,7 @@
 
 - include: vundle.yml
 
-- include: plugins/auto-pairs.yml
+#- include: plugins/auto-pairs.yml
 - include: plugins/camelcasemotion.yml
 - include: plugins/easymotion.yml
 - include: plugins/javacomplete.yml
@@ -13,7 +13,7 @@
 - include: plugins/nerdcommenter.yml
 - include: plugins/nerdtree.yml
 - include: plugins/syntastic.yml
-- include: plugins/tagbar.yml
+#- include: plugins/tagbar.yml
 - include: plugins/vim-rooter.yml
 - include: plugins/colorschemepack.yml
 - include: plugins/fzf.yml

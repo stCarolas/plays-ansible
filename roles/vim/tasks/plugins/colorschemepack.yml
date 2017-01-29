@@ -14,6 +14,7 @@
   tags: vim
   blockinfile  :
     dest       : "{{ vim_config_dir }}/colors"
+    marker    : '"{mark} scheme settings'
     create     : yes
     state      : present
     content    : |
