@@ -1,0 +1,4 @@
+---
+# handlers file for fzf
+- name: install fzf
+  shell: ~/.fzf/install

@@ -1,0 +1,7 @@
+---
+# tasks file for fzf
+- name: Has fzf sources
+  tags: fzf
+  git     :
+    repo  : git@github.com:stCarolas/scripts.git 
+    dest  : ~/Coding/scripts
