@@ -47,6 +47,20 @@
     state: present
     regexp: "map ;jd.*"
 
+- name: Has hotkey for shell
+  tags: ranger
+  lineinfile:
+    dest: ~/.config/ranger/rc.conf
+    line: "map s    shell $SHELL"
+    state: present
+
+- name: Has hotkey for shell
+  tags: ranger
+  lineinfile:
+    dest: ~/.config/ranger/rc.conf
+    line: "map S    console shell%space"
+    state: present
+
 - name: Has colorscheme setted
   tags: ranger
   lineinfile:

@@ -1,0 +1,26 @@
+---
+- name: Has ack.vim installed
+  tags: vim
+  notify: install plugins
+  lineinfile     :
+    line         : Plugin 'mileszs/ack.vim'
+    insertbefore : 'BEGIN vundle end block'
+    dest         : "{{ vim_config_dir }}/plugins"
+    state        : present
+
+- name: Has ack.vim configured
+  tags: vim
+  blockinfile  :
+    dest       : "{{ vim_config_dir }}/ack"
+    create     : yes
+    marker     : '"{mark} settings for ack'
+    content    : |
+        let g:ackprg = 'ag --vimgrep'
+
+- name: Has ack config file sourced into .vimrc
+  tags: vim
+  lineinfile  :
+    line      : "source {{ vim_config_dir }}/ack"
+    dest      : ~/.vimrc
+    create    : yes
+    state     : present
