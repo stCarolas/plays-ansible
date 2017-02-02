@@ -1,50 +1,58 @@
 ---
-#- name: Has python dev headers
-#  become: true
-#  package:
-#    name: python-dev 
-#    state: present
+- name: Has python dev headers
+  tags: ansible-hacking, system
+  become: true
+  package:
+    name: python-devel
+    state: present
 
 - name: Has git
-  tags: ansible-hacking
+  tags: ansible-hacking, system
   become: true
   package:
     name: git
     state: present
 
 - name: Has pyyaml installed
-  tags: ansible-hacking
+  tags: ansible-hacking, system
   become: true
   pip:
     name: pyyaml
     executable: pip2
 
 - name: Has jinja2 installed
-  tags: ansible-hacking
+  tags: ansible-hacking, system
   become: true
   pip:
     name: jinja2
     executable: pip2
 
 - name: Has nose installed
-  tags: ansible-hacking
+  tags: ansible-hacking, system
   become: true
   pip:
     name: nose
     executable: pip2
 
 - name: Has passlib installed
-  tags: ansible-hacking
+  tags: ansible-hacking, system
   become: true
   pip:
     name: passlib
     executable: pip2
 
 - name: Has pycrypto installed
-  tags: ansible-hacking
+  tags: ansible-hacking, system
   become: true
   pip:
     name: pycrypto
+    executable: pip2
+
+- name: Has epdb installed
+  tags: ansible-hacking, system
+  become: true
+  pip:
+    name: epdb 
     executable: pip2
 
 - name: Has cloned ansible sources with ansible-hacking

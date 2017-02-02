@@ -57,6 +57,6 @@
 - name: Has clear command on terminanl start for ranger 
   tags: bash 
   lineinfile:
-    dest: ~/.bash_profile
+    dest: ~/.bashrc
     create: yes
     line: "clear"
