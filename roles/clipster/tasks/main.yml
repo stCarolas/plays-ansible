@@ -5,6 +5,12 @@
     repo : https://github.com/mrichar1/clipster.git
     dest : ~/Coding/soft/clipster
 
+- name: Has clipster dependencies
+  tags: clipster
+  package  :
+    name   : libwnck3
+    state  : present
+
 - name: Has clipster config dir
   tags: clipster
   file     :
