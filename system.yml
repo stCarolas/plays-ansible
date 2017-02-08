@@ -8,9 +8,11 @@
     - ansible 
     - bash
     - vim
-    - vim-fzf
     - ranger
     - ranger-fzf
     - urxvt
     - the_silver_searcher 
     - ansible_hacking
+    - scripts
+    - ranger-fzf-scripts
+    - clipster

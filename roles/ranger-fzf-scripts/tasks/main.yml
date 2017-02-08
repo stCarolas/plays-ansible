@@ -1,8 +1,8 @@
 ---
 - name: Has hotkey for vim
-  tags: ranger-fzf
+  tags: ranger-fzf-scripts
   lineinfile:
-    line: "map ;ff      shell vim $(fzf)"
+    line: "map ;fp  go_to_project"
     dest: ~/.config/ranger/rc.conf
     create: yes
     state: present

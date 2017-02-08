@@ -1,7 +1,15 @@
 ---
 # tasks file for fzf
-- name: Has fzf sources
-  tags: fzf
+- name: Has scripts sources
+  tags: scripts 
   git     :
     repo  : git@github.com:stCarolas/scripts.git 
     dest  : ~/Coding/scripts
+
+- name: Has configured PS1 
+  tags: scripts 
+  lineinfile:
+    line: ' export PATH=$PATH:/home/stcarolas/Coding/scripts'
+    dest: "{{ bash_config_dir }}/overall"
+    state: present
+    create: yes

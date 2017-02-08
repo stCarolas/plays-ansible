@@ -1,0 +1,10 @@
+*** rc.conf	2016-11-13 14:23:04.000000000 +0300
+--- rc.conf.test	2016-11-13 14:34:01.000000000 +0300
+***************
+*** 599,600 ****
+--- 599,603 ----
+  # patcher item end
++ # patcher item start
++ map gp      cd ~/Coding/projects
++ # patcher item end
+  # patcher section end

@@ -40,6 +40,22 @@
     state: present
     regexp: "map ;jp.*"
 
+- name: Has hotkey for Go to Sources
+  tags: ranger
+  lineinfile:
+    dest: ~/.config/ranger/rc.conf
+    create: yes
+    line: "map ;js      cd ~/Coding/sources"
+    state: present
+
+- name: Has hotkey for Go to Home
+  tags: ranger
+  lineinfile:
+    dest: ~/.config/ranger/rc.conf
+    create: yes
+    line: "map ;jh      cd ~/"
+    state: present
+
 - name: Has hotkey for Go to Downloads
   tags: ranger
   lineinfile:

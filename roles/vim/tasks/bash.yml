@@ -1,0 +1,15 @@
+---
+- name: Has configured PS1 
+  tags: vim
+  lineinfile:
+    line: 'alias vi=vim'
+    dest: "{{ bash_config_dir }}/vim"
+    state: present
+    create: yes
+
+- name: Has .bashrc sourced
+  tags: vim 
+  lineinfile:
+    dest: ~/.bashrc
+    create: yes
+    line: "source {{ bash_config_dir }}/vim"

@@ -1,0 +1,4 @@
+---
+# defaults file for saint_ranger
+bashrc_path: ~/.config/bash/ranger
+bash_config_dir: ~/.bash/config
