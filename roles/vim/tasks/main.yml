@@ -22,5 +22,6 @@
 - include: plugins/vim-bufonly.yml
 - include: plugins/vim-http-client.yml
 - include: plugins/ack.yml
+- include: plugins/easy-align.yml
 
 - include: colors.yml
