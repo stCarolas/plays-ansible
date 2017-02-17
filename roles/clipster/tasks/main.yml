@@ -5,6 +5,18 @@
     repo : https://github.com/mrichar1/clipster.git
     dest : ~/Coding/soft/clipster
 
+- name: Has clipster dependencies
+  tags: clipster
+  package  :
+    name   : libwnck3
+    state  : present
+
+- name: Has clipster config dir
+  tags: clipster
+  file     :
+      path : /home/stcarolas/.config/clipster
+      state: directory
+
 - name: Has default clipster config
   tags: clipster
   blockinfile :
@@ -32,3 +44,8 @@
         extract_patterns = no
         filter_classes = ""
 
+- name: Has clipster in autostart
+  tags: clipster
+  lineinfile  :
+      dest    : /home/stcarolas/.config/openbox/autostart
+      line    : python3 ~/Coding/soft/clipster/clipster --daemon
