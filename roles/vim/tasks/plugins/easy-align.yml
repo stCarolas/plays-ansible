@@ -1,0 +1,25 @@
+---
+- name: Has easy-align installed
+  tags: vim
+  notify: install plugins
+  lineinfile     :
+    line         : Plugin 'junegunn/vim-easy-align'
+    insertbefore : 'BEGIN vundle end block'
+    dest         : "{{ vim_config_dir }}/plugins"
+
+- name: Has easy-align configured
+  tags: vim
+  blockinfile  :
+    dest       : "{{ vim_config_dir }}/vim-easy-align"
+    create     : yes
+    marker     : '"{mark} settings for vim-easy-align'
+    content    : |
+        xmap ga <Plug>(EasyAlign)
+        nmap ga <Plug>(EasyAlign)
+
+- name: Has easy-align config file sourced into .vimrc
+  tags: vim
+  lineinfile  :
+    line      : "source {{ vim_config_dir }}/vim-easy-align"
+    dest      : ~/.vimrc
+    create    : yes
