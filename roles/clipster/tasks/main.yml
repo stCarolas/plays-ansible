@@ -6,7 +6,7 @@
     dest : ~/Coding/soft/clipster
 
 - name: Has clipster dependencies
-  tags: clipster
+  tags: clipster, system
   package  :
     name   : libwnck3
     state  : present
