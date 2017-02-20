@@ -11,7 +11,7 @@
   become: true
   tags: [ bash, system ]
   lineinfile:
-    line: 'export PS1="\[\e[1;31m\]\h >> \[\e[0m\]"'
+    line: 'export PS1="\[\e[3;33m\]:\[\e[0;38m\]"'
     dest: "/root/.bashrc"
     state: present
     regexp: 'export PS1=.*'
