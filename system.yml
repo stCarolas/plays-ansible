@@ -2,9 +2,9 @@
 - hosts: localhost
   connection: local
   roles:
+    - git
     - fzf
     - tmux
-    - git
     - ansible 
     - bash
     - vim
