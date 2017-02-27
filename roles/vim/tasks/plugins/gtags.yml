@@ -1,5 +1,6 @@
 ---
 - name: Has GNU Global installed
+  become: true
   tags: vim, system
   package:
     name: global

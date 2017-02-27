@@ -3,7 +3,7 @@
 - name: Has scripts sources
   tags: scripts 
   git     :
-    repo  : git@github.com:stCarolas/scripts.git 
+    repo  : https://github.com/stCarolas/scripts.git
     dest  : ~/Coding/scripts
 
 - name: Has configured PS1 

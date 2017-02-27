@@ -5,6 +5,12 @@
   package:
     name: git
 
+- name: Has git config dir
+  tags: git
+  file   :
+    dest : "{{ bash_config_dir }}"
+    state: directory
+
 - name: Has config for git
   tags: bash
   blockinfile:

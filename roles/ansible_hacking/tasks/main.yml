@@ -58,7 +58,8 @@
 - name: Has cloned ansible sources with ansible-hacking
   tags: ansible-hacking
   git:
-    repo: git@github.com:ansible/ansible.git
+    accept_hostkey: yes
+    repo: https://github.com/ansible/ansible.git
     dest: ~/Coding/soft/ansible
 
 - name: Has alias for ansible test-module

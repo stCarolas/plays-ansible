@@ -6,6 +6,7 @@
     dest : ~/Coding/soft/clipster
 
 - name: Has clipster dependencies
+  become: true
   tags: clipster, system
   package  :
     name   : libwnck3
@@ -14,13 +15,13 @@
 - name: Has clipster config dir
   tags: clipster
   file     :
-      path : /home/stcarolas/.config/clipster
+      path : ~/.config/clipster
       state: directory
 
 - name: Has default clipster config
   tags: clipster
   blockinfile :
-    dest      : /home/stcarolas/.config/clipster/clipster.ini
+    dest      : ~/.config/clipster/clipster.ini
     create    : yes
     marker    : "# {mark} clipster config"
     content   : |
@@ -44,8 +45,15 @@
         extract_patterns = no
         filter_classes = ""
 
+- name: Has openbox config directory
+  tags: clipster
+  file  :
+      dest    : ~/.config/openbox
+      state   : directory
+
 - name: Has clipster in autostart
   tags: clipster
   lineinfile  :
-      dest    : /home/stcarolas/.config/openbox/autostart
+      dest    : ~/.config/openbox/autostart
+      create  : yes
       line    : python3 ~/Coding/soft/clipster/clipster --daemon
