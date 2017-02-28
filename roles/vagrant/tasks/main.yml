@@ -1,0 +1,11 @@
+---
+# tasks file for vagrant
+- name: Has virtualbox installed
+  tags: vagrant
+  package :
+    name  : VirtualBox-5.1
+
+- name: Has vagrant installed
+  tags: vagrant
+  package :
+    name  : vagrant 
