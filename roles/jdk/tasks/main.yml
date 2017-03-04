@@ -3,5 +3,5 @@
   become: true
   tags: system
   package:
-    name: openjdk
+    name: java-1.8.0-openjdk
 # tasks file for jdk
