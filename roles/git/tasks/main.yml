@@ -3,6 +3,12 @@
   tags: git, system
   become: true
   package:
+    name: libselinux-python
+
+- name: Has git cli
+  tags: git, system
+  become: true
+  package:
     name: git
 
 - name: Has git config dir
