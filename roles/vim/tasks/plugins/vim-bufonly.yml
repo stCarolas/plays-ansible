@@ -15,7 +15,7 @@
     dest      : "{{ vim_config_dir }}/vim-bufonly"
     marker    : '"{mark} settings for vim-bufonly'
     content   : |
-        nnoremap <leader>f :BufOnly<cr>
+        nnoremap <leader>bo :BufOnly<cr>
 
 - name: Has Vim-BufOnly file sourced into .vimrc
   tags: vim

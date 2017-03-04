@@ -15,4 +15,12 @@
     dest      : "{{ vim_config_dir }}/vim-javacomplete2"
     marker    : '"{mark} vim-javacomplete2 settings'
     content   : | 
-        autocmd FileType java setlocal omnifunc=javacomplete#Complete
+        autocmd FileType java setlocal completefunc=javacomplete#Complete
+
+- name: Has javacomplete settings sourced into .vimrc
+  tags: vim
+  lineinfile  :
+    line      : "source {{ vim_config_dir }}/vim-javacomplete2"
+    dest      : ~/.vimrc
+    create    : yes
+    state     : present
