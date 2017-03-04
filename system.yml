@@ -2,6 +2,7 @@
 - hosts: localhost
   connection: local
   roles:
+    - jdk
     - git
     - fzf
     - tmux
