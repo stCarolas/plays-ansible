@@ -1,0 +1,7 @@
+---
+- name: Has OpenJDK installed
+  become: true
+  tags: system
+  package:
+    name: openjdk
+# tasks file for jdk
