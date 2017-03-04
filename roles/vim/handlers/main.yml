@@ -2,7 +2,7 @@
 - name: build vim from sources
   become: true
   tags: [ vim, system ]
-  shell: "cd {{ vim_dir }}/sources && ./configure && make && make install"
+  shell: "cd {{ vim_dir }}/sources && ./configure && make && make install --enable-pythoninterp=yes --enable-python3interp=yes"
 
 - name: install plugins
   tags: vim
