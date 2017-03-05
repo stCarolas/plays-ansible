@@ -1,4 +1,10 @@
 ---
+- name: Has gradle config dir
+  tags: gradle
+  file:
+    path: ~/.gradle
+    state: directory
+
 - name: Has init script
   tags: gradle
   template   :

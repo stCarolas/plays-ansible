@@ -1,0 +1,9 @@
+---
+- name: Has gen_tags installed
+  tags: vim
+  notify: install plugins
+  lineinfile     :
+    line         : Plugin 'jsfaint/gen_tags.vim'
+    insertbefore : 'BEGIN vundle end block'
+    dest         : "{{ vim_config_dir }}/plugins"
+    state        : present

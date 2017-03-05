@@ -23,6 +23,7 @@
 - include: plugins/vim-http-client.yml
 - include: plugins/ack.yml
 - include: plugins/gradle.yml
+- include: plugins/gen_tags.yml
 - include: plugins/easy-align.yml
 
 - include: colors.yml
