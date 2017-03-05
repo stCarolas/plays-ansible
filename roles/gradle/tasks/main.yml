@@ -1,0 +1,8 @@
+---
+- name: Has init script
+  tags: gradle
+  template   :
+      src    : templates/init.gradle
+      dest   : ~/.gradle/init.gradle
+      backup : yes
+# tasks file for gradle
