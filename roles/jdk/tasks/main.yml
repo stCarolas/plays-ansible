@@ -4,4 +4,10 @@
   tags: system
   package:
     name: java-1.8.0-openjdk
+
+- name: Has OpenJDK installed
+  become: true
+  tags: system
+  package:
+    name: java-1.8.0-openjdk-devel
 # tasks file for jdk
