@@ -1,13 +1,23 @@
 initscript {
     repositories {
          mavenCentral()
+         maven {
+            url "https://plugins.gradle.org/m2/"
+         }
     }
 
     dependencies {
-         classpath group: 'org.zeroturnaround', name: 'gradle-jrebel-plugin', version: '1.1.5'
+         classpath group   : 'org.zeroturnaround', 
+                   name    : 'gradle-jrebel-plugin', 
+                   version : '1.1.5'
+
+         classpath group   : 'com.scuilion.syntastic',
+                   name    : 'gradle-syntastic-plugin',
+                   version : '0.3.8'
     }
 }
 
 allprojects {
     apply plugin: org.zeroturnaround.jrebel.gradle.RebelPlugin
+    apply plugin: com.scuilion.gradle.plugins.syntastic.SyntasticPlugin
 }

@@ -5,7 +5,7 @@
 
 - include: vundle.yml
 
-#- include: plugins/auto-pairs.yml
+- include: plugins/auto-pairs.yml
 - include: plugins/camelcasemotion.yml
 - include: plugins/easymotion.yml
 - include: plugins/javacomplete.yml
@@ -23,7 +23,7 @@
 - include: plugins/vim-http-client.yml
 - include: plugins/ack.yml
 - include: plugins/gradle.yml
-- include: plugins/gen_tags.yml
+  # - include: plugins/gen_tags.yml
 - include: plugins/easy-align.yml
 
 - include: colors.yml
