@@ -9,6 +9,7 @@
         let mapleader = ";"
         filetype on
         syntax on
+        set clipboard=unnamed
         set noswapfile
         set expandtab
         set shiftwidth=4

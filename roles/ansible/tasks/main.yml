@@ -4,8 +4,13 @@
     line: "alias ap=ansible-playbook" 
     dest: "{{ bash_config_dir }}/ansible"
     create: yes
-    state: present
-    regexp: "alias ap=ansible-playbook"
+
+- name: Has setting for using custom config
+  tags: ansible
+  lineinfile:
+    line: "export ANSIBLE_CONFIG='/home/stcarolas/.ansible/ansible.cfg'"
+    dest: "{{ bash_config_dir }}/ansible"
+    create: yes
 
 - name: Has .bashrc sourced
   tags: ansible 
