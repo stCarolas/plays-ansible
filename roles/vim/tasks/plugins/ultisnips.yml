@@ -1,0 +1,26 @@
+---
+- name: Has ultisnips installed
+  tags: vim
+  notify: install plugins
+  lineinfile     :
+    line         : Plugin 'SirVer/ultisnips'
+    insertbefore : 'BEGIN vundle end block'
+    dest         : "{{ vim_config_dir }}/plugins"
+    state        : present
+
+- name: Has ultisnips installed
+  tags: vim
+  notify: install plugins
+  lineinfile     :
+    line         : Plugin 'honza/vim-snippet'
+    insertbefore : 'BEGIN vundle end block'
+    dest         : "{{ vim_config_dir }}/plugins"
+    state        : present
+
+#- name: Has ultisnips config file sourced into .vimrc
+  #tags: vim
+  #lineinfile  :
+    #line      : "source {{ vim_config_dir }}/ultisnips"
+    #dest      : ~/.vimrc
+    #create    : yes
+    #state     : present

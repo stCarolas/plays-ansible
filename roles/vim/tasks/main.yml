@@ -25,5 +25,6 @@
 - include: plugins/gradle.yml
   # - include: plugins/gen_tags.yml
 - include: plugins/easy-align.yml
+- include: plugins/ultisnips.yml
 
 - include: colors.yml
