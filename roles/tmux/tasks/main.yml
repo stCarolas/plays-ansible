@@ -19,6 +19,7 @@
       - { name: set-titles,             value: "on"    }
       - { name: allow-rename,           value: "off"   }
       - { name: renumber-windows,       value: "on"   }
+      - { name: escape-time,            value: 0   }
 
 - name: Has window options setted 
   tags: tmux
