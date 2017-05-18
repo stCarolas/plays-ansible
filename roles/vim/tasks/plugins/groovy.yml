@@ -1,0 +1,26 @@
+---
+- name: Has groovy syntax installed
+  tags: vim
+  notify: install plugins
+  lineinfile     :
+    line         : Plugin 'rdolgushin/groovy.vim'
+    insertbefore : 'BEGIN vundle end block'
+    dest         : "{{ vim_config_dir }}/plugins"
+    state        : present
+
+- name: Has groovy configured
+  tags: vim
+  blockinfile  :
+    dest       : "{{ vim_config_dir }}/groovy"
+    create     : yes
+    marker     : '"{mark} settings for groovy'
+    content    : |
+        let g:ackprg = 'ag --vimgrep'
+
+- name: Has groovy config file sourced into .vimrc
+  tags: vim
+  lineinfile  :
+    line      : "source {{ vim_config_dir }}/groovy"
+    dest      : ~/.vimrc
+    create    : yes
+    state     : present

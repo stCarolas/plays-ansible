@@ -1,0 +1,7 @@
+---
+# tasks file for groovy
+- name: Has groovy installed
+  tags: groovy, system
+  become: true
+  package:
+    name: groovy

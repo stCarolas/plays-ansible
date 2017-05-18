@@ -30,6 +30,14 @@
         alias gp='git pull'
         alias gP='git push'
 
+- name: Has config for fzf
+  tags: bash
+  blockinfile:
+    marker: "# {mark} fzf aliases (ansible managed)"
+    dest: "{{ bash_config_dir }}/fzf"
+    create: yes
+    content: |
+
 - name: Has config for docker
   tags: bash
   blockinfile:
@@ -75,6 +83,7 @@
     - tmux
     - overall
     - git
+    - fzf
     - docker
 
 - name: Has clear command on terminanl start for ranger 

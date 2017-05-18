@@ -1,7 +1,7 @@
 ---
 - name: Has python requests installed
   become: true
-  tags: vim
+  tags: vim, system
   pip     :
     name  : requests
     state : present

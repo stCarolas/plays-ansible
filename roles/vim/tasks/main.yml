@@ -26,5 +26,7 @@
   # - include: plugins/gen_tags.yml
 - include: plugins/easy-align.yml
 - include: plugins/ultisnips.yml
+#- include: plugins/vimux.yml
+- include: plugins/groovy.yml
 
 - include: colors.yml

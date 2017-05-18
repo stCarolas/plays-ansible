@@ -1,0 +1,26 @@
+---
+- name: Has vimux syntax installed
+  tags: vim
+  notify: install plugins
+  lineinfile     :
+    line         : Plugin 'benmills/vimux'
+    insertbefore : 'BEGIN vundle end block'
+    dest         : "{{ vim_config_dir }}/plugins"
+    state        : present
+
+- name: Has vimux configured
+  tags: vim
+  blockinfile  :
+    dest       : "{{ vim_config_dir }}/vimux"
+    create     : yes
+    marker     : '"{mark} settings for vimux'
+    content    : |
+        let g:ackprg = 'ag --vimgrep'
+
+- name: Has vimux config file sourced into .vimrc
+  tags: vim
+  lineinfile  :
+    line      : "source {{ vim_config_dir }}/vimux"
+    dest      : ~/.vimrc
+    create    : yes
+    state     : present
