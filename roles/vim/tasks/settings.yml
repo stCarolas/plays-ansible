@@ -20,7 +20,7 @@
         set laststatus=2
         set backspace=2
         set completeopt-=preview
-        set timeoutlen=150 ttimeoutlen=0
+        set timeoutlen=400 ttimeoutlen=0
 
 - name: Has settings  file sourced into .vimrc
   tags: vim
