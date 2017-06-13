@@ -14,12 +14,14 @@
       line    : "set -g {{ item.name }} {{ item.value }}"
       regexp  : "set -g {{ item.name }}.*"
   with_items:
-      - { name: base-index,             value: 1     }
-      - { name: status,                 value: "on"   }
-      - { name: set-titles,             value: "on"    }
-      - { name: allow-rename,           value: "off"   }
-      - { name: renumber-windows,       value: "on"   }
-      - { name: escape-time,            value: 0   }
+      - { name: base-index,              value: 1     }
+      - { name: status,                  value: "on"   }
+      - { name: set-titles,              value: "on"    }
+      - { name: allow-rename,            value: "off"   }
+      - { name: renumber-windows,        value: "on"   }
+      - { name: escape-time,             value: 0   }
+      - { name: status-interval,         value: 5   }
+      - { name: automatic-rename-format, value: '#{pane_current_path}'   }
 
 - name: Has window options setted 
   tags: tmux
@@ -31,7 +33,7 @@
   with_items:
       - { name: xterm-keys,             value: "on"   }
       - { name: mode-keys,              value: "vi"   }
-      - { name: automatic-rename,       value: "off"  }
+      - { name: automatic-rename,       value: "on"  }
       - { name: pane-base-index,        value: 1      }
       - { name: aggressive-resize,      value: "on"   }
 
