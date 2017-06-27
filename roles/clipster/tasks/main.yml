@@ -3,6 +3,7 @@
   tags: clipster
   git    :
     repo : https://github.com/mrichar1/clipster.git
+    state  : "{{ clipster_state }}"
     dest : ~/Coding/soft/clipster
 
 - name: Has clipster dependencies
@@ -10,6 +11,7 @@
   tags: clipster, system
   package  :
     name   : libwnck3
+    version: latest
     state  : present
 
 - name: Has clipster config dir

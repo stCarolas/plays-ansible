@@ -55,7 +55,7 @@ allprojects {
     }
 
     afterEvaluate { project ->
-        if (project.getPlugins().hasPlugin("spring-boot")) {
+        if (project.getPlugins().hasPlugin("org.springframework.boot")) {
             def bootRunTask = project.getTasksByName("bootRun",false).iterator()[0]
             bootRunTask?.doFirst {
                 // for local run with services
