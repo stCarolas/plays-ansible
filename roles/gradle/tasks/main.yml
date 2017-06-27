@@ -11,4 +11,10 @@
       src    : templates/init.gradle
       dest   : ~/.gradle/init.gradle
       backup : yes
-# tasks file for gradle
+
+- name: Has logging config
+  tags: gradle
+  template   :
+      src    : templates/logback.groovy
+      dest   : ~/.gradle/logback.groovy
+      backup : yes
