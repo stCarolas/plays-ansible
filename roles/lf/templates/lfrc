@@ -1,0 +1,127 @@
+set ratios 1
+set nopreview
+set info size
+
+# leave some space at the top and the bottom of the screen
+set scrolloff 10
+
+# easily toggle options
+map zp set preview!
+map zh set hidden!
+
+# easily select what information to show
+map zn set info
+map zs set info size
+map zt set info time
+map za set info size:time
+
+# sort files and show the corresponding info
+map sn :set sortby natural; set info
+map ss :set sortby size; set info size
+map st :set sortby time; set info time
+
+# common directories
+map gh cd ~
+map gr cd /
+
+# use enter for shell commands
+#map <enter> read-shell
+map <enter> $dedicated_shell.py
+
+# mappings for pager and editor (change as you like)
+map i $rifle "$f"
+# map e $vim "$f"
+map e $dedicated_shell.py "vim $f"
+
+# mapping to spawn a shell in working directory
+# (see also etc/lf.sh as an alternative workflow)
+map w $$SHELL
+
+# execute current file (must be executable)
+map x $"$f"
+map X !"$f"
+
+# dedicated keys for file opener actions
+map o &mimeopen "$f"
+map O $mimeopen --ask "$f"
+
+# show documentation (overrides search-back)
+map ? $lf -doc | less
+
+# define a custom `open-file` command
+# `open-file` is called by `open` when current file is not a directory. You may
+# want to use either file extensions and/or mime types here. Below uses an
+# editor for text files and a file opener for the rest.
+cmd open-file ${{
+    case $(file --mime-type "$f" -b) in
+        text/*) IFS=':'; vim $fx;;
+        *) IFS=':'; for f in $fx; do xdg-open "$f" > /dev/null 2> /dev/null & done;;
+    esac
+}}
+
+# rename current file without overwrite
+cmd rename ${{
+    if [ -e "$1" ]; then
+        lf -remote "send $id echo file exists"
+    else
+        mv "$f" "$1"
+    fi
+}}
+map r push :rename<space>
+
+# show disk usage
+cmd usage $du -h . | less
+
+# make sure trash folder exists
+$mkdir -p $HOME/.trash
+
+# move current file or selected files to trash folder
+# (see 'man mv' or 'mv --help' for backup options)
+cmd trash $IFS=':'; mv --backup=numbered $fx $HOME/.trash
+
+# remove current file or selected files (prompting)
+#cmd remove ${{
+#    echo "$fx" | tr ':' '\n'
+#    echo -n 'remove?[y/n]'
+#    read ans
+#    [ $ans = 'y' ] && (IFS=':'; rm -rf $fx)
+#}}
+
+# extract the current file with the right command
+# (xkcd link: https://xkcd.com/1168/)
+cmd extract ${{
+    case "$f" in
+        *.tar.bz|*.tar.bz2|*.tbz|*.tbz2) tar xjvf "$f";;
+        *.tar.gz|*.tgz) tar xzvf "$f";;
+        *.tar.xz|*.txz) tar xJvf "$f";;
+        *.zip) unzip "$f";;
+        *.rar) unrar x "$f";;
+        *.7z) 7z x "$f";;
+    esac
+}}
+
+
+# compress marked files with tar and gunzip
+# This command takes the output name without '.tar.gz' suffix as an argument
+# (e.g. "compress foo" creates "foo.tar.gz").
+cmd compress ${{
+    mkdir "$1"
+    IFS=':'; cp $fs "$1"
+    tar czvf "$1.tar.gz" "$1"
+    rm -rf "$1"
+}}
+
+# MY
+map gp cd ~/Coding/projects
+map gc cd ~/.config
+
+## plugins
+cmd run_gradle_task ${{
+    dedicated_shell.py 'cat .gradle.tasks | fzf --bind "enter:execute(./gradlew --stacktrace {} | less)+abort"'
+}}
+map fg :run_gradle_task
+
+cmd find_file ${{
+    dedicated_shell.py 'fzf --bind "enter:execute(vim {})+abort"'
+}}
+map ff :find_file

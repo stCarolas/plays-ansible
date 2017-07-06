@@ -1,0 +1,13 @@
+---
+- name: Has alacritty config dir
+  tags: alacritty
+  file:
+    path: ~/.config/alacritty
+    state: directory
+
+- name: Has config script
+  tags: alacritty
+  template   :
+      src    : templates/alacritty.yml
+      dest   : ~/.config/alacritty/alacritty.yml
+      backup : yes
