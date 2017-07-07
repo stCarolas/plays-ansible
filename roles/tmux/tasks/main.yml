@@ -75,6 +75,14 @@
       content : |
           set-option -g prefix C-n
           bind-key b send-prefix
+          bind -n S-C-k \
+                set -qg status-bg colour25 \; \
+                set -qg prefix C-b
+                unbind -n S-C-t;
+          bind -n S-C-j \
+                set -qg status-bg colour40 \; \
+                set -qg prefix C-n
+                unbind -n S-C-j;
 
 - name: Has status bar configured
   tags: tmux

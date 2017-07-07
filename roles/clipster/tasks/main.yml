@@ -3,7 +3,6 @@
   tags: clipster
   git    :
     repo : https://github.com/mrichar1/clipster.git
-    state  : "{{ clipster_state }}"
     dest : ~/Coding/soft/clipster
 
 - name: Has clipster dependencies
@@ -11,7 +10,6 @@
   tags: clipster, system
   package  :
     name   : libwnck3
-    version: latest
     state  : present
 
 - name: Has clipster config dir
@@ -46,16 +44,3 @@
         extract_emails = yes
         extract_patterns = no
         filter_classes = ""
-
-- name: Has openbox config directory
-  tags: clipster
-  file  :
-      dest    : ~/.config/openbox
-      state   : directory
-
-- name: Has clipster in autostart
-  tags: clipster
-  lineinfile  :
-      dest    : ~/.config/openbox/autostart
-      create  : yes
-      line    : python3 ~/Coding/soft/clipster/clipster --daemon

@@ -17,6 +17,20 @@
   package:
     name: gcc
 
+- name: Has python-devel for vim
+  tags: vim, system
+  become: true
+  package:
+    name: python-devel
+  notify: build vim from sources
+
+- name: Has python3-devel for vim
+  tags: vim, system
+  become: true
+  package:
+    name: python3-devel
+  notify: build vim from sources
+
 - name: Has automake for vim
   tags: vim, system
   become: true
@@ -50,3 +64,8 @@
       line    : export EDITOR=vim
       state   : present
       create  : yes
+
+- name: trigger rebuild vim
+  tags: rebuild
+  command: "echo test"
+  notify: build vim from sources
