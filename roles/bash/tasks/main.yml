@@ -7,6 +7,14 @@
     regexp: 'export PS1=.*'
     create: yes
 
+- name: Has configured PATH
+  tags: bash
+  lineinfile:
+    line: 'export PATH=$PATH:~/bin'
+    dest: "{{ bash_config_dir }}/overall"
+    state: present
+    create: yes
+
 - name: Has configured PS1 for root
   become: true
   tags: [ bash, system ]

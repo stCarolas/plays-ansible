@@ -3,11 +3,11 @@
   become: true
   tags: system
   package:
-    name: java-1.8.0-openjdk
+    name: java
 
 - name: Has OpenJDK installed
   become: true
   tags: system
   package:
-    name: java-1.8.0-openjdk-devel
+    name: java-devel
 # tasks file for jdk
