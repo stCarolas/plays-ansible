@@ -15,7 +15,7 @@
       regexp  : "set -g {{ item.name }}.*"
   with_items:
       - { name: base-index,              value: 1     }
-      - { name: status,                  value: "on"   }
+      - { name: status,                  value: "off"   }
       - { name: set-titles,              value: "on"    }
       - { name: allow-rename,            value: "off"   }
       - { name: renumber-windows,        value: "on"   }
@@ -49,6 +49,16 @@
           bind -n M-k select-pane -U
           bind -n M-l select-pane -R
           bind -n M-f resize-pane -Z
+
+- name: Has switch panes hotkeys setted 
+  tags: tmux
+  blockinfile :
+      dest    : "{{ tmux_global_config }}"
+      create  : yes
+      marker  : "# {mark} hotkeys for entering copy mode"
+      content : |
+          bind u copy-mode -u
+          bind y copy-mode
 
 - name: Has switch panes hotkeys setted 
   tags: tmux

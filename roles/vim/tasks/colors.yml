@@ -7,6 +7,7 @@
     marker    : '"{mark} color and background settings'
     content   : |
         set background=dark
+        colorscheme solarized
 
 - name: Has colors  file sourced into .vimrc
   tags: vim

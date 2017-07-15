@@ -11,9 +11,11 @@
         syntax on
         set clipboard=unnamed
         set noswapfile
+        
         set expandtab
         set shiftwidth=4
         set tabstop=4
+
         set autoindent
         set relativenumber
         set showtabline=1
