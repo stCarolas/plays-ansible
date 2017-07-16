@@ -11,11 +11,24 @@
   package:
     name: git
 
-- name: Has git config dir
+- name: Has bash dir
   tags: git
   file   :
     dest : "{{ bash_config_dir }}"
     state: directory
+
+- name: Has git config dir
+  tags: git
+  file   :
+    dest : "~/.config/git"
+    state: directory
+
+- name: Has config script
+  tags: git
+  template   :
+      src    : templates/ignore
+      dest   : "~/.config/git/ignore"
+      backup : yes
 
 - name: Has config for git
   tags: bash

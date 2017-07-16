@@ -11,3 +11,17 @@
       src    : templates/alacritty.yml
       dest   : ~/.config/alacritty/alacritty.yml
       backup : yes
+
+- name: Has config script
+  tags: alacritty
+  template   :
+      src    : templates/alacritty.bash
+      dest   : ~/.bash/config/alacritty.bash
+      backup : yes
+
+- name: Has .bashrc sourced
+  tags: alacritty
+  lineinfile:
+    dest: ~/.bashrc
+    create: yes
+    line: "source {{ bash_config_dir }}/alacritty.bash"
