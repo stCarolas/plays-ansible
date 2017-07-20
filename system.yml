@@ -3,7 +3,7 @@
   connection: local
   roles:
     - jdk
-    - git
+    #- git
     - fzf
     - tmux
     - ansible 

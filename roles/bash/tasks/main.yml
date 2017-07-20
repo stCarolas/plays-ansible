@@ -1,123 +1,26 @@
-- name: Has configured PS1 
+- name: Has bash config dir
   tags: bash
-  lineinfile:
-    line: ' export PS1="\[\e[1;33m\]:\[\e[0;38m\]"'
-    dest: "{{ bash_config_dir }}/overall"
-    state: present
-    regexp: 'export PS1=.*'
-    create: yes
+  file:
+    path:  "{{ bash_config_dir }}"
+    state: directory
 
-- name: Has configured PATH
+- name: Has configs for interactive session
   tags: bash
-  lineinfile:
-    line: 'export PATH=$PATH:~/bin'
-    dest: "{{ bash_config_dir }}/overall"
-    state: present
-    create: yes
-
-- name: Has configured PS1 for root
-  become: true
-  tags: [ bash, system ]
-  lineinfile:
-    line: 'export PS1="\[\e[3;33m\]:\[\e[0;38m\]"'
-    dest: "/root/.bashrc"
-    state: present
-    regexp: 'export PS1=.*'
-    create: yes
-
-- name: Has config for git
+  copy   :
+      src:    templates/interactive.d
+      dest:   "{{ bash_config_dir }}/"
+      backup: yes
+      
+- name: Has configs for interactive and non interactive
   tags: bash
-  blockinfile:
-    marker: "# {mark} git aliases (ansible managed)"
-    dest: "{{ bash_config_dir }}/git"
-    create: yes
-    content: |
-        alias gs='git status'
-        alias gc='git commit'
-        alias ga='git add'
-        alias gp='git pull'
-        alias gP='git push'
+  copy   :
+      src:    templates/common.d
+      dest:   "{{ bash_config_dir }}/"
+      backup: yes
 
-- name: Has config for fzf
+- name: Has bash main config
   tags: bash
-  blockinfile:
-    marker: "# {mark} fzf aliases (ansible managed)"
-    dest: "{{ bash_config_dir }}/fzf"
-    create: yes
-    content: |
-
-- name: Has config for docker
-  tags: bash
-  blockinfile:
-    marker: "# {mark} docker functions (ansible managed)"
-    dest: "{{ bash_config_dir }}/docker"
-    create: yes
-    content: |
-        dps () {
-            if [ -z "$1" ]
-            then
-                docker ps
-            else 
-                docker ps -a | grep $1
-            fi
-        }
-        dim () {
-            if [ -z "$1" ]
-            then
-                docker images
-            else 
-                docker images | grep $1
-            fi
-        }
-        dph () {
-            docker push grep $1
-        }
-        dsh () {
-            docker exec -it $1 bash
-        }
-        drm () {
-                docker rm -f $1
-        }
-        dlg () {
-                docker logs --tail 500 -f $1
-        }
-
-- name: Has aliases for tmux 
-  tags: bash
-  blockinfile:
-    dest: "{{ bash_config_dir }}/tmux"
-    create: yes
-    content: |
-        tf_old() {
-            if ! [[ -z "$TMUX" ]]
-            then
-                tmux detach
-            fi
-            tmux attach-session -t $(tmux list-session -F "#{session_name}" | fzf)
-        }
-        alias ts='tmux list-session'
-        alias ta='tmux attach-session -t'
-        alias td='tmux detach'
-        alias tf='tmux attach-session -t $(tmux list-session -F "#{session_name}" | fzf)'
-        alias tn='tmux new-session'
-        alias tc='tmux new-session -s'
-
-- name: Has .bashrc sourced
-  tags: bash 
-  lineinfile:
-    dest: ~/.bashrc
-    create: yes
-    line: "source {{ bash_config_dir }}/{{ item }}"
-  with_items:
-    - tmux
-    - overall
-    - git
-    - fzf
-    - docker
-
-- name: Has clear command on terminanl start for ranger 
-  tags: bash 
-  lineinfile:
-    dest: ~/.bashrc
-    create: yes
-    line: "clear"
+  copy   :
+      src:    templates/config.bash
+      dest:   "{{ bash_config_dir }}/config.bash"
+      backup: yes
