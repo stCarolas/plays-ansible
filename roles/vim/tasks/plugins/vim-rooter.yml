@@ -18,6 +18,12 @@
         let g:rooter_patterns = ['.git/']
         let g:rooter_silent_chdir = 1
         let g:rooter_use_lcd = 1
+        function! LoadLocalVimrc()
+            if filereadable(".vimlocal")
+                source .vimlocal
+            endif
+        endfunction
+        autocmd User RooterChDir call LoadLocalVimrc()
 
 - name: Has Vim-Rooter file sourced into .vimrc
   tags: vim

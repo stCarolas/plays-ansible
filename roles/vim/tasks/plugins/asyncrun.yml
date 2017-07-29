@@ -1,0 +1,27 @@
+---
+- name: Has asyncrun installed
+  tags: vim
+  notify: install plugins
+  lineinfile     :
+    line         : Plugin 'skywind3000/asyncrun.vim'
+    insertbefore : 'BEGIN vundle end block'
+    dest         : "{{ vim_config_dir }}/plugins"
+    state        : present
+
+- name: Has asyncrun configured
+  tags: vim
+  blockinfile  :
+    dest       : "{{ vim_config_dir }}/asyncrun"
+    create     : yes
+    marker     : '"{mark} settings for asyncrun'
+    content    : |
+        command! Build :call Build()
+
+- name: Has asyncrun config file sourced into .vimrc
+  tags: vim
+  lineinfile  :
+    line      : "source {{ vim_config_dir }}/asyncrun"
+    dest      : ~/.vimrc
+    create    : yes
+    state     : present
+

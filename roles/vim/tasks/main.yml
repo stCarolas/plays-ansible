@@ -6,6 +6,8 @@
 - include: vundle.yml
 
 - include: plugins/auto-pairs.yml
+- include: plugins/vim-templates.yml
+- include: plugins/asyncrun.yml
 - include: plugins/camelcasemotion.yml
 - include: plugins/easymotion.yml
 - include: plugins/javacomplete.yml

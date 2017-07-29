@@ -24,6 +24,21 @@
         set completeopt-=preview
         set timeoutlen=400 ttimeoutlen=0
 
+        if filereadable(".vimlocal")
+            source .vimlocal
+        endif
+
+        function! DottedPath()
+            let path = expand("%:h")
+            let dottedPath = substitute(l:path, "/", ".", "g")
+            let dottedPath = substitute(l:dottedPath, "src.", "", "")
+            let dottedPath = substitute(l:dottedPath, "main.", "", "")
+            let dottedPath = substitute(l:dottedPath, "test.", "", "")
+            let dottedPath = substitute(l:dottedPath, "java.", "", "")
+            let dottedPath = substitute(l:dottedPath, "groovy.", "", "")
+            return dottedPath
+        endfunction
+
 - name: Has settings  file sourced into .vimrc
   tags: vim
   lineinfile  :

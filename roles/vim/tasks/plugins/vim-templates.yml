@@ -1,0 +1,29 @@
+---
+- name: Has vim-template installed
+  tags: vim
+  notify: install plugins
+  lineinfile     :
+    line         : Plugin 'aperezdc/vim-template'
+    insertbefore : 'BEGIN vundle end block'
+    dest         : "{{ vim_config_dir }}/plugins"
+    state        : present
+
+- name: Has vim-template configured
+  tags: vim
+  blockinfile  :
+    dest       : "{{ vim_config_dir }}/vim-template"
+    create     : yes
+    marker     : '"{mark} settings for vim-template'
+    content    : |
+        let g:templates_no_autocmd = 0
+        let g:templates_directory = '/home/stcarolas/.vim/templates'
+        let g:templates_user_variables = [ ['DOTTEDPATH', 'DottedPath'] ]
+
+- name: Has vim-template config file sourced into .vimrc
+  tags: vim
+  lineinfile  :
+    line      : "source {{ vim_config_dir }}/vim-template"
+    dest      : ~/.vimrc
+    create    : yes
+    state     : present
+

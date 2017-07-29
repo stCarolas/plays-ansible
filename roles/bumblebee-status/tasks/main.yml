@@ -1,0 +1,8 @@
+---
+# tasks file for bumblebee-status
+- name: Has cloned bumblebee-status
+  tags: bumblebee
+  git:
+    accept_hostkey: yes
+    repo: git@github.com:tobi-wan-kenobi/bumblebee-status.git
+    dest: ~/Coding/soft/bumblebee
