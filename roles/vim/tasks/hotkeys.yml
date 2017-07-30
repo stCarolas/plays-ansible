@@ -7,14 +7,15 @@
     marker    : '"{mark} hotkeys settings'
     content   : | 
         imap ii <Esc>
-        map <silent> <leader>m :Build<cr>
         nnoremap ii <Esc>
+
+        map <silent> <leader>m :Build<cr>
+        map <silent> <leader>qo :copen<cr>
+        map <silent> <leader>qc :cclose<cr>
         nnoremap <silent> <leader>j :bp<cr>
         nnoremap <silent> <leader>k :bn<cr>
         nnoremap <leader>y "+y"
         vnoremap <leader>y "+y"
-        nnoremap <leader>ev :vsplit $MYVIMRC<cr>
-        nnoremap <leader>sv :source $MYVIMRC<cr>
 
 - name: Has hotkeys  file sourced into .vimrc
   tags: vim

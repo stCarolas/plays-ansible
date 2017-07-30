@@ -18,11 +18,6 @@ case $- in
       then
         export TMUX_SESSION_NAME="$(date +%s)"
         tmux new-session -A -s $TMUX_SESSION_NAME
-      else
-        if [ -z "$LFLVL" ]
-        then
-            lf
-        fi
       fi
       ;;
   *) 

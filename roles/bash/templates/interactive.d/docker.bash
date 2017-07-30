@@ -22,9 +22,9 @@ dsh () {
     docker exec -it $1 bash
 }
 drm () {
-        docker rm -f $1
+    docker rm -f $1
 }
 dlg () {
-        docker logs --tail 500 -f $1
+    docker logs --tail 500 -f $1
 }
 # END docker functions (ansible managed)
