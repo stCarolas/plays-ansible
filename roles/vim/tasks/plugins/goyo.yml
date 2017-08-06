@@ -1,0 +1,30 @@
+---
+- name: Has goyo installed
+  tags: vim
+  notify: install plugins
+  lineinfile     :
+    line         : Plugin 'junegunn/goyo.vim'
+    insertbefore : 'BEGIN vundle end block'
+    dest         : "{{ vim_config_dir }}/plugins"
+    state        : present
+
+- name: Has goyo configured
+  tags: vim
+  blockinfile  :
+    dest       : "{{ vim_config_dir }}/goyo"
+    create     : yes
+    marker     : '"{mark} settings for goyo'
+    content    : |
+        map <silent> <leader>go :Goyo<cr>
+        function! s:goyo_enter()
+            :NERDTreeClose
+        endfunction
+        autocmd! User GoyoEnter nested call <SID>goyo_enter()
+
+- name: Has ack config file sourced into .vimrc
+  tags: vim
+  lineinfile  :
+    line      : "source {{ vim_config_dir }}/goyo"
+    dest      : ~/.vimrc
+    create    : yes
+    state     : present

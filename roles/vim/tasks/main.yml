@@ -30,5 +30,6 @@
 - include: plugins/ultisnips.yml
 #- include: plugins/vimux.yml
 - include: plugins/groovy.yml
+- include: plugins/goyo.yml
 
 - include: colors.yml
