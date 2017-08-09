@@ -6,9 +6,6 @@
     dest      : "{{ vim_config_dir }}/hotkeys"
     marker    : '"{mark} hotkeys settings'
     content   : | 
-        imap ii <Esc>
-        nnoremap ii <Esc>
-
         map <silent> <leader>m :Build<cr>
         map <silent> <leader>qo :copen<cr>
         map <silent> <leader>qc :cclose<cr>
