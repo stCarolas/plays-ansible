@@ -3,25 +3,21 @@
   connection: local
   roles:
     - jdk
-    #- git
     - fzf
     - tmux
     - ansible 
     - bash
     - vim
-    - ranger
-    - ranger-fzf
-    - urxvt
     - the_silver_searcher 
     - ansible_hacking
     - scripts
-    - ranger-fzf-scripts
     - clipster
     - gradle
-    - vagrant
     - xcape
     - groovy
     - lf
     - alacritty
-    - bumblebee-status
     - docker
+    - tools
+    - i3
+    - zsh

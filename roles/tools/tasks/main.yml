@@ -1,0 +1,29 @@
+---
+# tasks file for tools
+- name: Has atool
+  tags: [atool,tools,system]
+  become: true
+  package:
+    name: atool
+    state: present
+
+- name: Has atool
+  tags: [feh,tools,system]
+  become: true
+  package:
+    name: feh
+    state: present
+
+- name: Has scrot
+  tags: [scrot,tools,system]
+  become: true
+  package:
+    name: scrot
+    state: present
+
+- name: Has scrot
+  tags: [scrot,tools,system]
+  become: true
+  package:
+    name: scrot
+    state: present

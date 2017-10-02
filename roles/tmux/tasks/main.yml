@@ -6,6 +6,13 @@
     name   : tmux
     state  : present
 
+- name: Has libselinux-python
+  become: true
+  tags: tmux, system
+  package  :
+    name   : libselinux-python
+    state  : present
+
 - name: Has global options setted 
   tags: tmux
   lineinfile  :

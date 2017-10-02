@@ -5,9 +5,9 @@
     path: ~/.config/lf
     state: directory
 
-- name: Has init script
-  tags: lf
-  template   :
-      src    : templates/lfrc
-      dest   : ~/.config/lf/lfrc
-      backup : yes
+#- name: Has init script
+  #tags: lf
+  #template   :
+      #src    : templates/lfrc
+      #dest   : ~/.config/lf/lfrc
+      #backup : yes
