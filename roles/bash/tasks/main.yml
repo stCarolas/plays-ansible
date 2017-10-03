@@ -9,18 +9,15 @@
   copy   :
       src:    templates/interactive.d
       dest:   "{{ bash_config_dir }}/"
-      backup: yes
       
 - name: Has configs for interactive and non interactive
   tags: bash
   copy   :
       src:    templates/common.d
       dest:   "{{ bash_config_dir }}/"
-      backup: yes
 
 - name: Has bash main config
   tags: bash
   copy   :
       src:    templates/config.bash
       dest:   "{{ bash_config_dir }}/config.bash"
-      backup: yes
