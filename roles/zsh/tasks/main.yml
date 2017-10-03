@@ -29,6 +29,6 @@
 - name: Has zsh config
   tags: zsh
   copy:
-    src: templates/.zshrc
+    src: templates/config
     dest: ~/.zshrc
     force: yes
