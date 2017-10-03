@@ -11,4 +11,4 @@ antigen bundle tmux
 antigen bundle docker-compose
 antigen apply
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
- export ZSH_TMUX_AUTOSTART=true
+ export ZSH_TMUX_AUTOSTART=false

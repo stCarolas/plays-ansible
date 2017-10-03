@@ -1,7 +1,7 @@
 lf() {
     if [ -z "$LFLVL" ]
     then 
-        ~/bin/lf
+        ~/.local/bin/lf
     else
         exit
     fi

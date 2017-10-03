@@ -19,12 +19,12 @@
       dest   : ~/.bash/config/alacritty.bash
       backup : yes
 
-- name: Has .bashrc sourced
-  tags: alacritty
-  lineinfile:
-    dest: ~/.bashrc
-    create: yes
-    line: "source {{ bash_config_dir }}/alacritty.bash"
+#- name: Has .bashrc sourced
+  #tags: alacritty
+  #lineinfile:
+    #dest: ~/.bashrc
+    #create: yes
+    #line: "source {{ bash_config_dir }}/alacritty.bash"
 
 - name: Has fonts dir
   tags: alacritty
