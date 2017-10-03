@@ -25,10 +25,9 @@
 - include: plugins/vim-http-client.yml
 - include: plugins/ack.yml
 - include: plugins/gradle.yml
-  # - include: plugins/gen_tags.yml
+- include: plugins/gen_tags.yml
 - include: plugins/easy-align.yml
 - include: plugins/ultisnips.yml
-#- include: plugins/vimux.yml
 - include: plugins/groovy.yml
 - include: plugins/goyo.yml
 
