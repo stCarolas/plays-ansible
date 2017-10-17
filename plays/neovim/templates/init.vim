@@ -19,7 +19,6 @@ Plug 'vim-scripts/BufOnly.vim'
 Plug 'aquach/vim-http-client'
 Plug 'mileszs/ack.vim'
 Plug 'junegunn/goyo.vim'
-Plug 'justinmk/vim-sneak'
 
 call plug#end()
 
@@ -29,7 +28,6 @@ set expandtab
 set tabstop=2
 set shiftwidth=2
 set nojoinspaces
-set linespace=0 
 set textwidth=0
 set relativenumber
 

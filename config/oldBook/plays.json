@@ -2,6 +2,7 @@
 	"plays":[
 		"feh_random_background_systemd",
 		"i3",
-    "neovim"
+    "neovim",
+    "alacritty"
 	]
 }
