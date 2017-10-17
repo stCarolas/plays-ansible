@@ -87,12 +87,12 @@ map oc :$vim ~/.config/lf/lfrc
 map r push :rename<space>
 
 # sort files and show the corresponding info
-map sn :set sortby natural; set info
-map ss :set sortby size; set info size
-map st :set sortby time; set info time
+#map sn :set sortby natural; set info
+#map ss :set sortby size; set info size
+#map st :set sortby time; set info time
 
-map T $ LFLVL=$LFLVL:+ dedicated_shell.py
-map t $ LFLVL=$LFLVL:+ $SHELL
+#map T $ LFLVL=$LFLVL:+ dedicated_shell.py
+map s $ LFLVL=$LFLVL:+ $SHELL
 
 map x $"$f"
 map X !"$f"

@@ -1,13 +1,4 @@
----
-# tasks file for urxvt
-- name: Has urxvt installed
-  tags: urxvt,system
-  become: true
-  package : 
-    name  : rxvt-unicode
-
 - name: Has urxvt snazzy color scheme installed
-  tags: urxvt
   blockinfile  :
       dest     : ~/.Xresources
       create   : yes
@@ -44,13 +35,12 @@
 
 
 - name: Has urxvt custom config
-  tags: urxvt
   blockinfile  :
       dest     : ~/.Xresources
       marker   : "!{mark} view configs"
       content  : |
         *scrollBar:                      false
-        *font:                           xft:Inconsolata:size=23
+        *font:                           xft:Inconsolata:size=21
         *cursorBlink:   1
         *dpi:           96
         *antialias:     true

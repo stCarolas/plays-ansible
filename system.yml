@@ -1,23 +1,16 @@
 ---
 - hosts: localhost
   connection: local
-  roles:
-    - jdk
-    - fzf
-    - tmux
-    - ansible 
-    - bash
-    - vim
-    - the_silver_searcher 
-    - ansible_hacking
-    - scripts
-    - clipster
-    - gradle
-    - xcape
-    - groovy
-    - lf
-    - alacritty
-    - docker
-    - tools
-    - i3
-    - zsh
+  tasks:
+    - name: Load config
+      tags: always
+      include_vars:
+        dir: "config/{{ ansible_hostname }}"
+
+    - include_tasks: "./plays/{{ item }}/install.yml"
+      tags: install
+      with_items: "{{ plays }}"
+
+    - include_tasks: "./plays/{{ item }}/config.yml"
+      tags: config
+      with_items: "{{ plays }}"

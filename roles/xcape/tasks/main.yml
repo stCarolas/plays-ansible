@@ -2,14 +2,14 @@
 # tasks file for xcape
 - name: Has prereq for xcape
   become: true
-  tags: xcape, system
+  tags: install
   package  :
     name   : git 
     state  : present
 
 - name: Has prereq for xcape
   become: true
-  tags: xcape, system
+  tags: install
   package  :
     name   : gcc 
     state  : present
