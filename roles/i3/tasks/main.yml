@@ -1,7 +1,0 @@
----
-# tasks file for i3
-- name: Has i3 config
-  tags: i3
-  copy:
-    src: templates/config
-    dest: ~/.config/i3

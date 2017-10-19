@@ -1,8 +1,9 @@
 {
 	"plays":[
+    "alacritty",
 		"feh_random_background_systemd",
 		"i3",
     "neovim",
-    "alacritty"
+    "fzf_window_chooser"
 	]
 }

@@ -1,0 +1,4 @@
+- name: Has xdotool installed
+  become: true
+  dnf:
+    name: xdotool

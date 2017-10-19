@@ -1,0 +1,4 @@
+# start dmenu (a program launcher)
+# bindsym $mod+e exec nohup alacritty -t dmenu -d 120 30 -e sh -c 'nohup $(compgen -c | fzf)'
+bindsym $mod+space exec /home/stcarolas/Coding/scripts/fzfmenu
+for_window [title="^fzfmenu$"] floating enable
