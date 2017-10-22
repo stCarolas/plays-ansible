@@ -1,0 +1,10 @@
+---
+# tasks file for i3
+- name: Has configs in i3
+  tags: xkb
+  blockinfile:
+    dest: "~/.config/i3/config"
+    create: yes
+    content: |
+        exec --no-startup-id i3-msg 'workspace 1:Web; exec /usr/bin/firefox'
+        exec --no-startup-id i3-msg 'workspace 2:Term; exec /home/stcarolas/bin/alacritty'

@@ -9,19 +9,22 @@
     - ansible 
     - bash
     - vim
-    - ranger
-    - ranger-fzf
-    - urxvt
+    #- ranger
+    #- ranger-fzf
+    #- urxvt
     - the_silver_searcher 
-    - ansible_hacking
+    #- ansible_hacking
     - scripts
-    - ranger-fzf-scripts
+    #- ranger-fzf-scripts
     - clipster
     - gradle
-    - vagrant
+    #- vagrant
     - xcape
     - groovy
     - lf
     - alacritty
-    - bumblebee-status
+    #- bumblebee-status
     - docker
+    - xkb
+    - zsh
+    - i3
