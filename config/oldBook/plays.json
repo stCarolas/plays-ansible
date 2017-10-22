@@ -1,9 +1,10 @@
 {
 	"plays":[
     "alacritty",
+    "neovim",
 		"feh_random_background_systemd",
 		"i3",
-    "neovim",
-    "fzf_window_chooser"
+    "fzf_window_chooser",
+    "projects_dir"
 	]
 }

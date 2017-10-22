@@ -7,10 +7,10 @@
       include_vars:
         dir: "config/{{ ansible_hostname }}"
 
-    - include_tasks: "./plays/{{ item }}/install.yml"
+    - include_tasks: "./overall/{{ item }}/install.yml"
       tags: install
       with_items: "{{ plays }}"
 
-    - include_tasks: "./plays/{{ item }}/config.yml"
+    - include_tasks: "./overall/{{ item }}/config.yml"
       tags: config
       with_items: "{{ plays }}"
