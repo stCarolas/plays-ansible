@@ -1,0 +1,63 @@
+---
+# tasks file for xcape
+- name: Has prereq for xcape
+  become: true
+  tags: install
+  package  :
+    name   : git 
+    state  : present
+
+- name: Has prereq for xcape
+  become: true
+  tags: install
+  package  :
+    name   : gcc 
+    state  : present
+
+- name: Has prereq for xcape
+  become: true
+  tags: xcape, system
+  package  :
+    name   : make
+    state  : present
+
+- name: Has prereq for xcape
+  become: true
+  tags: xcape, system
+  package  :
+    name   : pkgconfig 
+    state  : present
+
+- name: Has prereq for xcape
+  become: true
+  tags: xcape, system
+  package  :
+    name   : libX11-devel
+    state  : present
+
+- name: Has prereq for xcape
+  become: true
+  tags: xcape, system
+  package  :
+    name   : libXi-devel 
+    state  : present
+
+- name: Has prereq for xcape
+  become: true
+  tags: xcape, system
+  package  :
+    name   : libXtst-devel 
+    state  : present
+
+
+- name: Has xcape sources
+  tags: xcape, system
+  become: true
+  git:
+    repo: https://github.com/alols/xcape.git
+    dest: "~/.xcape"
+
+- name: Has xcape builded
+  tags: xcape, system
+  become: true
+  shell: "cd ~/.xcape && make && make install"

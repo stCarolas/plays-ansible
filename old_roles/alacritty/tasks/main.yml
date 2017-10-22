@@ -1,0 +1,45 @@
+---
+- name: Has alacritty config dir
+  tags: alacritty
+  file:
+    path: ~/.config/alacritty
+    state: directory
+
+- name: Has config script
+  tags: alacritty
+  template   :
+      src    : templates/alacritty.yml
+      dest   : ~/.config/alacritty/alacritty.yml
+      backup : yes
+
+- name: Has config script
+  tags: alacritty
+  template   :
+      src    : templates/alacritty.bash
+      dest   : ~/.bash/config/alacritty.bash
+      backup : yes
+
+#- name: Has .bashrc sourced
+  #tags: alacritty
+  #lineinfile:
+    #dest: ~/.bashrc
+    #create: yes
+    #line: "source {{ bash_config_dir }}/alacritty.bash"
+
+- name: Has fonts dir
+  tags: alacritty
+  file:
+    path: ~/.fonts
+    state: directory
+
+- name: Has font downloaded
+  tags: alacritty
+  get_url:
+      dest: ~/.fonts
+      url: https://raw.githubusercontent.com/ryanoasis/nerd-fonts/master/patched-fonts/Inconsolata/complete/Inconsolata%20Nerd%20Font%20Complete%20Mono.otf
+
+- name: Has font downloaded
+  tags: alacritty
+  get_url:
+      dest: ~/.fonts
+      url: https://raw.githubusercontent.com/ryanoasis/nerd-fonts/master/patched-fonts/Inconsolata/complete/Inconsolata%20Nerd%20Font%20Complete.otf

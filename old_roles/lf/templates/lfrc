@@ -1,0 +1,107 @@
+###############################     SETTINGS
+set ratios 1
+set nopreview
+set info size
+set scrolloff 10
+
+
+###############################     FUNCTIONS
+
+# define a custom `open-file` command
+# `open-file` is called by `open` when current file is not a directory. You may
+# want to use either file extensions and/or mime types here. Below uses an
+# editor for text files and a file opener for the rest.
+cmd open-file ${{
+    case $(file --mime-type "$f" -b) in
+        text/*) IFS=':'; vim $fx;;
+        *) IFS=':'; for f in $fx; do xdg-open "$f" > /dev/null 2> /dev/null & done;;
+    esac
+}}
+
+# rename current file without overwrite
+cmd rename ${{
+    if [ -e "$1" ]; then
+        lf -remote "send $id echo file exists"
+    else
+        mv "$f" "$1"
+    fi
+}}
+
+# show disk usage
+cmd usage $du -h . | less
+
+# move current file or selected files to trash folder
+# (see 'man mv' or 'mv --help' for backup options)
+cmd trash $IFS=':'; mv --backup=numbered $fx $HOME/.trash
+
+# extract the current file with the right command
+# (xkcd link: https://xkcd.com/1168/)
+cmd extract ${{
+    case "$f" in
+        *.tar.bz|*.tar.bz2|*.tbz|*.tbz2) tar xjvf "$f";;
+        *.tar.gz|*.tgz) tar xzvf "$f";;
+        *.tar.xz|*.txz) tar xJvf "$f";;
+        *.zip) unzip "$f";;
+        *.rar) unrar x "$f";;
+        *.7z) 7z x "$f";;
+    esac
+}}
+
+# compress marked files with tar and gunzip
+# This command takes the output name without '.tar.gz' suffix as an argument
+# (e.g. "compress foo" creates "foo.tar.gz").
+cmd compress ${{
+    mkdir "$1"
+    IFS=':'; cp $fs "$1"
+    tar czvf "$1.tar.gz" "$1"
+    rm -rf "$1"
+}}
+
+# plugins
+cmd run_gradle_task ${{
+    dedicated_shell.py 'cat .gradle.tasks | fzf --bind "enter:execute(./gradlew --stacktrace {} | less)+abort"'
+}}
+
+cmd find_file ${{
+    fzf --bind "enter:execute(vim {})+abort"
+}}
+
+######## HOTKEYS
+map ad push :$mkdir <space>
+map af push :vim <space>
+map e $dedicated_shell.py "vim $f"
+
+map ff :find_file
+map fd :trash
+
+map gp cd ~/Coding/projects
+map gc cd ~/.config
+map gs cd ~/Coding/scripts
+map gh cd ~
+map gr cd /
+
+map i $rifle "$f"
+
+map oc :$vim ~/.config/lf/lfrc
+
+map r push :rename<space>
+
+# sort files and show the corresponding info
+#map sn :set sortby natural; set info
+#map ss :set sortby size; set info size
+#map st :set sortby time; set info time
+
+#map T $ LFLVL=$LFLVL:+ dedicated_shell.py
+map s $ LFLVL=$LFLVL:+ $SHELL
+
+map x $"$f"
+map X !"$f"
+
+map zp set preview!
+map zh set hidden!
+map zn set info
+map zs set info size
+map zt set info time
+map za set info size:time
+
+map ? $lf -doc | less

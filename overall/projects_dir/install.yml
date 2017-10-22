@@ -1,0 +1,4 @@
+- name: Has fzf
+  become: true
+  include_role : 
+    name  : fzf

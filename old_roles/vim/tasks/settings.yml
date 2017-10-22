@@ -1,0 +1,49 @@
+---
+- name: Has overall editing settings
+  tags: vim
+  blockinfile :
+    create    : yes
+    dest      : "{{ vim_config_dir }}/settings"
+    marker    : '"{mark} overall settings'
+    content   : | 
+        let mapleader = ";"
+        filetype on
+        syntax on
+        set clipboard=unnamed
+        set noswapfile
+        
+        set expandtab
+        set shiftwidth=2
+        set tabstop=2
+
+        set autoindent
+        set relativenumber
+        set showtabline=1
+        set laststatus=2
+        set backspace=2
+        set completeopt-=preview
+        set timeoutlen=400 ttimeoutlen=0
+
+        if filereadable(".vimlocal")
+            source .vimlocal
+        endif
+
+        function! DottedPath()
+            let path = expand("%:h")
+            let dottedPath = substitute(l:path, "/", ".", "g")
+            let dottedPath = substitute(l:dottedPath, "src.", "", "")
+            let dottedPath = substitute(l:dottedPath, "main.", "", "")
+            let dottedPath = substitute(l:dottedPath, "test.", "", "")
+            let dottedPath = substitute(l:dottedPath, "java.", "", "")
+            let dottedPath = substitute(l:dottedPath, "groovy.", "", "")
+            return dottedPath
+        endfunction
+
+- name: Has settings  file sourced into .vimrc
+  tags: vim
+  lineinfile  :
+    line      : "source {{ vim_config_dir }}/settings"
+    dest      : ~/.vimrc
+    create    : yes
+    state     : present
+    regexp    : "source {{ vim_config_dir }}/settings"

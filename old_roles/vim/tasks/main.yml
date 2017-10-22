@@ -1,0 +1,34 @@
+---
+- include: vim8.yml
+- include: settings.yml
+- include: hotkeys.yml
+
+- include: vundle.yml
+
+- include: plugins/auto-pairs.yml
+- include: plugins/vim-templates.yml
+- include: plugins/asyncrun.yml
+- include: plugins/camelcasemotion.yml
+- include: plugins/easymotion.yml
+- include: plugins/javacomplete.yml
+- include: plugins/lightline.yml
+- include: plugins/nerdcommenter.yml
+- include: plugins/nerdtree.yml
+- include: plugins/syntastic.yml
+#- include: plugins/tagbar.yml
+- include: plugins/vim-rooter.yml
+- include: plugins/colorschemepack.yml
+- include: plugins/fzf.yml
+- include: plugins/gtags.yml
+- include: plugins/vim-vebugger.yml
+- include: plugins/vim-bufonly.yml
+- include: plugins/vim-http-client.yml
+- include: plugins/ack.yml
+- include: plugins/gradle.yml
+- include: plugins/gen_tags.yml
+- include: plugins/easy-align.yml
+- include: plugins/ultisnips.yml
+- include: plugins/groovy.yml
+- include: plugins/goyo.yml
+
+- include: colors.yml

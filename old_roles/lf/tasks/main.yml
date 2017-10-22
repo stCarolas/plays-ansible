@@ -1,0 +1,13 @@
+---
+- name: Has lf config dir
+  tags: lf
+  file:
+    path: ~/.config/lf
+    state: directory
+
+#- name: Has init script
+  #tags: lf
+  #template   :
+      #src    : templates/lfrc
+      #dest   : ~/.config/lf/lfrc
+      #backup : yes

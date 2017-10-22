@@ -1,0 +1,120 @@
+---
+- name: Has tmux
+  become: true
+  tags: tmux, system
+  package  :
+    name   : tmux
+    state  : present
+
+- name: Has libselinux-python
+  become: true
+  tags: tmux, system
+  package  :
+    name   : libselinux-python
+    state  : present
+
+- name: Has global options setted 
+  tags: tmux
+  lineinfile  :
+      dest    : "{{ tmux_global_config }}"
+      create  : yes
+      line    : "set -g {{ item.name }} {{ item.value }}"
+      regexp  : "set -g {{ item.name }}.*"
+  with_items:
+      - { name: base-index,              value: 1     }
+      - { name: status,                  value: "off"   }
+      - { name: set-titles,              value: "on"    }
+      - { name: allow-rename,            value: "off"   }
+      - { name: renumber-windows,        value: "on"   }
+      - { name: escape-time,             value: 0   }
+      - { name: status-interval,         value: 5   }
+      - { name: automatic-rename-format, value: '#{pane_current_path}'   }
+
+- name: Has window options setted 
+  tags: tmux
+  lineinfile  :
+      dest    : "{{ tmux_global_config }}"
+      create  : yes
+      line    : "setw -g {{ item.name }} {{ item.value }}"
+      regexp  : "setw -g {{ item.name }}.*"
+  with_items:
+      - { name: xterm-keys,             value: "on"   }
+      - { name: mode-keys,              value: "vi"   }
+      - { name: automatic-rename,       value: "on"  }
+      - { name: pane-base-index,        value: 1      }
+      - { name: aggressive-resize,      value: "on"   }
+
+- name: Has switch panes hotkeys setted 
+  tags: tmux
+  blockinfile :
+      dest    : "{{ tmux_global_config }}"
+      create  : yes
+      marker  : "# {mark} Alt-vim keys for switching panes"
+      content : |
+          bind -n M-h select-pane -L
+          bind -n M-j select-pane -D
+          bind -n M-k select-pane -U
+          bind -n M-l select-pane -R
+          bind -n M-f resize-pane -Z
+
+- name: Has switch panes hotkeys setted 
+  tags: tmux
+  blockinfile :
+      dest    : "{{ tmux_global_config }}"
+      create  : yes
+      marker  : "# {mark} hotkeys for entering copy mode"
+      content : |
+          bind u copy-mode -u
+          bind y copy-mode
+
+- name: Has switch panes hotkeys setted 
+  tags: tmux
+  blockinfile :
+      dest    : "{{ tmux_global_config }}"
+      create  : yes
+      marker  : "# {mark} Alt-Num keys for switching windows"
+      content : |
+           bind-key    -n M-1                select-window -t :=1
+           bind-key    -n M-2                select-window -t :=2
+           bind-key    -n M-3                select-window -t :=3
+           bind-key    -n M-4                select-window -t :=4
+           bind-key    -n M-5                select-window -t :=5
+           bind-key    -n M-6                select-window -t :=6
+           bind-key    -n M-7                select-window -t :=7
+           bind-key    -n M-8                select-window -t :=8
+
+- name: Has prefixes setted 
+  tags: tmux
+  blockinfile :
+      dest    : "{{ tmux_global_config }}"
+      create  : yes
+      marker  : "# {mark} prefixes"
+      content : |
+          set-option -g prefix C-n
+          bind-key b send-prefix
+          bind -n S-C-k \
+                set -qg status-bg colour25 \; \
+                set -qg prefix C-b
+                unbind -n S-C-t;
+          bind -n S-C-j \
+                set -qg status-bg colour40 \; \
+                set -qg prefix C-n
+                unbind -n S-C-j;
+
+- name: Has status bar configured
+  tags: tmux
+  lineinfile  :
+      dest    : "{{ tmux_global_config }}"
+      create  : yes
+      line    : "set -g {{ item.name }} {{ item.value }}"
+      regexp  : "set -g {{ item.name }} .*"
+  with_items:
+      - { name: status-fg,              value: white    }
+      - { name: status-bg,              value: white    }
+      - { name: status-justify,         value: right    }
+      - { name: status-position,        value: top      }
+      - { name: status-interval,        value: 1        }
+      - { name: status-left,            value: '"#[fg=black,bg=white]#{pane_current_path}"'     }
+      - { name: status-left-length,     value: 100      }
+      - { name: status-right,           value: '"#[fg=black,bg=white]#S - #h #[fg=white,bg=black] %d/%m #[fg=black,bg=white] %H:%M:%S "'     }
+      - { name: status-right-length,    value: 30      }

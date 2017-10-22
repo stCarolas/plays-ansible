@@ -1,0 +1,7 @@
+---
+# tasks file for i3
+- name: Has i3 config
+  tags: i3
+  assemble:
+    src: ./plays/i3/templates/config/
+    dest: ~/.config/i3/config

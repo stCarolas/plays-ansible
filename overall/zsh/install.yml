@@ -1,0 +1,4 @@
+- name: Has zsh
+  become: true
+  package:
+      name: zsh
