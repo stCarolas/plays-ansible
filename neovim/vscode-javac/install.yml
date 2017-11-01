@@ -1,0 +1,21 @@
+- name: Has nvm
+  include_role: 
+    name: nvm
+
+- name: Has vscode-javac sources
+  git:
+    repo: "git@github.com:georgewfraser/vscode-javac.git"
+    dest: "~/.config/nvim/sources"
+
+- name: Has nodejs
+  shell: "source /home/stcarolas/.nvm/nvm.sh && nvm install --lts && cd ~/.config/nvim/sources && npm install"
+
+- name: Has maven
+  become: true
+  package:
+    name: maven
+
+- name: Has pip module
+  become: true
+  pip:
+    name: neovim

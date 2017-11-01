@@ -6,7 +6,7 @@
 
 - name: Has config script
   template   :
-      src    : ./plays/alacritty/templates/alacritty.yml
+      src    : ./overall/alacritty/templates/alacritty.yml
       dest   : ~/.config/alacritty/alacritty.yml
       
 - name: Has fonts dir

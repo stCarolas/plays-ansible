@@ -1,10 +1,6 @@
 {
-	"plays":[
+	"overall":[
     "alacritty",
-    "neovim",
-		"feh_random_background_systemd",
-		"i3",
-    "fzf_window_chooser",
-    "projects_dir"
+		"i3"
 	]
 }

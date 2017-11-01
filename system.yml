@@ -9,8 +9,16 @@
 
     - include_tasks: "./overall/{{ item }}/install.yml"
       tags: install
-      with_items: "{{ plays }}"
+      with_items: "{{ overall }}"
 
     - include_tasks: "./overall/{{ item }}/config.yml"
       tags: config
-      with_items: "{{ plays }}"
+      with_items: "{{ overall }}"
+      
+    - include_tasks: "./neovim/{{ item }}/install.yml"
+      tags: install
+      with_items: "{{ neovim }}"
+
+    - include_tasks: "./neovim/{{ item }}/config.yml"
+      tags: config
+      with_items: "{{ neovim }}"

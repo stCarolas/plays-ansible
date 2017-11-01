@@ -1,0 +1,24 @@
+---
+# tasks file for i3
+- name: Has neovim config dir
+  file:
+    path: ~/.config/nvim/
+    state: directory
+
+- name: Has neovim global config
+  copy:
+    src: ./neovim/install/templates/init.vim
+    dest: ~/.config/nvim/init.vim
+    backup: false
+
+- name: Has neovim plugins configs
+  copy:
+    src: ./neovim/install/templates/configs/
+    dest: ~/.config/nvim/configs/
+    backup: false
+    
+- name: Has neovim hotkeys config
+  copy:
+    src: ./neovim/install/templates/keys/
+    dest: ~/.config/nvim/keys/
+    backup: false
