@@ -1,0 +1,3 @@
+xkb_symbols "custom"   { 
+    include "pc+us+ru:2+inet(evdev)+group(toggle)+ctrl(swapcaps)"	
+};
