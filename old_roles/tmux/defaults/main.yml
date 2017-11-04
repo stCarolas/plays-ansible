@@ -1,3 +1,0 @@
----
-# defaults file for tmux
-tmux_global_config : ~/.tmux.conf

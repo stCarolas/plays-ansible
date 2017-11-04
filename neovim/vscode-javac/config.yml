@@ -1,12 +1,6 @@
 ---
 - name: Has vscode javac included
   copy:
-    src: ./neovim/vscode-javac/templates/configs/
-    dest: ~/.config/nvim/configs/
+    src:    ./neovim/vscode-javac/templates/configs/
+    dest:   ~/.config/nvim/configs/
     backup: false
-
-#- name: Has neovim hotkeys config
-  #copy:
-    #src: ./neovim/vscode-javac/templates/keys/
-    #dest: ~/.config/nvim/keys/
-    #backup: false

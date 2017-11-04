@@ -1,4 +1,0 @@
-- name: Has feh installed
-  become: true
-  dnf:
-    name: feh

@@ -1,3 +1,0 @@
----
-# defaults file for ansible_config
-bash_config_dir: ~/.bash/config

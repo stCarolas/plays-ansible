@@ -1,0 +1,12 @@
+---
+- name: Has downloads dir
+  file:
+    path:  ~/Downloads
+    state: directory
+
+- name: Has line for downloads in fstab
+  become: true
+  lineinfile  :
+      dest    : /etc/fstab
+      create  : yes
+      line    : "tmpfs /home/stcarolas/Downloads                   tmpfs     defaults        0 0"

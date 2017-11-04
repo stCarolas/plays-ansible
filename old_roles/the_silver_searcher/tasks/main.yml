@@ -1,7 +1,0 @@
----
-# tasks file for urxvt
-- name: Has the silver searcher installed
-  tags: ag,system
-  become: true
-  package : 
-    name  : the_silver_searcher

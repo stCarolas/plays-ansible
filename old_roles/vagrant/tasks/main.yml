@@ -1,6 +1,0 @@
----
-# tasks file for vagrant
-- name: Has vagrant installed
-  tags: vagrant
-  package :
-    name  : vagrant 

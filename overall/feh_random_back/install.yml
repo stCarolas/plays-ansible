@@ -1,0 +1,3 @@
+- name: Has feh installed
+  include_role: 
+    name: feh

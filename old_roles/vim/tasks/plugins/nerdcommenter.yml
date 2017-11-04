@@ -1,9 +1,0 @@
----
-- name: Has NERDCommenter installed
-  tags: vim
-  notify: install plugins
-  lineinfile     :
-    line         : Plugin 'scrooloose/nerdcommenter'
-    insertbefore : 'BEGIN vundle end block'
-    dest         : "{{ vim_config_dir }}/plugins"
-    state        : present
