@@ -8,6 +8,7 @@
   template   :
       src    : ./overall/alacritty/templates/alacritty.yml
       dest   : ~/.config/alacritty/alacritty.yml
+      backup : false
       
 - name: Has fonts dir
   file:

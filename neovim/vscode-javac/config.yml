@@ -4,3 +4,14 @@
     src:    ./neovim/vscode-javac/templates/configs/
     dest:   ~/.config/nvim/configs/
     backup: false
+
+- name: Has ftdetect dir
+  file:
+    path:   ~/.config/nvim/ftplugin/
+    state: directory
+
+- name: Has java config
+  copy:
+    src:    ./neovim/vscode-javac/templates/ftplugin/java.vim
+    dest:   ~/.config/nvim/ftplugin/java.vim
+    backup: false
