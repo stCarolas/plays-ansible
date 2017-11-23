@@ -1,5 +1,7 @@
 nmap <Leader>j <Plug>(easymotion-j)
 nmap <Leader>k <Plug>(easymotion-k)
+vmap <Leader>j <Plug>(easymotion-j)
+vmap <Leader>k <Plug>(easymotion-k)
 
 map f <Plug>(easymotion-fn)
 nmap <Leader>w <Plug>(easymotion-w)
