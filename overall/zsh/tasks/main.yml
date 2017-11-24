@@ -1,15 +1,4 @@
 ---
-- name: Has antigen installed
-  tags: zsh
-  shell: "curl -L git.io/antigen > ~/.config/antigen.zsh"
-
-- name: Has zsh as default
-  tags: zsh
-  shell: "chsh -s $(which zsh)"
-
-- name: Has zsh config
-  tags: zsh
-  copy:
-    src: templates/config
-    dest: ~/.zshrc
-    force: yes
+- name: Has zsh
+  include_role: 
+    name: zs

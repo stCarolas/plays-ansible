@@ -1,0 +1,6 @@
+---
+- name: Has libselinux-python
+  become: true
+  package:
+      name: libselinux-python
+

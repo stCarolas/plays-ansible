@@ -1,0 +1,5 @@
+---
+- name: Has atool
+  become: true
+  package:
+      name: atool

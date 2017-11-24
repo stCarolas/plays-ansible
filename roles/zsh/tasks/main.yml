@@ -1,24 +1,4 @@
 ---
-# tasks file for zsh
-- name: Has xkb config dir
-  tags: zsh
-  shell: "curl -L git.io/antigen > ~/.config/antigen.zsh"
-
-- name: Has antigen config
-  tags: zsh
-  blockinfile:
-    dest: "~/.zshrc"
-    create: yes
-    content: |
-        source ~/.config/antigen.zsh
-
-        antigen bundle https://github.com/urbainvaes/fzf-marks
-        antigen bundle andrewferrier/fzf-z
-
-        antigen use oh-my-zsh
-        antigen bundle git
-        antigen bundle z
-        antigen bundle zsh-users/zsh-syntax-highlighting
-        antigen theme pygmalion
-
-        antigen apply
+- name: Has zsh
+  become: true
+  package: zsh
