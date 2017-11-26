@@ -4,3 +4,13 @@
   package:
       name: libselinux-python
 
+- name: Has xclip
+  become: true
+  package:
+      name: xclip
+
+- name: Has xclip
+  become: true
+  package:
+      name: xclip
+

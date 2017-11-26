@@ -7,18 +7,5 @@
       include_vars:
         dir: "config/{{ ansible_hostname }}"
 
-    - include_tasks: "./overall/{{ item }}/install.yml"
-      tags: install
-      with_items: "{{ overall }}"
-
-    - include_tasks: "./overall/{{ item }}/config.yml"
-      tags: config
-      with_items: "{{ overall }}"
-      
-    - include_tasks: "./neovim/{{ item }}/install.yml"
-      tags: install
-      with_items: "{{ neovim }}"
-
-    - include_tasks: "./neovim/{{ item }}/config.yml"
-      tags: config
-      with_items: "{{ neovim }}"
+- import_playbook: overall/play.yml
+#- import_playbook: neovim/play.yml

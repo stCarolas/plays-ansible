@@ -1,4 +1,8 @@
 ---
+- name: Has LF config dir
+  file:
+    path: ~/.config/lf
+    state: directory
 - name: Has LF config
   assemble:
     src: ./lf/templates/config/

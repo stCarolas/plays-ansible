@@ -79,7 +79,7 @@ map oc :$vim ~/.config/lf/lfrc
 
 map r push :rename<space>
 
-map s $ LFLVL=$LFLVL:+ $SHELL
+#map s $ LFLVL=$LFLVL:+ $SHELL
 
 map x $"$f"
 map X !"$f"

@@ -6,7 +6,7 @@
 
 - name: Has config script
   template   :
-      src    : ./overall/alacritty/templates/alacritty.yml
+      src    : ./alacritty/templates/alacritty.yml
       dest   : ~/.config/alacritty/alacritty.yml
       backup : false
       

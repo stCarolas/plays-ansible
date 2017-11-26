@@ -8,4 +8,4 @@
   shell: "cd /tmp && tar -xvzf lf-linux-amd64.tar.gz"
 
 - name: Has LF installed
-  shell: "cp /tmp/lf ~/.local/bin/"
+  shell: "cp -f /tmp/lf ~/.local/bin/"

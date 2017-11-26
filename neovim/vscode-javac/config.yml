@@ -1,7 +1,7 @@
 ---
 - name: Has vscode javac included
   copy:
-    src:    ./neovim/vscode-javac/templates/configs/
+    src:    ./vscode-javac/templates/configs/
     dest:   ~/.config/nvim/configs/
     backup: false
 
@@ -12,6 +12,6 @@
 
 - name: Has java config
   copy:
-    src:    ./neovim/vscode-javac/templates/ftplugin/java.vim
+    src:    ./vscode-javac/templates/ftplugin/java.vim
     dest:   ~/.config/nvim/ftplugin/java.vim
     backup: false

@@ -6,18 +6,18 @@
 
 - name: Has neovim global config
   copy:
-    src: ./neovim/install/templates/init.vim
+    src: ./install/templates/init.vim
     dest: ~/.config/nvim/init.vim
     backup: false
 
 - name: Has neovim plugins configs
   copy:
-    src: ./neovim/install/templates/configs/
+    src: ./install/templates/configs/
     dest: ~/.config/nvim/configs/
     backup: false
     
 - name: Has neovim hotkeys config
   copy:
-    src: ./neovim/install/templates/keys/
+    src: ./install/templates/keys/
     dest: ~/.config/nvim/keys/
     backup: false

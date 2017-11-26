@@ -3,5 +3,5 @@
 - name: Has i3 config
   tags: i3
   assemble:
-    src: ./overall/i3/templates/config/
+    src: ./i3/templates/config/
     dest: ~/.config/i3/config
