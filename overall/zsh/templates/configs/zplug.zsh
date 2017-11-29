@@ -1,6 +1,7 @@
 source ~/.zplug/init.zsh
 
 zplug 'mgee/slimline', as:theme
+zplug 'dracula/zsh', as:theme
 
 if ! zplug check --verbose; then
     printf "Install? [y/N]: "
