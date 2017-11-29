@@ -1,7 +1,8 @@
 source ~/.zplug/init.zsh
 
-zplug 'mgee/slimline', as:theme
 zplug 'dracula/zsh', as:theme
+zplug 'plugins/git', from:oh-my-zsh
+zplug 'sparsick/ansible-zsh'
 
 if ! zplug check --verbose; then
     printf "Install? [y/N]: "

@@ -162,6 +162,6 @@ bar {
         hidden_state hide
         modifier Mod4
 }
-exec setxkbmap -layout "us,ru" -option grp:rctrl_toggle -option ctrl:swapcaps &
+exec setxkbmap -layout "us,ru" -option grp:alt_space_toggle -option ctrl:swapcaps &
 exec sleep 60
 exec xcape
