@@ -1,6 +1,5 @@
 {
 	"neovim":[
-		"install",
-		"vscode-javac"
+	   "install"
 	]
 }
