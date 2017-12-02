@@ -12,8 +12,14 @@ zstyle :compinstall filename '/home/stcarolas/.zshrc'
 
 autoload -Uz compinit
 compinit
+zstyle ':completion:*' menu select
+zstyle ':completion:*' rehash true
 # End of lines added by compinstall
 
 for file in ~/.config/zsh/*; do
   source "$file"
 done
+
+lfShow() { BUFFER="lf"; zle accept-line; }
+zle -N lfShow
+bindkey '^o' lfShow

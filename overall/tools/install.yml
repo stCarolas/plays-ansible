@@ -3,3 +3,8 @@
   become: true
   package:
       name: atool
+
+- name: Has fzf
+  become: true
+  package:
+      name: fzf

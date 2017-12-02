@@ -92,3 +92,4 @@ ENV/
 
 # ansible retry files
 system.retry
+*.swp
