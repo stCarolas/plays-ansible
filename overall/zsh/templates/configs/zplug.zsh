@@ -1,6 +1,6 @@
 source ~/.zplug/init.zsh
 
-zplug 'dracula/zsh', as:theme
+zplug 'mgee/slimline'
 zplug 'plugins/git', from:oh-my-zsh
 zplug 'sparsick/ansible-zsh'
 
