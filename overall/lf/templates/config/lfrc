@@ -71,8 +71,9 @@ map ad push :$mkdir <space>
 map af push :vim <space>
 
 map gp cd ~/Coding/projects
-map gc cd ~/.config
 map gs cd ~/Coding/scripts
+map gd cd ~/Downloads
+map gc cd ~/.config
 map gh cd ~
 map gr cd /
 
