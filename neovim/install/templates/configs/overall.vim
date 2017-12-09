@@ -10,4 +10,7 @@ let g:lightline = {
   \ 'colorscheme': 'darcula'
   \ }
 set showtabline=2
-
+set cursorline
+set cursorcolumn
+hi CursorLine   cterm=NONE ctermbg=darkgray ctermfg=white
+hi CursorColumn   cterm=NONE ctermbg=darkgray ctermfg=white

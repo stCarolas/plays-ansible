@@ -7,6 +7,6 @@
       include_vars:
         dir: "config/{{ ansible_hostname }}"
 
-#- import_playbook: overall/play.yml
-- import_playbook: server/play.yml
-#- import_playbook: neovim/play.yml
+- import_playbook: overall/play.yml
+#- import_playbook: server/play.yml
+- import_playbook: neovim/play.yml
