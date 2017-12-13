@@ -9,6 +9,7 @@
     "projects_dir",
     "downloads_tmp",
     "lf",
-    "scripts"
+    "scripts",
+    "urxvt"
 	]
 }
