@@ -3,6 +3,7 @@ source ~/.zplug/init.zsh
 zplug 'mgee/slimline'
 zplug 'plugins/git', from:oh-my-zsh
 zplug 'sparsick/ansible-zsh'
+zplug 'jreese/zsh-titles'
 
 if ! zplug check --verbose; then
     printf "Install? [y/N]: "
