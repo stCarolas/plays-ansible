@@ -1,10 +1,9 @@
 ---
-- name: Has atool
+- name: Has tools
   become: true
   package:
-      name: atool
-
-- name: Has fzf
-  become: true
-  package:
-      name: fzf
+    name: "{{ item }}"
+  with_items:
+    - fzf
+    - atool
+    - the_silver_searcher
