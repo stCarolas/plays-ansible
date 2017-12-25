@@ -3,13 +3,13 @@
     "zsh",
     "alacritty",
     "tools",
-    "xcape",
 		"i3",
     "feh_random_back",
     "projects_dir",
     "downloads_tmp",
     "lf",
     "scripts",
+    "minikube",
     "urxvt"
 	]
 }

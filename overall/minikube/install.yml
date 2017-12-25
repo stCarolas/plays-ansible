@@ -1,0 +1,21 @@
+---
+- name: Has virtualization
+  become:  true
+  package:
+    name:  "@virtualization"
+
+- name: Has vagrant libvirt provider
+  become:  true
+  package:
+    name:  "vagrant-libvirt"
+
+- name: Has kubectl
+  become:  true
+  package:
+    name:  "kubernetes-client.x86_64"
+
+- name: Has minicube
+  get_url:
+    url:   "https://storage.googleapis.com/minikube/releases/v0.24.1/minikube-linux-amd64"
+    dest:  "~/.local/bin/kube"
+    mode:  "0550"
