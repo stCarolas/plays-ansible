@@ -66,6 +66,7 @@ cmd find_file ${{
 
 ############################### HOTKEYS
 map <c-o> quit
+map o quit
 map f search
 map ad push :$mkdir <space>
 map af push :vim <space>
