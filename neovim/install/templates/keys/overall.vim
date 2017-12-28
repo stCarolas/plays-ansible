@@ -1,4 +1,4 @@
 nnoremap ; :
 vnoremap ; :
-nnoremap <C-N> :bnext<CR>
-nnoremap <C-B> :bprev<CR>
+nnoremap <A-l> :bnext<CR>
+nnoremap <A-h> :bprev<CR>

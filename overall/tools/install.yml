@@ -7,3 +7,10 @@
     - fzf
     - atool
     - the_silver_searcher
+
+- name: Has python tools
+  become: true
+  pip:
+    name: "{{ item }}"
+  with_items:
+    - "ansible-container"
