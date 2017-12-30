@@ -1,23 +1,8 @@
-nmap <Leader>j <Plug>(easymotion-j)
-vmap <Leader>j <Plug>(easymotion-j)
-
-vmap <Leader>k <Plug>(easymotion-k)
-nmap <Leader>k <Plug>(easymotion-k)
-
-nmap f <Plug>(easymotion-f)
-vmap f <Plug>(easymotion-f)
-
-nmap t <Plug>(easymotion-bd-t)
-vmap t <Plug>(easymotion-bd-t)
-
-nmap <Leader>w <Plug>(easymotion-w)
-vmap <Leader>w <Plug>(easymotion-w)
-
-vmap <Leader>b <Plug>(easymotion-b)
-nmap <Leader>b <Plug>(easymotion-b)
-
-nmap / <Plug>(incsearch-easymotion-/)
-vmap / <Plug>(incsearch-easymotion-/)
-
-nmap ? <Plug>(incsearch-easymotion-?)
-vmap ? <Plug>(incsearch-easymotion-?)
+map <Leader>j <Plug>(easymotion-j)
+map <Leader>k <Plug>(easymotion-k)
+map f <Plug>(easymotion-f)
+map t <Plug>(easymotion-bd-t)
+map <Leader>w <Plug>(easymotion-w)
+map <Leader>b <Plug>(easymotion-b)
+map / <Plug>(incsearch-easymotion-/)
+map ? <Plug>(incsearch-easymotion-?)

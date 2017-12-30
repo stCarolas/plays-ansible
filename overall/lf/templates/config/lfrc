@@ -60,6 +60,11 @@ cmd run_gradle_task ${{
     dedicated_shell.py 'cat .gradle.tasks | fzf --bind "enter:execute(./gradlew --stacktrace {} | less)+abort"'
 }}
 
+cmd m1 ${{
+    clear && ls | m1
+    lf -remote "send $id push /$(head -n1 /tmp/m1)<enter>:open<enter>"
+}}
+
 cmd find_file ${{
     fzf --bind "enter:execute(vim {})+abort"
 }}
@@ -69,7 +74,7 @@ map <c-o> quit
 map ad push :$mkdir<space>
 map af push :$touch<space>
 
-map f $lf -remote "send $id push /$(ls | fzf)<enter>:open<enter>"
+map f m1
 
 map gp cd ~/Coding/projects
 map gs cd ~/Coding/scripts
