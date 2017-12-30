@@ -66,10 +66,10 @@ cmd find_file ${{
 
 ############################### HOTKEYS
 map <c-o> quit
-map o quit
-map f search
-map ad push :$mkdir <space>
-map af push :vim <space>
+map ad push :$mkdir<space>
+map af push :$touch<space>
+
+map f $lf -remote "send $id push /$(ls | fzf)<enter>:open<enter>"
 
 map gp cd ~/Coding/projects
 map gs cd ~/Coding/scripts
@@ -78,12 +78,11 @@ map gc cd ~/.config
 map gh cd ~
 map gr cd /
 
-map of :find_file
-map oc :$vim ~/.config/lf/lfrc
+map o quit
 
 map r push :rename<space>
 
-#map s $ LFLVL=$LFLVL:+ $SHELL
+map t $lf -remote "send $id push /$(ls | fzf)<enter>"
 
 map x $"$f"
 map X !"$f"
