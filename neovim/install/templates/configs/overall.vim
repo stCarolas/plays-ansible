@@ -16,5 +16,5 @@ hi CursorLine   cterm=NONE ctermbg=darkgray ctermfg=white
 hi CursorColumn   cterm=NONE ctermbg=darkgray ctermfg=white
 :autocmd InsertEnter * set nocursorline
 :autocmd InsertEnter * set nocursorcolumn
-:autocmd InsertLeave * set cursorline
-:autocmd InsertEnter * set cursorcolumn
+:autocmd InsertLeave * set cursorcolumn
+:autocmd InsertEnter * set nocursorcolumn
