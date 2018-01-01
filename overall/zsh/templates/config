@@ -23,7 +23,7 @@ done
 autoload -Uz add-zsh-hook
 chback_on_chdir () {
   clear
-  ls -l --group-directories-first
+  ls -1 --group-directories-first
 }
 add-zsh-hook chpwd chback_on_chdir
 
