@@ -1,0 +1,5 @@
+- name: Has right i3 config
+  lineinfile  :
+      dest    : ~/.config/i3/config
+      create  : yes
+      line    : "exec feh --randomize --bg-fill ~/Wall/*"

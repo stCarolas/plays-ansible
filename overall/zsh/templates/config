@@ -20,6 +20,20 @@ for file in ~/.config/zsh/*; do
   source "$file"
 done
 
-lfShow() { BUFFER="lf"; zle accept-line; }
-zle -N lfShow
-bindkey '^o' lfShow
+autoload -Uz add-zsh-hook
+chback_on_chdir () {
+  clear
+  ls -l --group-directories-first
+}
+add-zsh-hook chpwd chback_on_chdir
+
+m1Show() { BUFFER=". jump"; zle accept-line; }
+back() { BUFFER="cd .."; zle accept-line; }
+edit() { BUFFER="fzf --bind \"enter:execute(vim {})+abort\""; zle accept-line; }
+
+zle -N m1Show
+zle -N back
+zle -N edit
+bindkey '\ej' m1Show
+bindkey "\eh" back
+bindkey "\eo" edit
