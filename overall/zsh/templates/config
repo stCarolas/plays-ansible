@@ -23,17 +23,22 @@ done
 autoload -Uz add-zsh-hook
 chback_on_chdir () {
   clear
-  ls -1 --group-directories-first
+  ls -1 --group-directories-first | m1 --no-input
 }
 add-zsh-hook chpwd chback_on_chdir
 
 m1Show() { BUFFER=". jump"; zle accept-line; }
 back() { BUFFER="cd .."; zle accept-line; }
+goIn() { BUFFER=". jump_no_menu"; zle accept-line; }
 edit() { BUFFER="fzf --bind \"enter:execute(vim {})+abort\""; zle accept-line; }
 
 zle -N m1Show
 zle -N back
 zle -N edit
+zle -N goIn
+ 
 bindkey '\ej' m1Show
 bindkey "\eh" back
 bindkey "\eo" edit
+bindkey "\ei" goIn
+bindkey -s "\el" "ls -1 --group-directories-first\n"
