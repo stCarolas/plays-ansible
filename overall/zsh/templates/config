@@ -30,15 +30,18 @@ add-zsh-hook chpwd chback_on_chdir
 m1Show() { BUFFER=". jump"; zle accept-line; }
 back() { BUFFER="cd .."; zle accept-line; }
 goIn() { BUFFER=". jump_no_menu"; zle accept-line; }
-edit() { BUFFER="fzf --bind \"enter:execute(vim {})+abort\""; zle accept-line; }
+edit() { BUFFER="fzf --bind \"enter:execute(nvim {})+abort\""; zle accept-line; }
+projects() { BUFFER="projects"; zle accept-line; }
 
 zle -N m1Show
 zle -N back
 zle -N edit
 zle -N goIn
+zle -N projects
  
 bindkey '\ej' m1Show
 bindkey "\eh" back
 bindkey "\eo" edit
 bindkey "\ei" goIn
+bindkey "\ep" projects
 bindkey -s "\el" "ls -1 --group-directories-first\n"

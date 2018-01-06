@@ -7,6 +7,10 @@ drun() {
   docker run $run_opts $image
 }
 
+drh() {
+  docker run -v ${PWD}:/data -v /var/run/docker.sock:/var/run/docker.sock -it $1 bash
+}
+
 dbuild() {
   project_name=${PWD##*/}
   docker build . -t $project_name:$(date +%s)

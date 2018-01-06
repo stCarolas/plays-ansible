@@ -19,3 +19,6 @@ hi CursorColumn   cterm=NONE ctermbg=darkgray ctermfg=white
 :autocmd InsertEnter * set nocursorcolumn
 :autocmd InsertLeave * set cursorcolumn
 :autocmd InsertLeave * set cursorline
+
+autocmd BufEnter * let &titlestring = hostname() . "[vim(" . $PWD .expand("%:t") . ")]"
+set title
