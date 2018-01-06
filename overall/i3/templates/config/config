@@ -78,9 +78,13 @@ mode "resize" {
 
 mode "command" {
         bindsym m mode "default"; exec /home/stcarolas/Coding/scripts/mark
-        bindsym g mode "default"; exec /home/stcarolas/Coding/scripts/goto
-        bindsym l mode "default"; exec /home/stcarolas/.local/bin/quickswitch --prompt -d "dmenu -b -i -f -l 10 -fn 'UbuntuMono-22'" 
         bindsym u mode "default"; exec /home/stcarolas/Coding/scripts/unmark
+        bindsym g mode "default"; exec /home/stcarolas/Coding/scripts/goto
+
+        bindsym r mode "default"; exec rofi -show drun
+        bindsym w mode "default"; exec rofi -show window -matching fuzzy
+        bindsym l mode "default"; exec rofi -show windowcd -matching fuzzy
+
         bindsym Return mode "default"
         bindsym Escape mode "default"
 }
@@ -102,6 +106,7 @@ bar {
 }
 
 for_window [class="Firefox"] border pixel 1
+
 exec --no-startup-id setxkbmap -layout "us,ru" -option grp:alt_space_toggle -option ctrl:swapcaps &
 exec --no-startup-id sleep 60
 exec --no-startup-id xcape
