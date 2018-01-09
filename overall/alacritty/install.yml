@@ -2,15 +2,4 @@
 - name: Has libselinux-python
   become: true
   package:
-      name: libselinux-python
-
-- name: Has xclip
-  become: true
-  package:
-      name: xclip
-
-- name: Has xclip
-  become: true
-  package:
-      name: xclip
-
+      name: conky
