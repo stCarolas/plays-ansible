@@ -9,4 +9,3 @@
       src    : ./i3conky/templates/stats
       dest   : ~/.config/conky/stats
       backup : false
-      
