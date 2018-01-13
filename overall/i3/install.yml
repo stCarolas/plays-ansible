@@ -1,6 +1,5 @@
 ---
 # tasks file for i3
-- name: Has py3status
+- name: Has i3block repo enabled
   become: true
-  pip: 
-    name: py3status
+  shell: "dnf -y copr enable wyvie/i3blocks && dnf -y install i3blocks"

@@ -100,7 +100,7 @@ focus_follows_mouse no
 
 bar {
         position bottom
-        status_command py3status
+        status_command i3blocks -c ~/.config/i3/i3blocks.conf
         mode hide
         hidden_state hide
         modifier Mod4
