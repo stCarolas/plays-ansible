@@ -13,7 +13,7 @@ conky.config = {
     draw_shades = false,
     use_xft = true,
     font = 'Inconsolata for Powerline Nerd Font Complete Mono:size=14',
-    gap_x = -200,
+    gap_x = -370,
     gap_y = 0,
     minimum_height = 5,
 	  minimum_width = 5,
