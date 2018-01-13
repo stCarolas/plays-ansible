@@ -113,5 +113,9 @@ for_window [class="Conky"] move window to scratchpad
 
 exec --no-startup-id setxkbmap -layout "us,ru" -option grp:alt_space_toggle -option ctrl:swapcaps &
 exec --no-startup-id sleep 60
-exec --no-startup-id conky
 exec --no-startup-id xcape
+
+exec --no-startup-id conky -d -c ~/.config/conky/docker
+exec --no-startup-id conky -d -c ~/.config/conky/docker_status
+exec --no-startup-id conky -d -c ~/.config/conky/overall
+exec --no-startup-id conky -d -c ~/.config/conky/stats
