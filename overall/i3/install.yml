@@ -1,2 +1,6 @@
 ---
 # tasks file for i3
+- name: Has py3status
+  become: true
+  pip: 
+    name: py3status
