@@ -8,6 +8,7 @@
     - atool
     - the_silver_searcher
     - conky
+    - jq
 
 - name: Has python tools
   become: true

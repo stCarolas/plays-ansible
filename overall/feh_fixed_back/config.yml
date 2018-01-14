@@ -2,4 +2,5 @@
   lineinfile  :
       dest    : ~/.config/i3/config
       create  : yes
-      line    : "exec feh --randomize --bg-fill ~/Wall/*"
+      line    : "exec feh --bg-fill ~/Wall/wallhaven-465640.png"
+      regexp  : "exec feh .*"
