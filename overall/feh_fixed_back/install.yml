@@ -2,7 +2,7 @@
   include_role: 
     name: feh
 
-- name: Has wallpaper downloaded
-  get_url:
-    url: "https://alpha.wallhaven.cc/wallpaper/465640"
-    dest: "~/Wall/wallhaven-465640.png"
+#- name: Has wallpaper downloaded
+  #get_url:
+    #url: "https://alpha.wallhaven.cc/wallpaper/465640"
+    #dest: "~/Wall/wallhaven-465640.png"
