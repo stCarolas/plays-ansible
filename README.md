@@ -9,5 +9,5 @@ Ansible playbook с набором ролей для раскатки некот
 - overall.json - аналогично neovim.json
 
 Раскатывается:  
-`ansible-playbook system.yml`
+`ansible-playbook system.yml`  
 Использует ansible.cfg, если вы не определили в sys env свой конфиг. По умолчанию запрашивает пароль от рута.
