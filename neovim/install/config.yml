@@ -1,23 +1,34 @@
 ---
-- name: Has neovim config dir
+- name: Has config dir
   file:
     path: ~/.config/nvim/
     state: directory
 
-- name: Has neovim global config
+- name: Has global config
   copy:
     src: ./install/templates/init.vim
     dest: ~/.config/nvim/init.vim
     backup: false
 
-- name: Has neovim plugins configs
+- name: Has plugins configs
   copy:
     src: ./install/templates/configs/
     dest: ~/.config/nvim/configs/
     backup: false
     
-- name: Has neovim hotkeys config
+- name: Has hotkeys config
   copy:
     src: ./install/templates/keys/
     dest: ~/.config/nvim/keys/
+    backup: false
+    
+- name: Has ftdetect dir
+  file:
+    path:   ~/.config/nvim/ftplugin/
+    state: directory
+
+- name: Has ansible config
+  copy:
+    src:    ./install/templates/ftplugin/yaml.vim
+    dest:   ~/.config/nvim/ftplugin/yaml.vim
     backup: false
