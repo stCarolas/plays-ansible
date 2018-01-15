@@ -1,19 +1,12 @@
 Что это
 -------
-Ansible playbook с набором ролей для раскатки некоторого количества софта(главным образом - vim, ranger, fzf), интеграций между ними и их настроек.
+Ansible playbook с набором ролей для раскатки некоторого количества софта
 
 Как использовать
 ----------------
-Под рутом для установки приложений
-`ansible-playbook system.yml --tags system`
-
-Под своим пользователем для раскатки настроек
-`ansible-playbook system.yml --skip-tags system`
-
-todos
------
-- вынести настройки nvm из роли bash в роль nvm
-- перевести vim с ctags на gnu global
-- разобраться с ansible hacking ролью
-- Option "XKbOptions" "ctrl:swapcaps" в /etc/X11/xorg.conf.d/keyboard.conf 
-- установка VimProcInstall
+в config надо создать папку, соответствующую hostname машины, на которой раскатываются настройки. В этой папке два конфиг файла:
+- neovim.json, описывающий какие плейбуки из папки neovim использовать. По названию соответствуют подпапкам в neovim/
+- overall.json - аналогично neovim.json
+Раскатывается:  
+`ansible-playbook system.yml`
+Использует ansible.cfg, если вы не определили в sys env свой конфиг. По умолчанию запрашивает пароль от рута.
