@@ -4,6 +4,7 @@
   tasks:
     - name: Load config
       tags: always
+      ignore_errors: true
       include_vars:
         dir: "config/{{ ansible_hostname }}"
 
