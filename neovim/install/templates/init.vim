@@ -11,3 +11,4 @@ colors zenburn
 hi EasyMotionTarget2First ctermbg=none ctermfg=red
 hi EasyMotionTarget2Second ctermbg=none ctermfg=lightred
 hi! EndOfBuffer ctermbg=bg ctermfg=bg guibg=bg guifg=bg
+hi CursorLineNr ctermfg=07 ctermbg=180
