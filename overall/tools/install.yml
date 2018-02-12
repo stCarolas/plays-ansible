@@ -9,6 +9,8 @@
     - the_silver_searcher
     - conky
     - jq
+    - ctags
+    -  python3-devel
 
 - name: Has python tools
   become: true
@@ -16,3 +18,4 @@
     name: "{{ item }}"
   with_items:
     - "ansible-container"
+    - "psutil"
