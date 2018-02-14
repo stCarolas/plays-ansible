@@ -10,3 +10,4 @@
 
 - import_playbook: overall/play.yml
 - import_playbook: neovim/play.yml
+- import_playbook: devel/play.yml

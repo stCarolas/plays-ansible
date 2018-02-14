@@ -63,6 +63,9 @@ bindsym $mod+Shift+0 move container to workspace 10
 bindsym $mod+Shift+c reload
 bindsym $mod+Shift+r restart
 
+bindsym F1 workspace conky
+bindsym --release F1 workspace back_and_forth
+
 mode "resize" {
         bindsym j resize shrink width 10 px or 10 ppt
         bindsym k resize grow height 10 px or 10 ppt

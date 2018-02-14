@@ -12,5 +12,8 @@
     "scripts",
     "minikube",
     "urxvt"
-	]
+	],
+  "devel":[
+    "vagrant-virtualbox"
+  ]
 }
