@@ -11,6 +11,7 @@
     "lf",
     "scripts",
     "minikube",
+    "zsh",
     "urxvt"
 	],
   "devel":[
