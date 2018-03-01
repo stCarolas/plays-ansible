@@ -22,8 +22,7 @@ done
 
 autoload -Uz add-zsh-hook
 chback_on_chdir () {
-  clear
-  ls -1 --group-directories-first | m1 --no-input
+    exa -hl --git --group-directories-first
 }
 add-zsh-hook chpwd chback_on_chdir
 
@@ -35,12 +34,15 @@ edit() { BUFFER="fzf --bind \"enter:execute(nvim {})+abort\""; zle accept-line; 
 zle -N edit
 bindkey "\eo" edit
 
-projects() { BUFFER="projects"; zle accept-line; }
-zle -N projects
-bindkey "\ep" projects
-
 autoload -z edit-command-line
 zle -N edit-command-line
 bindkey "\ei" edit-command-line
- 
-bindkey -s "\el" "ls -1 --group-directories-first\n"
+
+bindkey -s "\el" "exa -hl --git --group-directories-first\n"
+alias ll="exa -hl --git --group-directories-first\n"
+
+function echo_blank() {
+  echo
+}
+preexec_functions+=echo_blank
+precmd_functions+=echo_blank

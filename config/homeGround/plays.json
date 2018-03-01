@@ -10,5 +10,7 @@
     "downloads_tmp",
     "rofi",
     "scripts"
-	]
+	],
+  "devel":[
+  ]
 }
