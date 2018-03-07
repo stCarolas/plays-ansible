@@ -13,8 +13,6 @@ set showtabline=2
 set laststatus=0
 set cursorline
 set number
-hi CursorLine   cterm=NONE ctermbg=darkgray ctermfg=white
-hi CursorLineNr ctermfg=07 ctermbg=180
 
 :autocmd InsertEnter * set nocursorline
 :autocmd InsertEnter * hi CursorLineNr ctermbg=11 ctermfg=white
