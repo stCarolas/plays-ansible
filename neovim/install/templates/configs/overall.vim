@@ -23,3 +23,5 @@ hi CursorLineNr ctermfg=07 ctermbg=180
 
 autocmd BufEnter * let &titlestring = hostname() . "[vim(" . $PWD .expand("%:t") . ")]"
 set title
+set noswapfile
+set nobackup

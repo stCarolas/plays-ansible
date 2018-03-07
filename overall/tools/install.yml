@@ -11,6 +11,7 @@
     - jq
     - ctags
     -  python3-devel
+    - exa
 
 - name: Has python tools
   become: true
