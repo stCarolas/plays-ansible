@@ -39,7 +39,7 @@ zle -N edit-command-line
 bindkey "\ei" edit-command-line
 
 bindkey -s "\el" "exa -hl --git --group-directories-first\n"
-alias ll="exa -hl --git --group-directories-first\n"
+alias ll="exa -hl --git --group-directories-first"
 
 function echo_blank() {
   echo
