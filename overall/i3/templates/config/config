@@ -97,9 +97,15 @@ mode "command" {
 
 bindsym $mod+r mode "resize"
 bindsym $mod+m mode "command"
-hide_edge_borders smart
+
+bindsym $mod+p     exec python3 /home/stcarolas/Coding/i3-wm-multi-disp-scripts/newProjectWorkspaces.py
+bindsym $mod+space       exec python3 /home/stcarolas/Coding/i3-wm-multi-disp-scripts/switchNextProject.py
+bindsym $mod+Tab         exec python3 /home/stcarolas/Coding/i3-wm-multi-disp-scripts/cycleProjectWorkspacesFocus.py
+bindsym $mod+Shift+Tab   exec python3 /home/stcarolas/Coding/i3-wm-multi-disp-scripts/cycleProjectWorkspacesOutput.py
+bindsym $mod+Control+Tab exec python3 /home/stcarolas/Coding/i3-wm-multi-disp-scripts/cycleContainerProjectWorkspaces.py
 
 focus_follows_mouse no
+hide_edge_borders smart
 
 bar {
         position bottom
@@ -114,10 +120,12 @@ bar {
 for_window [class="Firefox"] border pixel 1
 for_window [class="Conky"] move window to scratchpad
 
-exec --no-startup-id setxkbmap -layout "us,ru" -option grp:alt_space_toggle -option ctrl:swapcaps &
+exec --no-startup-id python3 ~/.i3/i3-project-focus-workflow/newProjectWorkspaces.py default
+exec --no-startup-id setxkbmap -layout "us,ru" -option grp:toggle -option ctrl:swapcaps
 exec --no-startup-id sleep 60
-exec --no-startup-id xcape
 
 exec --no-startup-id conky -d -c ~/.config/conky/docker
 exec --no-startup-id conky -d -c ~/.config/conky/docker_status
 exec --no-startup-id conky -d -c ~/.config/conky/stats
+
+exec --no-startup-id xcape
