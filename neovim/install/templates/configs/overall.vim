@@ -1,8 +1,8 @@
 set showmatch
 set hidden
 set expandtab
-set tabstop=2
-set shiftwidth=2
+set tabstop=4
+set shiftwidth=4
 set nojoinspaces
 set textwidth=0
 set noshowmode

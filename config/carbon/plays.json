@@ -1,11 +1,11 @@
 {
-	"overall":[
+    "overall":[
     "zsh",
     "alacritty",
     "tools",
-		"i3",
-		"i3-wm-multi-disp",
-		"i3conky",
+    "i3",
+    "i3-wm-multi-disp",
+    "i3conky",
     "feh_fixed_back",
     "projects_dir",
     "downloads_tmp",
@@ -14,7 +14,7 @@
     "minikube",
     "zsh",
     "urxvt"
-	],
+    ],
   "devel":[
     "vagrant-virtualbox"
   ]
