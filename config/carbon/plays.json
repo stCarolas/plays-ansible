@@ -1,21 +1,21 @@
 {
     "overall":[
-    "zsh",
-    "alacritty",
-    "tools",
-    "i3",
-    "i3-wm-multi-disp",
-    "i3conky",
-    "feh_fixed_back",
-    "projects_dir",
-    "downloads_tmp",
-    "lf",
-    "scripts",
-    "minikube",
-    "zsh",
-    "urxvt"
+        "zsh",
+        "alacritty",
+        "tools",
+        "i3",
+        "i3-wm-multi-disp",
+        "i3conky",
+        "feh_fixed_back",
+        "projects_dir",
+        "downloads_tmp",
+        "lf",
+        "scripts",
+        "minikube",
+        "zsh",
+        "urxvt"
     ],
-  "devel":[
-    "vagrant-virtualbox"
-  ]
+    "devel":[
+        "vagrant-virtualbox"
+    ]
 }
