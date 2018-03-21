@@ -19,30 +19,3 @@ zstyle ':completion:*' rehash true
 for file in ~/.config/zsh/*; do
   source "$file"
 done
-
-autoload -Uz add-zsh-hook
-chback_on_chdir () {
-    exa -hl --git --group-directories-first
-}
-add-zsh-hook chpwd chback_on_chdir
-
-back() { BUFFER="cd .."; zle accept-line; }
-zle -N back
-bindkey "\eh" back
-
-edit() { BUFFER="fzf --bind \"enter:execute(nvim {})+abort\""; zle accept-line; }
-zle -N edit
-bindkey "\eo" edit
-
-autoload -z edit-command-line
-zle -N edit-command-line
-bindkey "\ei" edit-command-line
-
-bindkey -s "\el" "exa -hl --git --group-directories-first\n"
-alias ll="exa -hl --git --group-directories-first"
-
-function echo_blank() {
-  echo
-}
-preexec_functions+=echo_blank
-precmd_functions+=echo_blank
