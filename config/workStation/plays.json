@@ -1,20 +1,20 @@
 {
-	"overall":[
-    "alacritty",
-    "tools",
-    "xcape",
-		"i3",
-		"i3-wm-multi-disp",
-		"i3conky",
-    "feh_fixed_back",
-    "projects_dir",
-    "downloads_tmp",
-    "rofi",
-    "scripts",
-    "zsh"
+    "overall":[
+        "alacritty",
+        "tools",
+        "xcape",
+        "i3",
+        "i3-wm-multi-disp",
+        "i3conky",
+        "feh_fixed_back",
+        "projects_dir",
+        "downloads_tmp",
+        "rofi",
+        "scripts",
+        "zsh"
 	],
-  "devel":[
-  ],
+    "devel":[
+    ],
 	"neovim":[
 	   "install"
 	]
