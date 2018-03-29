@@ -124,8 +124,8 @@ exec --no-startup-id python3 ~/.i3/i3-project-focus-workflow/newProjectWorkspace
 exec --no-startup-id setxkbmap -layout "us,ru" -option grp:toggle -option ctrl:swapcaps
 exec --no-startup-id sleep 60
 
-exec --no-startup-id conky -d -c ~/.config/conky/docker
-exec --no-startup-id conky -d -c ~/.config/conky/docker_status
-exec --no-startup-id conky -d -c ~/.config/conky/stats
+#exec --no-startup-id conky -d -c ~/.config/conky/docker
+#exec --no-startup-id conky -d -c ~/.config/conky/docker_status
+#exec --no-startup-id conky -d -c ~/.config/conky/stats
 
 exec --no-startup-id xcape
