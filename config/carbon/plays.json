@@ -16,5 +16,8 @@
     ],
     "devel":[
         "vagrant-virtualbox"
-    ]
+    ],
+	"neovim":[
+	   "install"
+	]
 }
