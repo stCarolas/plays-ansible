@@ -1,0 +1,11 @@
+---
+- name: Has conky config dir
+  file:
+    path: ~/.config/conky
+    state: directory
+
+- name: Has config script
+  template   :
+      src    : ./i3conky/templates/stats
+      dest   : ~/.config/conky/stats
+      backup : false

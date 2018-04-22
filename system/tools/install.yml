@@ -1,0 +1,22 @@
+---
+- name: Has tools
+  become: true
+  package:
+    name: "{{ item }}"
+  with_items:
+    - fzf
+    - atool
+    - the_silver_searcher
+    - conky
+    - jq
+    - ctags
+    -  python3-devel
+    - exa
+
+- name: Has python tools
+  become: true
+  pip:
+    name: "{{ item }}"
+  with_items:
+    - "ansible-container"
+    - "psutil"

@@ -1,0 +1,4 @@
+- name: Has nginx installed
+  become: true
+  package : 
+    name  : nginx

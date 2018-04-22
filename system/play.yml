@@ -1,0 +1,12 @@
+---
+- hosts: localhost
+  connection: local
+  tasks:
+    - include_tasks: "./{{ item }}/install.yml"
+      tags: install
+      with_items: "{{ system }}"
+
+    - include_tasks: "./{{ item }}/config.yml"
+      tags: config
+      with_items: "{{ system }}"
+

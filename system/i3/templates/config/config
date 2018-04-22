@@ -1,0 +1,131 @@
+font pango:monospace 8
+
+set $mod Mod4
+floating_modifier $mod
+
+bindsym $mod+Return exec ~/.local/bin/alacritty
+
+bindsym $mod+Shift+q kill
+
+bindsym $mod+h fullscreen disable; focus left
+bindsym $mod+Left focus left
+bindsym $mod+j fullscreen disable; focus down
+bindsym $mod+Down focus down
+bindsym $mod+k fullscreen disable; focus up
+bindsym $mod+Up focus up
+bindsym $mod+l fullscreen disable; focus right
+bindsym $mod+Right focus right
+
+bindsym $mod+Shift+h move left
+bindsym $mod+Shift+j move down
+bindsym $mod+Shift+k move up
+bindsym $mod+Shift+l move right
+
+bindsym $mod+Shift+Left move left
+bindsym $mod+Shift+Down move down
+bindsym $mod+Shift+Up move up
+bindsym $mod+Shift+Right move right
+
+bindsym $mod+n fullscreen disable; split h
+bindsym $mod+v fullscreen disable; split v
+bindsym $mod+f fullscreen toggle
+
+bindsym $mod+s layout stacking
+bindsym $mod+w layout tabbed
+bindsym $mod+e layout toggle split
+
+bindsym $mod+Shift+space floating toggle
+bindsym $mod+o focus parent
+bindsym $mod+i focus child
+
+bindsym $mod+1 workspace 1
+bindsym $mod+2 workspace 2
+bindsym $mod+3 workspace 3
+bindsym $mod+4 workspace 4
+bindsym $mod+5 workspace 5
+bindsym $mod+6 workspace 6
+bindsym $mod+7 workspace 7
+bindsym $mod+8 workspace 8
+bindsym $mod+9 workspace 9
+bindsym $mod+0 workspace 10
+
+bindsym $mod+Shift+1 move container to workspace 1
+bindsym $mod+Shift+2 move container to workspace 2
+bindsym $mod+Shift+3 move container to workspace 3
+bindsym $mod+Shift+4 move container to workspace 4
+bindsym $mod+Shift+5 move container to workspace 5
+bindsym $mod+Shift+6 move container to workspace 6
+bindsym $mod+Shift+7 move container to workspace 7
+bindsym $mod+Shift+8 move container to workspace 8
+bindsym $mod+Shift+9 move container to workspace 9
+bindsym $mod+Shift+0 move container to workspace 10
+
+bindsym $mod+Shift+c reload
+bindsym $mod+Shift+r restart
+
+bindsym F1 workspace conky
+bindsym --release F1 workspace back_and_forth
+
+mode "resize" {
+        bindsym j resize shrink width 10 px or 10 ppt
+        bindsym k resize grow height 10 px or 10 ppt
+        bindsym l resize shrink height 10 px or 10 ppt
+        bindsym semicolon resize grow width 10 px or 10 ppt
+        bindsym Left resize shrink width 10 px or 10 ppt
+        bindsym Down resize grow height 10 px or 10 ppt
+        bindsym Up resize shrink height 10 px or 10 ppt
+        bindsym Right resize grow width 10 px or 10 ppt
+        bindsym Return mode "default"
+        bindsym Escape mode "default"
+}
+
+mode "command" {
+        bindsym m mode "default"; exec /home/stcarolas/Coding/scripts/mark
+        bindsym u mode "default"; exec /home/stcarolas/Coding/scripts/unmark
+        bindsym g mode "default"; exec /home/stcarolas/Coding/scripts/goto
+
+        bindsym r mode "default"; exec rofi -show drun
+        bindsym w mode "default"; exec rofi -show window -matching fuzzy
+        bindsym l mode "default"; fullscreen disable; exec rofi -show windowcd -matching fuzzy;
+
+        bindsym s fullscreen disable; scratchpad show
+        bindsym h fullscreen disable;  move window to scratchpad
+
+        bindsym Return mode "default"
+        bindsym Escape mode "default"
+}
+
+bindsym $mod+r mode "resize"
+bindsym $mod+m mode "command"
+
+bindsym $mod+p     exec python3 /home/stcarolas/Coding/i3-wm-multi-disp-scripts/newProjectWorkspaces.py
+bindsym $mod+space       exec python3 /home/stcarolas/Coding/i3-wm-multi-disp-scripts/switchNextProject.py
+bindsym $mod+Tab         exec python3 /home/stcarolas/Coding/i3-wm-multi-disp-scripts/cycleProjectWorkspacesFocus.py
+bindsym $mod+Shift+Tab   exec python3 /home/stcarolas/Coding/i3-wm-multi-disp-scripts/cycleProjectWorkspacesOutput.py
+bindsym $mod+Control+Tab exec python3 /home/stcarolas/Coding/i3-wm-multi-disp-scripts/cycleContainerProjectWorkspaces.py
+
+focus_follows_mouse no
+hide_edge_borders smart
+
+bar {
+        position bottom
+        status_command i3blocks -c ~/.config/i3/i3blocks.conf
+        mode hide
+        hidden_state hide
+        modifier Mod4
+        font pango:Inconsolata for Powerline Nerd Font Complete Mono 16
+        separator_symbol ".:|:."
+}
+
+for_window [class="Firefox"] border pixel 1
+for_window [class="Conky"] move window to scratchpad
+
+exec --no-startup-id python3 ~/.i3/i3-project-focus-workflow/newProjectWorkspaces.py default
+exec --no-startup-id setxkbmap -layout "us,ru" -option grp:toggle -option ctrl:swapcaps
+exec --no-startup-id sleep 60
+
+#exec --no-startup-id conky -d -c ~/.config/conky/docker
+#exec --no-startup-id conky -d -c ~/.config/conky/docker_status
+#exec --no-startup-id conky -d -c ~/.config/conky/stats
+
+exec --no-startup-id xcape

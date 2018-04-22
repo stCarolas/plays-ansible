@@ -1,0 +1,5 @@
+---
+- name: Has scripts
+  git:
+    repo: "https://github.com/stCarolas/scripts.git"
+    dest: ~/Coding/scripts

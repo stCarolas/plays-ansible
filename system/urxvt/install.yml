@@ -1,0 +1,4 @@
+- name: Has urxvt installed
+  become: true
+  package : 
+    name  : rxvt-unicode

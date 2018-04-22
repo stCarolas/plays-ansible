@@ -1,0 +1,58 @@
+conky.config = {
+    alignment = 'middle_middle',
+    background = false,
+    border_width = 1,
+    cpu_avg_samples = 2,
+	  default_color = 'white',
+    default_outline_color = 'white',
+    default_shade_color = 'white',
+    draw_borders = false,
+    draw_graph_borders = true,
+    draw_outline = false,
+    draw_shades = false,
+    use_xft = true,
+    font = 'DejaVu Sans Mono:size=12',
+    gap_x = 350,
+    gap_y = 52,
+    minimum_height = 5,
+	  minimum_width = 5,
+    net_avg_samples = 2,
+    no_buffers = true,
+    out_to_console = false,
+    out_to_stderr = false,
+    extra_newline = false,
+    own_window = true,
+    own_window_class = 'Conky',
+    own_window_type = 'override',
+    own_window_transparent = true,
+    stippled_borders = 0,
+    update_interval = 1.0,
+    uppercase = false,
+    use_spacer = 'none',
+    show_graph_scale = false,
+    show_graph_range = false
+}
+
+conky.text = [[
+${color grey}RAM Usage:$color $alignr $mem/$memmax - $memperc%
+ ${membar 4}
+${color grey}CPU Usage:$color $alignr $freq_g Ghz - $cpu%
+ ${cpubar 4}
+${color grey}File systems:
+ / $alignr$color${fs_used /}/${fs_size /}
+ ${fs_bar 6 /}
+ /home $alignr$color${fs_used /home}/${fs_size /home}
+ ${fs_bar 6 /home}
+${color grey}Name $alignr MEM%
+$color ${top_mem name 1}$alignr ${top_mem mem 1}
+$color ${top_mem name 2} $color $alignr ${top_mem mem 2}
+$color ${top_mem name 3} $color $alignr ${top_mem mem 3}
+$color ${top_mem name 4} $color $alignr ${top_mem mem 4}
+$color ${top_mem name 5} $color $alignr ${top_mem mem 5}
+$color ${top_mem name 6} $color $alignr ${top_mem mem 6}
+$color ${top_mem name 7} $color $alignr ${top_mem mem 7}
+$color ${top_mem name 8} $color $alignr ${top_mem mem 8}
+$color ${top_mem name 9} $color $alignr ${top_mem mem 9}
+$color ${top_mem name 10} $color $alignr ${top_mem mem 10}
+ $hr
+]]

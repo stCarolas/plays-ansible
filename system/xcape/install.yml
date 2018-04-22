@@ -1,0 +1,22 @@
+---
+- name: Has git
+  become: true
+  package:
+      name: "{{ item }}"
+  with_items:
+    - git
+    - gcc
+    - make
+    - pkgconfig
+    - libX11-devel
+    - libXtst-devel
+    - libXi-devel
+
+- name: Has xcape sources
+  git:
+    repo: "https://github.com/alols/xcape"
+    dest: /tmp/xcape
+
+- name: Has xcape installed
+  become: true
+  shell: "cd /tmp/xcape && make && make install"

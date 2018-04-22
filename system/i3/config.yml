@@ -1,0 +1,10 @@
+---
+# tasks file for i3
+- name: Has i3 config
+  tags: i3
+  assemble:
+    src: ./i3/templates/config/
+    dest: ~/.config/i3/config
+
+- name: Has i3blocks config
+  shell: "cp /etc/i3blocks.conf ~/.config/i3/i3blocks.conf"
