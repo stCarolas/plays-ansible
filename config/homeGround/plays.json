@@ -12,6 +12,7 @@
         "scripts"
 	],
     "devel":[
+        "docker-compose"
     ],
 	"neovim":[
 	   "install"
