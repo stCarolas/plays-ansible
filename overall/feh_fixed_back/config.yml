@@ -1,6 +1,0 @@
-- name: Has right i3 config
-  lineinfile  :
-      dest    : ~/.config/i3/config
-      create  : yes
-      line    : "exec --no-startup-id feh --bg-fill ~/Wall/wallhaven-465640.png"
-      regexp  : "exec feh .*"

@@ -1,6 +1,5 @@
 {
-	"overall":[
-        "alacritty",
+	"system":[
         "tools",
         "xcape",
         "i3",
@@ -10,12 +9,15 @@
         "projects_dir",
         "downloads_tmp",
         "rofi",
-        "scripts",
-        "zsh"
+        "scripts"
 	],
     "devel":[
     ],
 	"neovim":[
 	   "install"
-	]
+	],
+    "tui":[
+        "alacritty",
+        "zsh"
+    ]
 }

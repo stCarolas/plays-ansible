@@ -1,6 +1,0 @@
----
-- name: Has zsh config
-  copy:
-    src: templates/
-    dest: ~/.config/zsh/
-    force: yes

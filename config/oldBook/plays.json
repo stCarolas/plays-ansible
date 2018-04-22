@@ -10,5 +10,9 @@
     "downloads_tmp",
     "lf",
     "scripts"
+	],
+	"neovim":[
+		"install",
+		"vscode-javac"
 	]
 }

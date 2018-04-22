@@ -1,4 +1,0 @@
----
-- name: Has Apache Heron installed
-  become: true
-  shell: "wget https://github.com/twitter/heron/releases/download/0.17.3/heron-install-0.17.3-centos.sh && chmod 777 heron-install-0.17.3-centos.sh && ./heron-install-0.17.3-centos.sh && rm -rf ./heron-install-0.17.3-centos.sh"
