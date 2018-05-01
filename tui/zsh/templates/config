@@ -5,7 +5,6 @@ HISTSIZE=1000
 SAVEHIST=1000
 setopt appendhistory autocd nomatch
 unsetopt beep extendedglob
-bindkey -v
 # End of lines configured by zsh-newuser-install
 # The following lines were added by compinstall
 zstyle :compinstall filename '/home/stcarolas/.zshrc'
@@ -25,3 +24,10 @@ function echo_blank() {
 }
 preexec_functions+=echo_blank
 precmd_functions+=echo_blank
+
+function projects() {
+    project=$(ls ~/Coding/projects/ | fzf)
+    project="/home/stcarolas/Coding/projects/$project"
+    cd $project
+}
+alias pr=projects
