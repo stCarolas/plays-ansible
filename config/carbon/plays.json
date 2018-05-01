@@ -1,23 +1,24 @@
 {
-    "overall":[
-        "zsh",
-        "alacritty",
+    "system":[
         "tools",
+        "xcape",
         "i3",
-        "i3-wm-multi-disp",
-        "i3conky",
         "feh_fixed_back",
         "projects_dir",
         "downloads_tmp",
+        "rofi",
         "scripts",
-        "minikube",
-        "zsh",
-        "urxvt"
+        "minikube"
     ],
     "devel":[
-        "vagrant-virtualbox"
+        "vagrant-virtualbox",
+        "docker-compose"
     ],
 	"neovim":[
 	   "install"
-	]
+	],
+    "tui":[
+        "alacritty",
+        "zsh"
+    ]
 }
