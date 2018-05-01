@@ -31,15 +31,15 @@ bindsym $mod+Shift+space floating toggle
 
 bindsym $mod+n mode "navigation"
 mode "navigation" {
-    bindsym h mode "default"; workspace 1: Firefox
-    bindsym j mode "default"; workspace 2: Local Terminal
-    bindsym k mode "default"; workspace 3: Remote Terminal
-    bindsym l mode "default"; workspace 4: Back Jobs
+    bindsym h mode "default"; workspace 1
+    bindsym j mode "default"; workspace 2
+    bindsym k mode "default"; workspace 3
+    bindsym l mode "default"; workspace 4
 
-    bindsym Shift+h move container to workspace 1: Firefox
-    bindsym Shift+j move container to workspace 2: Local Terminal
-    bindsym Shift+k move container to workspace 3: Remote Terminal
-    bindsym Shift+l move container to workspace 4: Back Jobs
+    bindsym Shift+h move container to workspace 1
+    bindsym Shift+j move container to workspace 2
+    bindsym Shift+k move container to workspace 3
+    bindsym Shift+l move container to workspace 4
 
     bindsym w mode "default"; exec rofi -show window -matching fuzzy
     bindsym n mode "default"; exec ~/.config/i3/new_workspace.sh
@@ -69,8 +69,8 @@ mode "command" {
     bindsym p mode "default"; exec cd ~/Downloads && scrot
     bindsym e mode "default"; exec rofi -show drun
 
-    bindsym s fullscreen disable; scratchpad show
-    bindsym h fullscreen disable;  move window to scratchpad
+    bindsym s mode "default"; scratchpad show
+    bindsym h mode "default"; move window to scratchpad
     bindsym r mode "default"; exec ~/.config/i3/rename_workspace.sh
 
     bindsym Return mode "default"
@@ -78,9 +78,11 @@ mode "command" {
 }
 
 for_window [class="Firefox"] border pixel 1
+for_window [class="music"] move window to scratchpad
 for_window [class="Conky"] move window to scratchpad
 
 exec --no-startup-id setxkbmap -layout "us,ru" -option grp:toggle -option ctrl:swapcaps
+exec --no-startup-id firefox -no-remote -P music --class music
 exec --no-startup-id sleep 60
 exec --no-startup-id xcape
 exec --no-startup-id feh --bg-fill ~/Wall/wallhaven-465640.png
