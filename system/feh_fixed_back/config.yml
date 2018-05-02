@@ -2,5 +2,5 @@
   lineinfile  :
       dest    : ~/.config/i3/config
       create  : yes
-      line    : "exec --no-startup-id feh --bg-fill ~/Wall/wallhaven-465640.png"
-      regexp  : "exec feh .*"
+      line    : "exec --no-startup-id feh --bg-fill ~/Pictures/Wall/wallhaven-616337.png"
+      regexp  : "exec --no-startup-id feh .*"
