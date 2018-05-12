@@ -12,6 +12,8 @@
     - ctags
     -  python3-devel
     - exa
+    - qutebrowser
+    - qt5-qtwebengine-freeworld
 
 - name: Has python tools
   become: true
