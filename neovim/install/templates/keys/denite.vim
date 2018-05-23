@@ -26,3 +26,4 @@ call denite#custom#map(
       \ '<denite:toggle_select_all>',
       \ 'noremap'
       \)
+let g:easygit_enable_command = 1
