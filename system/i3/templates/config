@@ -82,7 +82,6 @@ for_window [class="music"] move window to scratchpad
 for_window [class="Conky"] move window to scratchpad
 
 exec --no-startup-id setxkbmap -layout "us,ru" -option grp:toggle -option ctrl:swapcaps
-exec --no-startup-id firefox -no-remote -P music --class music
 exec --no-startup-id sleep 60
 exec --no-startup-id xcape
-exec --no-startup-id feh --bg-fill ~/Wall/wallhaven-465640.png
+exec --no-startup-id feh --bg-fill ~/Pictures/Wall/back
