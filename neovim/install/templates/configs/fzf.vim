@@ -1,1 +1,1 @@
-Plug 'junegunn/fzf.vim'
+"Plug 'junegunn/fzf.vim'
