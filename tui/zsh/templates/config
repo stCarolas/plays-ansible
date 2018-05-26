@@ -2,7 +2,8 @@
 # Lines configured by zsh-newuser-install
 HISTFILE=~/.histfile
 HISTSIZE=1000
-SAVEHIST=1000
+HISTIGNORE="pwd:ll:jump:fzf_open:gp:gst"
+SAVEHIST=1
 setopt appendhistory autocd nomatch
 unsetopt beep extendedglob
 # End of lines configured by zsh-newuser-install
@@ -18,12 +19,6 @@ zstyle ':completion:*' rehash true
 for file in ~/.config/zsh/*; do
   source "$file"
 done
-
-function echo_blank() {
-  echo
-}
-preexec_functions+=echo_blank
-precmd_functions+=echo_blank
 
 function projects() {
     project=$(ls ~/Coding/projects/ | fzf)

@@ -34,7 +34,7 @@ bindkey "\eo" fzf_edit
 
 # ctrl-r to find and execute command from history
 fzf-history() { 
-    BUFFER="$(history | cut -c 8- | fzf)"; 
+    BUFFER="$(history | tac | cut -c 8- | fzf)"; 
     zle accept-line; 
 }
 zle -N fzf-history
