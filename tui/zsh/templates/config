@@ -1,9 +1,9 @@
 # Created by newuser for 5.4.1
 # Lines configured by zsh-newuser-install
 HISTFILE=~/.histfile
-HISTSIZE=1000
+HISTSIZE=10000
 HISTIGNORE="pwd:ll:jump:fzf_open:gp:gst"
-SAVEHIST=1
+SAVEHIST=10000
 setopt appendhistory autocd nomatch
 unsetopt beep extendedglob
 # End of lines configured by zsh-newuser-install
