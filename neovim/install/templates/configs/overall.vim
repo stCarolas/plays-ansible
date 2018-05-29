@@ -18,6 +18,7 @@ set number
 :autocmd InsertEnter * hi CursorLineNr ctermbg=11 ctermfg=white
 :autocmd InsertLeave * set cursorline
 :autocmd InsertLeave * hi CursorLineNr ctermfg=07 ctermbg=180
+autocmd BufEnter * highlight EndOfBuffer ctermfg=black ctermbg=black
 
 autocmd BufEnter * let &titlestring = hostname() . "[vim(" . $PWD .expand("%:t") . ")]"
 set title

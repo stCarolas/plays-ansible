@@ -15,4 +15,5 @@ hi Normal ctermbg=None
 hi CursorLine   cterm=None ctermbg=None ctermfg=white
 hi CursorLineNr ctermfg=07 ctermbg=180
 hi EndOfBuffer ctermfg=None
+highlight EndOfBuffer ctermfg=None ctermbg=None
 hi IndentGuidesEven  ctermbg=green
