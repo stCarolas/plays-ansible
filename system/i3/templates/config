@@ -29,25 +29,17 @@ bindsym $mod+w layout tabbed
 bindsym $mod+e layout toggle split
 bindsym $mod+Shift+space floating toggle
 
-bindsym $mod+n mode "navigation"
-mode "navigation" {
-    bindsym h mode "default"; workspace 1
-    bindsym j mode "default"; workspace 2
-    bindsym k mode "default"; workspace 3
-    bindsym l mode "default"; workspace 4
+bindsym $mod+1 mode "default"; workspace 1
+bindsym $mod+2 mode "default"; workspace 2
+bindsym $mod+3 mode "default"; workspace 3
+bindsym $mod+4 mode "default"; workspace 4
 
-    bindsym Shift+h move container to workspace 1
-    bindsym Shift+j move container to workspace 2
-    bindsym Shift+k move container to workspace 3
-    bindsym Shift+l move container to workspace 4
+bindsym $mod+Shift+1 move container to workspace 1
+bindsym $mod+Shift+2 move container to workspace 2
+bindsym $mod+Shift+3 move container to workspace 3
+bindsym $mod+Shift+4 move container to workspace 4
 
-    bindsym w mode "default"; exec rofi -show window -matching fuzzy
-    bindsym n mode "default"; exec ~/.config/i3/new_workspace.sh
-    bindsym space exec ~/.config/i3/wsselect.sh
-
-    bindsym Return mode "default"
-    bindsym Escape mode "default"
-}
+bindsym $mod+n mode "default"; exec rofi -show window -matching fuzzy
 
 bindsym $mod+r mode "resize"
 mode "resize" {
@@ -62,16 +54,11 @@ mode "resize" {
 
 bindsym $mod+m mode "command"
 mode "command" {
-    bindsym m mode "default"; exec /home/stcarolas/Coding/scripts/mark
-    bindsym u mode "default"; exec /home/stcarolas/Coding/scripts/unmark
-    bindsym g mode "default"; exec /home/stcarolas/Coding/scripts/goto
-
     bindsym p mode "default"; exec cd ~/Downloads && scrot
     bindsym e mode "default"; exec rofi -show drun
 
     bindsym s mode "default"; scratchpad show
     bindsym h mode "default"; move window to scratchpad
-    bindsym r mode "default"; exec ~/.config/i3/rename_workspace.sh
 
     bindsym Return mode "default"
     bindsym Escape mode "default"
