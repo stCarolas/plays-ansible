@@ -19,7 +19,6 @@ autocmd InsertLeave * set cursorline
 "autocmd InsertEnter * highlight CursorLineNr ctermbg=11 ctermfg=white
 "autocmd InsertLeave * highlight CursorLineNr ctermfg=07 ctermbg=180
 "autocmd BufEnter * highlight EndOfBuffer ctermfg=black ctermbg=black
-autocmd BufEnter * highlight Normal ctermfg=253 ctermbg=235
 
 autocmd BufEnter * let &titlestring = "[vim(" . expand("%:t") . ")]"
 set title
