@@ -67,6 +67,8 @@ mode "command" {
 for_window [class="Firefox"] border pixel 1
 for_window [class="music"] move window to scratchpad
 for_window [class="Conky"] move window to scratchpad
+for_window [title="VirtualBox"] move window to scratchpad
+for_window [title=".*WinDev.*"] move window to workspace 3
 
 exec --no-startup-id setxkbmap -layout "us,ru" -option grp:toggle -option ctrl:swapcaps
 exec --no-startup-id sleep 60
