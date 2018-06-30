@@ -14,7 +14,8 @@
         "docker-compose"
     ],
 	"neovim":[
-	   "install"
+        "install",
+        "vscode-javac"
 	],
     "tui":[
         "alacritty",
