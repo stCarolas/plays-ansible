@@ -1,5 +1,5 @@
-nmap <space>df :Denite file/rec<CR>
-nmap <space>db :Denite buffer<CR>
+nmap <Leader>f :Denite file/rec<CR>
+nmap <Leader>l :Denite buffer<CR>
 
 " Change mappings.
 call denite#custom#map(
