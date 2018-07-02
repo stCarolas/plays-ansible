@@ -1,5 +1,4 @@
 Plug 'junegunn/vim-easy-align'
-Plug 'SirVer/ultisnips' | Plug 'honza/vim-snippets'
 Plug 'jiangmiao/auto-pairs'
 Plug 'aperezdc/vim-template'
 Plug 'skywind3000/asyncrun.vim'
