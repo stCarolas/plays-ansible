@@ -26,4 +26,5 @@ call denite#custom#map(
       \ '<denite:toggle_select_all>',
       \ 'noremap'
       \)
+call denite#custom#var('file/rec', 'command', ['ag', '--follow', '--nocolor', '--nogroup', '-g', ''])
 let g:easygit_enable_command = 1
