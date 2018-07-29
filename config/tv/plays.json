@@ -1,0 +1,17 @@
+{
+    "system":[
+        "feh_fixed_back"
+    ],
+    "devel":[
+    ],
+	"neovim":[
+	],
+    "tui":[
+        "alacritty",
+        "zsh"
+    ],
+    "media":[
+        "rpmfusion",
+        "kodi"
+    ]
+}
