@@ -5,12 +5,12 @@
     ],
 	"neovim":[
 	],
-    "tui":[
-        "alacritty",
-        "zsh"
-    ],
     "media":[
         "rpmfusion",
         "kodi"
+    ],
+    "tui":[
+        "alacritty",
+        "zsh"
     ]
 }
