@@ -19,3 +19,5 @@ let g:deoplete#enable_at_startup = 1
 
 Plug 'ervandew/supertab', { 'do': ':UpdateRemotePlugins' }
 let g:SuperTabDefaultCompletionType = "<c-n>"
+let g:SuperTabMappingForward = '<c-space>'
+let g:SuperTabMappingBackward = '<s-c-space>'
