@@ -10,7 +10,7 @@ for rcfile in split(globpath("~/.config/nvim/keys", "*.vim"), '\n')
     execute('source '.rcfile)
 endfor
 
-colorscheme 256-grayvim
+colorscheme srcery
 hi EasyMotionTarget2First ctermbg=none ctermfg=red
 hi EasyMotionTarget2Second ctermbg=none ctermfg=lightred
 hi Folded ctermbg=none ctermfg=none
@@ -19,4 +19,4 @@ hi EndOfBuffer ctermfg=none
 "hi CursorLine   cterm=None ctermbg=None ctermfg=white
 "hi CursorLineNr ctermfg=07 ctermbg=180
 "highlight EndOfBuffer ctermfg=None ctermbg=None
-"hi IndentGuidesEven  ctermbg=green
+hi IndentGuidesEven  ctermbg=None
