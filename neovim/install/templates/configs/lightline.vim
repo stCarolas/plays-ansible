@@ -1,5 +1,5 @@
 Plug 'itchyny/lightline.vim'
-Plug 'taohex/lightline-buffer'
+Plug 'taohexxx/lightline-buffer'
 " use lightline-buffer in lightline
 let g:lightline = {
     \ 'tabline': {

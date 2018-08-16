@@ -10,7 +10,11 @@
     dest: ~/.config/zsh/
     force: yes
 
+- name:
+  command: ls ~/.zplug
+  register: has_zplug
+
 - name: Has zplug
-  ignore_errors: true
+  when: has_zplug is failed
   shell: "curl -sL --proto-redir -all,https https://raw.githubusercontent.com/zplug/installer/master/installer.zsh | zsh"
 
