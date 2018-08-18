@@ -1,24 +1,25 @@
 {
-    "system":[
-        "tools",
-        "xcape",
-        "i3",
-        "feh_fixed_back",
-        "projects_dir",
-        "downloads_tmp",
-        "rofi",
-        "scripts",
-        "minikube"
-    ],
-    "devel":[
-        "vagrant-virtualbox",
-        "docker-compose"
-    ],
+  "system":[
+    "tools",
+    "xcape",
+    "i3",
+    "feh_fixed_back",
+    "projects_dir",
+    "downloads_tmp",
+    "rofi",
+    "scripts",
+    "minikube"
+  ],
+  "devel":[
+    "vagrant-virtualbox",
+    "docker-compose"
+  ],
 	"neovim":[
-	   "install"
+    "install",
+    "vscode-javac"
 	],
-    "tui":[
-        "alacritty",
-        "zsh"
-    ]
+  "tui":[
+    "alacritty",
+    "zsh"
+  ]
 }
