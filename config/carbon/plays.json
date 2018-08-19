@@ -14,7 +14,7 @@
     "vagrant-virtualbox",
     "docker-compose"
   ],
-	"neovim":[
+  "neovim":[
     "install",
     "vscode-javac"
 	],
