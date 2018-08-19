@@ -9,3 +9,9 @@
       src    : ./i3conky/templates/stats
       dest   : ~/.config/conky/stats
       backup : false
+
+- name: Has config script
+  template   :
+      src    : ./i3conky/templates/conky.sh
+      dest   : ~/.config/conky/conky.sh
+      backup : false
