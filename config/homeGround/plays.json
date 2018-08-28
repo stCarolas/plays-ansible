@@ -7,7 +7,8 @@
         "projects_dir",
         "downloads_tmp",
         "rofi",
-        "scripts"
+        "scripts",
+        "dunst"
 	],
     "devel":[
         "docker-compose"
