@@ -1,0 +1,6 @@
+---
+- name: Has bat aliases for zsh
+  copy:
+    src: templates/bat.zsh
+    dest: ~/.config/zsh/
+    force: yes
