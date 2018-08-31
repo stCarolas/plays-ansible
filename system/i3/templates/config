@@ -43,6 +43,7 @@ bindsym $mod+Shift+3 move container to workspace 3
 bindsym $mod+Shift+4 move container to workspace 4
 
 bindsym $mod+n mode "default"; exec rofi -show window -matching fuzzy
+bindsym $mod+space mode "default"; exec rofi -show drun
 
 bindsym $mod+r mode "resize"
 mode "resize" {
@@ -58,7 +59,6 @@ mode "resize" {
 bindsym $mod+m mode "command"
 mode "command" {
     bindsym p mode "default"; exec cd ~/Downloads && scrot
-    bindsym e mode "default"; exec rofi -show drun
 
     bindsym s mode "default"; scratchpad show
     bindsym h mode "default"; move window to scratchpad
