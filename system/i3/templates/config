@@ -4,6 +4,9 @@ hide_edge_borders smart
 set $mod Mod4
 floating_modifier $mod
 
+bind 37 exec setxkbmap ru
+bind 105 exec setxkbmap us
+
 bindsym $mod+Return exec ~/.local/bin/alacritty
 bindsym $mod+f fullscreen toggle
 bindsym $mod+Shift+q kill
@@ -70,6 +73,6 @@ for_window [class="Conky"] floating toggle
 bindsym F1 exec ~/.config/conky/conky.sh
 for_window [title=".*WinDev.*"] move window to workspace 3
 
-exec --no-startup-id setxkbmap -layout "us,ru" -option grp:toggle -option ctrl:swapcaps
+exec --no-startup-id setxkbmap us -option ctrl:nocaps -option ctrl:lctrl_meta
 exec --no-startup-id sleep 30 && xcape
 exec --no-startup-id feh --bg-fill ~/Pictures/Wall/back
