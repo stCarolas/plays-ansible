@@ -71,6 +71,7 @@ for_window [class="Firefox"] border pixel 1
 for_window [class="music"] move window to scratchpad
 for_window [class="Conky"] floating toggle
 bindsym F1 exec ~/.config/conky/conky.sh
+bindsym F2 exec ~/.local/bin/networkmanager_dmenu
 for_window [title=".*WinDev.*"] move window to workspace 3
 
 exec --no-startup-id setxkbmap us -option ctrl:nocaps -option ctrl:lctrl_meta
