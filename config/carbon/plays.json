@@ -1,15 +1,18 @@
 {
   "system":[
-    "tools",
-    "xcape",
-    "i3",
-    "feh_fixed_back",
-    "projects_dir",
+    "docker",
     "downloads_tmp",
+    "dunst",
+    "feh_fixed_back",
+    "fzf_window_chooser",
+    "i3",
+    "i3conky",
+    "networkmanager-dmenu",
     "rofi",
+    "projects_dir",
     "scripts",
-    "minikube",
-    "dunst"
+    "tools",
+    "xcape"
   ],
   "devel":[
     "vagrant-virtualbox",
@@ -21,6 +24,8 @@
 	],
   "tui":[
     "alacritty",
-    "zsh"
+    "zsh",
+    "bat",
+    "git"
   ]
 }
