@@ -1,5 +1,6 @@
 ---
 - name: Has networkmanager-dmenu installed
+  ignore_errors: true
   command: ls ~/.local/bin/networkmanager_dmenu
   register: has_nm_dmenu
 
