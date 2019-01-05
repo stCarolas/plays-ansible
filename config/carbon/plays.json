@@ -1,29 +1,18 @@
 {
   "system":[
-    "docker",
     "downloads_tmp",
     "dunst",
-    "feh_fixed_back",
-    "fzf_window_chooser",
-    "i3",
-    "i3conky",
-    "networkmanager-dmenu",
     "rofi",
     "projects_dir",
     "scripts",
-    "tools",
-    "xcape"
+    "tools"
   ],
   "devel":[
-    "vagrant-virtualbox",
-    "docker-compose"
   ],
   "neovim":[
-    "install",
-    "vscode-javac"
+    "install"
 	],
   "tui":[
-    "alacritty",
     "zsh",
     "bat",
     "git"

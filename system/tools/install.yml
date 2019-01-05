@@ -16,11 +16,9 @@
     - qt5-qtwebengine-freeworld
     - pavucontrol
 
-- name: Has python tools
-  become: true
-  pip:
-    name: "{{ item }}"
-  with_items:
-    - "ansible-container"
-    - "psutil"
-    - "yq"
+#- name: Has python tools
+  #pip:
+    #name: "{{ item }}"
+  #with_items:
+    #- "psutil"
+    #- "yq"
