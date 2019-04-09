@@ -1,26 +1,19 @@
 {
 	"system":[
         "tools",
-        "xcape",
-        "i3",
-        "i3conky",
-        "feh_fixed_back",
         "projects_dir",
-        "downloads_tmp",
-        "rofi",
-        "scripts",
-        "dunst"
+        "downloads_tmp"
 	],
     "devel":[
-        "docker-compose"
     ],
 	"neovim":[
-        "install",
-        "vscode-javac"
+        "install"
 	],
-    "tui":[
-        "alacritty",
-        "zsh",
-        "bat"
-    ]
+  "tui":[
+    "alacritty",
+    "zsh"
+  ],
+  "sway": [
+    "install"
+  ]
 }

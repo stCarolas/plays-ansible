@@ -12,6 +12,7 @@
 
 - name: Has zplug installed
   command: ls ~/.zplug
+  ignore_errors: True
   register: has_zplug
 
 - name: Install zplug

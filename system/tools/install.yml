@@ -7,18 +7,7 @@
     - fzf
     - atool
     - the_silver_searcher
-    - conky
     - jq
-    - ctags
-    -  python3-devel
+    - python3-devel
     - exa
-    - qutebrowser
-    - qt5-qtwebengine-freeworld
-    - pavucontrol
-
-#- name: Has python tools
-  #pip:
-    #name: "{{ item }}"
-  #with_items:
-    #- "psutil"
-    #- "yq"
+    - bat
