@@ -1,0 +1,13 @@
+---
+- name: Has vagrant
+  become: true
+  package:
+    name: vagrant
+
+- name: Has vagrant-cachier plugin
+  become: true
+  shell: "vagrant plugin install vagrant-cachier"
+
+- name: Has vagrant-hostmanager plugin
+  become: true
+  shell: "vagrant plugin install vagrant-hostmanager"
