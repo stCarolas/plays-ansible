@@ -1,20 +1,12 @@
 {
   "system":[
-    "downloads_tmp",
-    "dunst",
-    "rofi",
-    "projects_dir",
-    "scripts",
-    "tools"
   ],
   "devel":[
+    "virtualbox",
+    "vagrant"
   ],
   "neovim":[
-    "install"
-	],
+  ],
   "tui":[
-    "zsh",
-    "bat",
-    "git"
   ]
 }
