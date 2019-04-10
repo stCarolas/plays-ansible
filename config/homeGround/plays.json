@@ -1,8 +1,9 @@
 {
-	"system":[
+  "system":[
         "tools",
         "projects_dir",
-        "downloads_tmp"
+        "downloads_tmp",
+        "rpmfusion"
 	],
     "devel":[
     ],

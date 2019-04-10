@@ -6,7 +6,7 @@
       tags: always
       ignore_errors: true
       include_vars:
-        dir: "config/{{ ansible_hostname }}"
+        dir: "setup/{{ ansible_hostname }}"
 
 - import_playbook: system/play.yml
 - import_playbook: neovim/play.yml
