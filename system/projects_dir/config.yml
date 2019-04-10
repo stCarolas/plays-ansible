@@ -9,4 +9,4 @@
   lineinfile  :
       dest    : /etc/fstab
       create  : yes
-      line    : "tmpfs /home/stcarolas/Coding/projects/                   tmpfs     defaults        0 0"
+      line    : "tmpfs /home/stCarolas/Coding/projects/                   tmpfs     defaults        0 0"

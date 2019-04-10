@@ -3,3 +3,12 @@
   become: true
   package:
       name: conky
+
+- name: Has alacritty repo enabled
+  become: true
+  command: dnf copr enable -y mizuo/alacritty
+
+- name: Has alacritty
+  become: true
+  package:
+    name: alacritty
