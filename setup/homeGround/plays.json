@@ -3,7 +3,7 @@
         "tools",
         "projects_dir",
         "downloads_tmp",
-        "rpmfusion"
+        "codecs"
 	],
     "devel":[
     ],
