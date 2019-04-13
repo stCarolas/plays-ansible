@@ -1,0 +1,5 @@
+---
+- name: Has vagrant
+  become: true
+  package:
+    name: podman

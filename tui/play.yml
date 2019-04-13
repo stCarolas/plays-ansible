@@ -5,8 +5,3 @@
     - include_tasks: "./{{ item }}/install.yml"
       tags: install
       with_items: "{{ tui }}"
-
-    - include_tasks: "./{{ item }}/config.yml"
-      tags: config
-      with_items: "{{ tui }}"
-

@@ -6,6 +6,7 @@
         "codecs"
 	],
     "devel":[
+      "podman"
     ],
 	"neovim":[
         "install"

@@ -2,3 +2,13 @@
   become: true
   package:
       name: zsh
+
+- name: Has zplug installed
+  command: ls ~/.zplug
+  ignore_errors: True
+  register: has_zplug
+
+- name: Install zplug
+  when: has_zplug is failed
+  shell: "curl -sL --proto-redir -all,https https://raw.githubusercontent.com/zplug/installer/master/installer.zsh | zsh"
+

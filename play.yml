@@ -7,9 +7,10 @@
       ignore_errors: true
       include_vars:
         dir: "setup/{{ ansible_hostname }}"
+    - include_tasks: "./devel/{{ item }}.yml"
+      with_items: "{{ devel }}"
 
 - import_playbook: system/play.yml
 - import_playbook: neovim/play.yml
-- import_playbook: devel/play.yml
 - import_playbook: tui/play.yml
 - import_playbook: sway/play.yml

@@ -9,3 +9,9 @@
 
 - name: Has LF installed
   shell: "cp -f /tmp/lf ~/.local/bin/"
+
+- name: Has LF config dir
+  file:
+    path: ~/.config/lf
+    state: directory
+
