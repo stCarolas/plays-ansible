@@ -16,6 +16,6 @@
     "zsh"
   ],
   "sway": [
-    "install"
+    "swaywm"
   ]
 }
