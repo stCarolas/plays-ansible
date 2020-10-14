@@ -2,9 +2,34 @@
 - hosts: localhost
   connection: local
   tasks:
+  
+    - name: Enable RPM Fusion Free
+      yum: https://mirrors.rpmfusion.org/free/fedora/rpmfusion-free-release-rawhide.noarch.rpm
+    - name: Enable RPM Fusion Non-Free
+      yum: https://mirrors.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-rawhide.noarch.rpm
+      
+    - name: Enable Alacritty Copr
+      command:
+        cmd: dnf copr enable -y pschyska/alacritty
+        creates: /etc/yum.repos.d/_copr_pschyska-alacritty.repo
+
     - name: Has packages
       become: true
       package:
         name: "{{ item }}"
       with_items:
         - sway
+        - git
+        - fzf
+        - maven
+        - zsh
+        - exa
+        - ripgrep
+        - bat
+        - the_silver_searcher
+        - java-11-openjdk
+        - java-11-openjdk-devel
+        - nodejs
+        - ffmpeg-libs
+        - rofi
+        - alacritty
