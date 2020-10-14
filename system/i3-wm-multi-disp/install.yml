@@ -1,5 +1,0 @@
----
-- name: Has i3-wm-multi-disp-scripts
-  git:
-    dest: ~/Coding/i3-wm-multi-disp-scripts
-    repo: https://github.com/sainathadapa/i3-wm-multi-disp-scripts.git

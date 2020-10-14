@@ -1,5 +1,0 @@
----
-- name: Has tools
-  become: true
-  package:
-    name: dunst

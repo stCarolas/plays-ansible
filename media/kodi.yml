@@ -1,7 +1,0 @@
----
-- name: Has kodi
-  become: true
-  package:
-    name: "{{ item }}"
-  with_items:
-    - kodi

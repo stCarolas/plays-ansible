@@ -1,9 +1,0 @@
----
-- name: Has bat installed
-  command: ls ~/.local/bin/bat
-  register: has_bat
-  ignore_errors: True
-
-- name: Install bat
-  when: has_bat is failed
-  shell: "curl -sL --proto-redir -all,https https://github.com/sharkdp/bat/releases/download/v0.6.0/bat-v0.6.0-i686-unknown-linux-gnu.tar.gz > ~/Downloads/bat.tar.gz && cd ~/Downloads && aunpack bat.tar.gz && chmod 777 bat/bat*/bat && mv bat/bat*/bat ~/.local/bin/bat"

@@ -2,19 +2,9 @@
 - hosts: localhost
   connection: local
   tasks:
-    - name: Load config
-      tags: always
-      ignore_errors: true
-      include_vars:
-        dir: "setup/{{ ansible_hostname }}"
-    - include_tasks: "./devel/{{ item }}.yml"
-      with_items: "{{ devel }}"
-    - include_tasks: "./media/{{ item }}.yml"
-      with_items: "{{ media }}"
-    - include_tasks: "./tui/{{ item }}.yml"
-      with_items: "{{ tui }}"
-    - include_tasks: "./sway/{{ item }}.yml"
-      with_items: "{{ sway }}"
-
-- import_playbook: system/play.yml
-- import_playbook: neovim/play.yml
+    - name: Has packages
+      become: true
+      package:
+        name: "{{ item }}"
+      with_items:
+        - sway

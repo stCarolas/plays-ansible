@@ -1,5 +1,0 @@
----
-- name: Has dependencies
-  become: true
-  package:
-    name: docker-compose

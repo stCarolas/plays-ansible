@@ -1,9 +1,0 @@
----
-- name: Has copr repo enabled
-  become: true
-  shell: "dnf copr enable -y thofmann/rofi"
-
-- name: Has rofi installed
-  become: true
-  package:
-    name: rofi

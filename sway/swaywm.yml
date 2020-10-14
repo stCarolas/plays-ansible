@@ -1,4 +1,0 @@
-- name: Has sway
-  become: true
-  package:
-      name: sway
