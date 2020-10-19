@@ -26,14 +26,15 @@
         - sway
         - git
         - fzf
-        - maven
         - zsh
         - exa
         - ripgrep
         - bat
         - the_silver_searcher
+        - maven
         - java-11-openjdk
         - java-11-openjdk-devel
+        - kubernetes-client
         - nodejs
         - ffmpeg-libs
         - rofi
@@ -41,6 +42,6 @@
         - xclip
         - atool
 
-    - name: Has python
+    - name: Has python packages
       pip:
         name: neovim
