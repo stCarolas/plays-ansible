@@ -18,6 +18,11 @@
       command:
         cmd: dnf copr enable -y pschyska/alacritty
         creates: /etc/yum.repos.d/_copr_pschyska-alacritty.repo
+      
+    - name: Enabled Universal Ctags Copr Repo
+      become: true
+      command:
+        cmd: dnf copr enable -y jgoguen/universal-ctags
 
     - name: Has firefox
       become: true
@@ -45,6 +50,7 @@
         - zsh
         - fzf
         - git
+        - feh
         - exa
         - atool
         - ripgrep
@@ -53,6 +59,7 @@
         - nodejs
         - maven
         - java-11-openjdk
+        - universal-ctags
         - java-11-openjdk-devel
   
     - name: Has chezmoi
