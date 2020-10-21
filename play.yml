@@ -3,44 +3,62 @@
   connection: local
   tasks:
   
-    - name: Enable RPM Fusion Free
+    - name: Enabled RPM Fusion Free Repo
       become: true
       yum: 
         name: https://mirrors.rpmfusion.org/free/fedora/rpmfusion-free-release-rawhide.noarch.rpm
-    - name: Enable RPM Fusion Non-Free
+
+    - name: Enabled RPM Fusion Non-Free Repo
       become: true
       yum:
         name: https://mirrors.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-rawhide.noarch.rpm
       
-    - name: Enable Alacritty Copr
+    - name: Enabled Alacritty Copr Repo
       become: true
       command:
         cmd: dnf copr enable -y pschyska/alacritty
         creates: /etc/yum.repos.d/_copr_pschyska-alacritty.repo
 
-    - name: Has packages
+    - name: Has firefox
+      become: true
+      package:
+        name: "{{ item }}"
+      with_items:
+        - firefox
+        - ffmpeg-libs
+
+    - name: Has configured SwayWM 
       become: true
       package:
         name: "{{ item }}"
       with_items:
         - sway
-        - git
-        - fzf
+        - rofi
+        - xclip
+
+    - name: Has dev tools 
+      become: true
+      package:
+        name: "{{ item }}"
+      with_items:
+        - alacritty
         - zsh
+        - fzf
+        - git
         - exa
+        - atool
         - ripgrep
         - bat
-        - the_silver_searcher
+        - kubernetes-client
+        - nodejs
         - maven
         - java-11-openjdk
         - java-11-openjdk-devel
-        - kubernetes-client
-        - nodejs
-        - ffmpeg-libs
-        - rofi
-        - alacritty
-        - xclip
-        - atool
+  
+    - name: Has chezmoi
+      become: true
+      yum: 
+        name: https://github.com/twpayne/chezmoi/releases/download/v1.8.7/chezmoi-1.8.7-x86_64.rpm
 
     - name: Has python packages
       pip:
