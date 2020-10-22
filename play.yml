@@ -24,14 +24,6 @@
       command:
         cmd: dnf copr enable -y jgoguen/universal-ctags
 
-    - name: Has firefox
-      become: true
-      package:
-        name: "{{ item }}"
-      with_items:
-        - firefox
-        - ffmpeg-libs
-
     - name: Has configured SwayWM 
       become: true
       package:
@@ -41,7 +33,15 @@
         - rofi
         - xclip
 
-    - name: Has dev tools 
+    - name: Has firefox
+      become: true
+      package:
+        name: "{{ item }}"
+      with_items:
+        - firefox
+        - ffmpeg-libs
+
+    - name: Has console tools 
       become: true
       package:
         name: "{{ item }}"
@@ -55,6 +55,12 @@
         - atool
         - ripgrep
         - bat
+
+    - name: Has dev tools 
+      become: true
+      package:
+        name: "{{ item }}"
+      with_items:
         - kubernetes-client
         - nodejs
         - maven
@@ -66,6 +72,18 @@
       become: true
       yum: 
         name: https://github.com/twpayne/chezmoi/releases/download/v1.8.7/chezmoi-1.8.7-x86_64.rpm
+        disable_gpg_check: true
+        
+    - name: Upgrade all packages
+      become: true
+      yum:
+        name: '*'
+        state: latest
+
+    - name: Set timezone to Europe/Moscow
+      become: true
+      community.general.timezone:
+        name: Europe/Moscow
 
     - name: Has python packages
       pip:
