@@ -31,6 +31,12 @@
         cmd: dnf copr enable -y duskmourn/discord
         creates: /etc/yum.repos.d/_copr:copr.fedorainfracloud.org:duskmourn:discord.repo
       
+    - name: Enabled Alebastr Sway Repo
+      become: true
+      command:
+        cmd: dnf copr enable -y alebastr/sway-extras
+        creates: /etc/yum.repos.d/_copr:copr.fedorainfracloud.org:alebastr:sway-extras.repo
+
     - name: Enabled Universal Ctags Copr Repo
       become: true
       command:
@@ -50,6 +56,16 @@
         - sway
         - rofi
         - xclip
+        - wl-clipboard
+        - nwg-launchers
+        - greetd
+        - greetd-gtkgreet
+        - swaylock
+
+    - name: Has enabled greetd SystemD Service
+      systemd:
+        name: greetd
+        enabled: yes
 
     - name: Has firefox
       become: true
