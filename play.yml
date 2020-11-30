@@ -19,6 +19,12 @@
         cmd: dnf copr enable -y pschyska/alacritty
         creates: /etc/yum.repos.d/_copr:copr.fedorainfracloud.org:pschyska:alacritty.repo
       
+    - name: Enabled Neovim Copr Repo
+      become: true
+      command:
+        cmd: dnf copr enable -y agriffis/neovim-nightly
+        creates: /etc/yum.repos.d/_copr:copr.fedorainfracloud.org:agriffis:neovim-nightly.repo
+      
     - name: Enabled Minikube Copr Repo
       become: true
       command:
@@ -105,6 +111,7 @@
         - minikube
         - cri-o
         - httpie
+        - neovim
   
     - name: Has chezmoi
       become: true
