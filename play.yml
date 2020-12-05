@@ -112,6 +112,13 @@
         - cri-o
         - httpie
         - neovim
+
+    - name: Has some packages
+      become: true
+      package:
+        name: "{{ item }}"
+      with_items:
+        - Discord-installer
   
     - name: Has chezmoi
       become: true
