@@ -6,12 +6,14 @@
     - name: Enabled RPM Fusion Free Repo
       become: true
       yum: 
-        name: https://mirrors.rpmfusion.org/free/fedora/rpmfusion-free-release-rawhide.noarch.rpm
+        disable_gpg_check: yes
+        name: https://mirrors.rpmfusion.org/free/fedora/rpmfusion-free-release-33.noarch.rpm
 
     - name: Enabled RPM Fusion Non-Free Repo
       become: true
       yum:
-        name: https://mirrors.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-rawhide.noarch.rpm
+        disable_gpg_check: yes
+        name: https://mirrors.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-33.noarch.rpm
       
     - name: Enabled Alacritty Copr Repo
       become: true
@@ -49,10 +51,10 @@
         cmd: dnf copr enable -y jgoguen/universal-ctags
         creates: /etc/yum.repos.d/_copr:copr.fedorainfracloud.org:jgoguen:universal-ctags.repo
       
-    - name: Enabled CRI-O Module
-      become: true
-      command:
-        cmd: dnf module enable cri-o:1.18
+    #- name: Enabled CRI-O Module
+    #  become: true
+    #  command:
+    #    cmd: dnf module enable cri-o:1.18
 
     - name: Has configured SwayWM 
       become: true
@@ -67,8 +69,11 @@
         - greetd
         - greetd-gtkgreet
         - swaylock
+        - dnf-automatic
+        - podman
 
     - name: Has enabled greetd SystemD Service
+      become: true
       systemd:
         name: greetd
         enabled: yes
@@ -78,7 +83,7 @@
       package:
         name: "{{ item }}"
       with_items:
-        - firefox
+        #- firefox
         - ffmpeg-libs
 
     - name: Has console tools 
@@ -95,7 +100,7 @@
         - atool
         - ripgrep
         - bat
-        - cri-o
+        #- cri-o
 
     - name: Has dev tools 
       become: true
@@ -109,16 +114,16 @@
         - universal-ctags
         - java-11-openjdk-devel
         - minikube
-        - cri-o
+        #- cri-o
         - httpie
         - neovim
 
-    - name: Has some packages
-      become: true
-      package:
-        name: "{{ item }}"
-      with_items:
-        - Discord-installer
+    #- name: Has some packages
+      #become: true
+      #package:
+        #name: "{{ item }}"
+      #with_items:
+        #- Discord-installer
   
     - name: Has chezmoi
       become: true
