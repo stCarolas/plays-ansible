@@ -27,6 +27,12 @@
         cmd: dnf copr enable -y agriffis/neovim-nightly
         creates: /etc/yum.repos.d/_copr:copr.fedorainfracloud.org:agriffis:neovim-nightly.repo
       
+    - name: Enabled Blanket Copr Repo
+      become: true
+      command:
+        cmd: dnf copr enable -y tuxino/blanket
+        creates: /etc/yum.repos.d/_copr:copr.fedorainfracloud.org:tuxino:blanket.repo
+      
     - name: Enabled Minikube Copr Repo
       become: true
       command:
@@ -83,7 +89,7 @@
       package:
         name: "{{ item }}"
       with_items:
-        #- firefox
+        - firefox
         - ffmpeg-libs
 
     - name: Has console tools 
@@ -118,11 +124,12 @@
         - httpie
         - neovim
 
-    #- name: Has some packages
-      #become: true
-      #package:
-        #name: "{{ item }}"
-      #with_items:
+    - name: Has some packages
+      become: true
+      package:
+        name: "{{ item }}"
+      with_items:
+        - blanket
         #- Discord-installer
   
     - name: Has chezmoi
