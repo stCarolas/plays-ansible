@@ -108,7 +108,6 @@
         - atool
         - ripgrep
         - bat
-        - cri-o
 
     - name: Has dev tools 
       become: true
@@ -133,6 +132,7 @@
       with_items:
         - blanket
         - Discord-installer
+        - evince
   
     - name: Has chezmoi
       become: true
