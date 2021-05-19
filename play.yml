@@ -7,13 +7,13 @@
       become: true
       yum: 
         disable_gpg_check: yes
-        name: https://mirrors.rpmfusion.org/free/fedora/rpmfusion-free-release-33.noarch.rpm
+        name: https://mirrors.rpmfusion.org/free/fedora/rpmfusion-free-release-34.noarch.rpm
 
     - name: Enabled RPM Fusion Non-Free Repo
       become: true
       yum:
         disable_gpg_check: yes
-        name: https://mirrors.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-33.noarch.rpm
+        name: https://mirrors.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-34.noarch.rpm
       
     - name: Enabled Alacritty Copr Repo
       become: true
@@ -36,8 +36,8 @@
     - name: Enabled Minikube Copr Repo
       become: true
       command:
-        cmd: dnf copr enable -y dvdmuckle/minikube-rpm
-        creates: /etc/yum.repos.d/_copr:copr.fedorainfracloud.org:dvdmuckle:minikube-rpm.repo
+        cmd: dnf copr enable -y johan/fedora-rpms
+        creates: /etc/yum.repos.d/_copr:copr.fedorainfracloud.org:johan:fedora-rpms.repo
       
     - name: Enabled Discord Copr Repo
       become: true
@@ -60,7 +60,7 @@
     - name: Enabled CRI-O Module
       become: true
       command:
-        cmd: dnf module enable -y cri-o
+        cmd: dnf module enable -y cri-o:1.20
 
     - name: Has configured SwayWM 
       become: true
@@ -80,6 +80,7 @@
 
     - name: Has enabled greetd SystemD Service
       become: true
+      ignore_errors: true
       systemd:
         name: greetd
         enabled: yes
@@ -139,6 +140,25 @@
       yum: 
         name: https://github.com/twpayne/chezmoi/releases/download/v1.8.7/chezmoi-1.8.7-x86_64.rpm
         disable_gpg_check: true
+      
+    - name: Chezmoi inited
+      become: false
+      command:
+        cmd: chezmoi init https://github.com/stCarolas/dotfiles.git --apply
+
+    - name: Create a directory if it does not exist
+      file:
+        path: "~/.ssh"
+        state: directory
+        mode: '0755'
+
+    - name: generate SSH key
+      openssh_keypair:
+        path: "~/.ssh/id_rsa"
+        type: rsa
+        size: 4096
+        state: present
+        force: no
         
     - name: Upgrade all packages
       become: true
