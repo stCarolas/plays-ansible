@@ -152,7 +152,7 @@
         state: directory
         mode: '0755'
 
-    - name: generate SSH key
+    - name: Generate SSH key
       openssh_keypair:
         path: "~/.ssh/id_rsa"
         type: rsa
