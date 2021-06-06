@@ -7,13 +7,13 @@
       become: true
       yum: 
         disable_gpg_check: yes
-        name: https://mirrors.rpmfusion.org/free/fedora/rpmfusion-free-release-34.noarch.rpm
+        name: https://mirrors.rpmfusion.org/free/fedora/rpmfusion-free-release-{{ hostvars[inventory_hostname].ansible_lsb.major_release }}.noarch.rpm
 
     - name: Enabled RPM Fusion Non-Free Repo
       become: true
       yum:
         disable_gpg_check: yes
-        name: https://mirrors.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-34.noarch.rpm
+        name: https://mirrors.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-{{ hostvars[inventory_hostname].ansible_lsb.major_release }}.noarch.rpm
       
     - name: Enabled Alacritty Copr Repo
       become: true
