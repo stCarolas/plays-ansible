@@ -3,66 +3,31 @@
   connection: local
   tasks:
   
-    - name: Enabled RPM Fusion Free Repo
+    - name: Has third-party repos
       become: true
       yum: 
         disable_gpg_check: yes
-        name: https://mirrors.rpmfusion.org/free/fedora/rpmfusion-free-release-{{ hostvars[inventory_hostname].ansible_lsb.major_release }}.noarch.rpm
+        name: "{{ item }}"
+      loop:
+        - https://mirrors.rpmfusion.org/free/fedora/rpmfusion-free-release-{{ hostvars[inventory_hostname].ansible_lsb.major_release }}.noarch.rpm
+        - https://mirrors.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-{{ hostvars[inventory_hostname].ansible_lsb.major_release }}.noarch.rpm
+        - https://github.com/twpayne/chezmoi/releases/download/v1.8.7/chezmoi-1.8.7-x86_64.rpm
 
-    - name: Enabled RPM Fusion Non-Free Repo
-      become: true
-      yum:
-        disable_gpg_check: yes
-        name: https://mirrors.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-{{ hostvars[inventory_hostname].ansible_lsb.major_release }}.noarch.rpm
-      
-    - name: Enabled Alacritty Copr Repo
+    - name: Has Copr repos
       become: true
       command:
-        cmd: dnf copr enable -y pschyska/alacritty
-        creates: /etc/yum.repos.d/_copr:copr.fedorainfracloud.org:pschyska:alacritty.repo
-      
-    - name: Enabled Neovim Copr Repo
-      become: true
-      command:
-        cmd: dnf copr enable -y agriffis/neovim-nightly
-        creates: /etc/yum.repos.d/_copr:copr.fedorainfracloud.org:agriffis:neovim-nightly.repo
-      
-    - name: Enabled Blanket Copr Repo
-      become: true
-      command:
-        cmd: dnf copr enable -y tuxino/blanket
-        creates: /etc/yum.repos.d/_copr:copr.fedorainfracloud.org:tuxino:blanket.repo
-      
-    - name: Enabled Minikube Copr Repo
-      become: true
-      command:
-        cmd: dnf copr enable -y johan/fedora-rpms
-        creates: /etc/yum.repos.d/_copr:copr.fedorainfracloud.org:johan:fedora-rpms.repo
-      
-    - name: Enabled Discord Copr Repo
-      become: true
-      command:
-        cmd: dnf copr enable -y dvdmuckle/discord
-        creates: /etc/yum.repos.d/_copr:copr.fedorainfracloud.org:duskmourn:discord.repo
-      
-    - name: Enabled Alebastr Sway Repo
-      become: true
-      command:
-        cmd: dnf copr enable -y alebastr/sway-extras
-        creates: /etc/yum.repos.d/_copr:copr.fedorainfracloud.org:alebastr:sway-extras.repo
+        cmd: dnf copr enable -y {{ item.group }}/{{ item.package }}
+        creates: /etc/yum.repos.d/_copr:copr.fedorainfracloud.org:{{ item.group }}:{ item.package }}.repo
+      loop:
+        - { group: pschyska,  package: alacritty       }
+        - { group: agriffis,  package: neovim-nightly  }
+        - { group: tuxino,    package: blanket         }
+        - { group: johan,     package: fedora-rpms     }
+        - { group: duskmourn, package: discord         }
+        - { group: alebastr,  package: sway-extras     }
+        - { group: jgoguen,   package: universal-ctags }
 
-    - name: Enabled Universal Ctags Copr Repo
-      become: true
-      command:
-        cmd: dnf copr enable -y jgoguen/universal-ctags
-        creates: /etc/yum.repos.d/_copr:copr.fedorainfracloud.org:jgoguen:universal-ctags.repo
-      
-    - name: Enabled CRI-O Module
-      become: true
-      command:
-        cmd: dnf module enable -y cri-o:1.20
-
-    - name: Has configured SwayWM 
+    - name: Has rpm packages installed
       become: true
       package:
         name: "{{ item }}"
@@ -77,29 +42,10 @@
         - swaylock
         - dnf-automatic
         - podman
-
-    - name: Has enabled greetd SystemD Service
-      become: true
-      ignore_errors: true
-      systemd:
-        name: greetd
-        enabled: yes
-
-    - name: Has browser
-      become: true
-      package:
-        name: "{{ item }}"
-      with_items:
         - firefox
         - ffmpeg-libs
         - qutebrowser
         - qt5-qtwebengine-freeworld
-
-    - name: Has console tools 
-      become: true
-      package:
-        name: "{{ item }}"
-      with_items:
         - alacritty
         - zsh
         - fzf
@@ -109,12 +55,6 @@
         - atool
         - ripgrep
         - bat
-
-    - name: Has dev tools 
-      become: true
-      package:
-        name: "{{ item }}"
-      with_items:
         - kubernetes-client
         - nodejs
         - maven
@@ -125,26 +65,36 @@
         - cri-o
         - httpie
         - neovim
-
-    - name: Has some packages
-      become: true
-      package:
-        name: "{{ item }}"
-      with_items:
         - blanket
         - Discord-installer
         - evince
-  
-    - name: Has chezmoi
+        
+    - name: Upgrade all packages
       become: true
-      yum: 
-        name: https://github.com/twpayne/chezmoi/releases/download/v1.8.7/chezmoi-1.8.7-x86_64.rpm
-        disable_gpg_check: true
+      yum:
+        name: '*'
+        state: latest
+
+    - name: Has python packages
+      pip:
+        name: neovim
+
+    - name: Enabled CRI-O Module
+      become: true
+      command:
+        cmd: dnf module enable -y cri-o:1.20
       
     - name: Chezmoi inited
       become: false
       command:
         cmd: chezmoi init https://github.com/stCarolas/dotfiles.git --apply
+
+    - name: Has enabled greetd SystemD Service
+      become: true
+      ignore_errors: true
+      systemd:
+        name: greetd
+        enabled: yes
 
     - name: Create a directory if it does not exist
       file:
@@ -159,18 +109,8 @@
         size: 4096
         state: present
         force: no
-        
-    - name: Upgrade all packages
-      become: true
-      yum:
-        name: '*'
-        state: latest
 
     - name: Set timezone to Europe/Moscow
       become: true
       community.general.timezone:
         name: Europe/Moscow
-
-    - name: Has python packages
-      pip:
-        name: neovim
