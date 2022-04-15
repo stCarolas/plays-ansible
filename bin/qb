@@ -1,0 +1,7 @@
+#!/bin/sh
+current_workspace=$(swaymsg -t get_workspaces | jq -r '.[] | select(.focused) | .name')
+basedir=~/.local/share/qb/$current_workspace
+echo $basedir
+mkdir -p $basedir
+ln -s ~/.config/qutebrowser $basedir/config
+qutebrowser -B $basedir $@
