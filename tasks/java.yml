@@ -1,0 +1,8 @@
+- name: Has java packages installed
+  become: true
+  package:
+    name: "{{ item }}"
+  with_items:
+    - maven
+    - java-11-openjdk
+    - java-11-openjdk-devel

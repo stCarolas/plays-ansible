@@ -1,0 +1,18 @@
+- name: Has sway-extras Copr repo
+  become: true
+  command:
+    cmd: dnf copr enable -y alebastr/sway-extras
+
+- name: Has sway packages installed
+  become: true
+  package:
+    name: "{{ item }}"
+  with_items:
+    - sway
+    - rofi
+    - xclip
+    - wl-clipboard
+    - nwg-launchers
+    - greetd
+    - greetd-gtkgreet
+    - swaylock

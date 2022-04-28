@@ -1,0 +1,8 @@
+- name: Has rpmfusion repos
+  become: true
+  yum: 
+    disable_gpg_check: yes
+    name: "{{ item }}"
+  loop:
+    - https://mirrors.rpmfusion.org/free/fedora/rpmfusion-free-release-{{ hostvars[inventory_hostname].ansible_distribution_major_version }}.noarch.rpm
+    - https://mirrors.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-{{ hostvars[inventory_hostname].ansible_distribution_major_version }}.noarch.rpm

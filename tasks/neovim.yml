@@ -1,0 +1,13 @@
+- name: Has neovim-nightly repos
+  become: true
+  command:
+    cmd: dnf copr enable -y agriffis/neovim-nightly
+
+- name: Neovim installed
+  become: true
+  package:
+    name: neovim
+
+- name: Has neovim python package installed
+  pip:
+    name: neovim

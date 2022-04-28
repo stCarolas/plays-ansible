@@ -2,115 +2,23 @@
 - hosts: localhost
   connection: local
   tasks:
-  
-    - name: Has third-party repos
-      become: true
-      yum: 
-        disable_gpg_check: yes
-        name: "{{ item }}"
-      loop:
-        - https://mirrors.rpmfusion.org/free/fedora/rpmfusion-free-release-{{ hostvars[inventory_hostname].ansible_lsb.major_release }}.noarch.rpm
-        - https://mirrors.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-{{ hostvars[inventory_hostname].ansible_lsb.major_release }}.noarch.rpm
-        - https://github.com/twpayne/chezmoi/releases/download/v1.8.7/chezmoi-1.8.7-x86_64.rpm
-
-    - name: Has Copr repos
-      become: true
-      command:
-        cmd: dnf copr enable -y {{ item.group }}/{{ item.package }}
-        creates: /etc/yum.repos.d/_copr:copr.fedorainfracloud.org:{{ item.group }}:{ item.package }}.repo
-      loop:
-        - { group: pschyska,  package: alacritty       }
-        - { group: agriffis,  package: neovim-nightly  }
-        - { group: tuxino,    package: blanket         }
-        - { group: johan,     package: fedora-rpms     }
-        - { group: duskmourn, package: discord         }
-        - { group: alebastr,  package: sway-extras     }
-        - { group: jgoguen,   package: universal-ctags }
-
-    - name: Has rpm packages installed
-      become: true
-      package:
-        name: "{{ item }}"
-      with_items:
-        - sway
-        - rofi
-        - xclip
-        - wl-clipboard
-        - nwg-launchers
-        - greetd
-        - greetd-gtkgreet
-        - swaylock
-        - dnf-automatic
-        - podman
-        - firefox
-        - ffmpeg-libs
-        - qutebrowser
-        - qt5-qtwebengine-freeworld
-        - alacritty
-        - zsh
-        - fzf
-        - git
-        - feh
-        - exa
-        - atool
-        - ripgrep
-        - bat
-        - kubernetes-client
-        - nodejs
-        - maven
-        - java-11-openjdk
-        - universal-ctags
-        - java-11-openjdk-devel
-        - minikube
-        - cri-o
-        - httpie
-        - neovim
-        - blanket
-        - Discord-installer
-        - evince
-        
-    - name: Upgrade all packages
-      become: true
-      yum:
-        name: '*'
-        state: latest
-
-    - name: Has python packages
-      pip:
-        name: neovim
-
-    - name: Enabled CRI-O Module
-      become: true
-      command:
-        cmd: dnf module enable -y cri-o:1.20
-      
-    - name: Chezmoi inited
-      become: false
-      command:
-        cmd: chezmoi init https://github.com/stCarolas/dotfiles.git --apply
-
-    - name: Has enabled greetd SystemD Service
-      become: true
-      ignore_errors: true
-      systemd:
-        name: greetd
-        enabled: yes
-
-    - name: Create a directory if it does not exist
-      file:
-        path: "~/.ssh"
-        state: directory
-        mode: '0755'
-
-    - name: Generate SSH key
-      openssh_keypair:
-        path: "~/.ssh/id_rsa"
-        type: rsa
-        size: 4096
-        state: present
-        force: no
 
     - name: Set timezone to Europe/Moscow
       become: true
       community.general.timezone:
         name: Europe/Moscow
+
+    - include_tasks: "./tasks/rpmfusion.yml"
+    - include_tasks: "./tasks/sway.yml"
+    - include_tasks: "./tasks/browsers.yml"
+    - include_tasks: "./tasks/term.yml"
+    - include_tasks: "./tasks/neovim.yml"
+    - include_tasks: "./tasks/java.yml"
+    - include_tasks: "./tasks/apps.yml"
+    - include_tasks: "./tasks/sshkey.yml"
+
+    - name: Upgrade all packages
+      become: true
+      yum:
+        name: '*'
+        state: latest

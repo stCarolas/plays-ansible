@@ -1,0 +1,25 @@
+- name: Has terminal tools installed
+  become: true
+  package:
+    name: "{{ item }}"
+  with_items:
+    - alacritty
+    - zsh
+    - fzf
+    - git
+    - feh
+    - exa
+    - atool
+    - ripgrep
+    - bat
+    - httpie
+
+- name: Has zplug installed
+  command: ls ~/.zplug
+  ignore_errors: True
+  register: has_zplug
+
+- name: Install zplug
+  when: has_zplug is failed
+  shell: "curl -sL --proto-redir -all,https https://raw.githubusercontent.com/zplug/installer/master/installer.zsh | zsh"
+
