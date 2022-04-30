@@ -3,6 +3,11 @@
   package:
     name: evince
 
+- name: pavucontrol installed
+  become: true
+  package:
+    name: pavucontrol
+
 - name : Discord installed
   flatpak:
     name: com.discordapp.Discord
