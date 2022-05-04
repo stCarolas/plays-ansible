@@ -3,6 +3,11 @@
   command:
     cmd: dnf copr enable -y agriffis/neovim-nightly
 
+- name: Has pip installed
+  become: true
+  package:
+    name: python3-pip
+
 - name: Has neovim packages installed
   become: true
   package:

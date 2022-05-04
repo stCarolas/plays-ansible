@@ -8,6 +8,11 @@
   package:
     name: pavucontrol
 
+- name: Has Flathub
+  become: true
+  command:
+    cmd: flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
+
 - name : Discord installed
   flatpak:
     name: com.discordapp.Discord
