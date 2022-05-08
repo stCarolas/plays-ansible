@@ -1,0 +1,11 @@
+- name: Delete uneccessary folders
+  file:
+    path: "{{ item }}"
+    state: absent
+  with_items:
+    - "~/Documents"
+    - "~/Music"
+    - "~/Templates"
+    - "~/Videos"
+    - "~/Public"
+    - "~/Desktop"
