@@ -4,6 +4,7 @@
     name: "{{ item }}"
   with_items:
     - alacritty
+    - foot
     - zsh
     - fzf
     - git

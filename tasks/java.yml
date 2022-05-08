@@ -6,3 +6,7 @@
     - maven
     - java-11-openjdk
     - java-11-openjdk-devel
+    - java-17-openjdk
+    - java-17-openjdk-devel
+    - java-latest-openjdk
+    - java-latest-openjdk-devel
