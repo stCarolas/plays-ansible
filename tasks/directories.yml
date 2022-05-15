@@ -1,4 +1,12 @@
-- name: Delete uneccessary folders
+- name: Exists certain directories
+  file:
+    path: "{{ item }}"
+    state: directory
+  with_items:
+    - "~/Coding"
+    - "~/Coding/projects"
+
+- name: Delete unnecessary folders
   file:
     path: "{{ item }}"
     state: absent

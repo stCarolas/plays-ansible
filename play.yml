@@ -8,6 +8,7 @@
       community.general.timezone:
         name: Europe/Moscow
 
+    - include_tasks: "./tasks/directories.yml"
     - include_tasks: "./tasks/rpmfusion.yml"
     - include_tasks: "./tasks/sway.yml"
     - include_tasks: "./tasks/browsers.yml"
@@ -17,7 +18,6 @@
     - include_tasks: "./tasks/apps.yml"
     - include_tasks: "./tasks/sshkey.yml"
     - include_tasks: "./tasks/chezmoi.yml"
-    - include_tasks: "./tasks/directories.yml"
 
     - name: Upgrade all packages
       become: true
