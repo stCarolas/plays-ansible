@@ -1,3 +1,8 @@
+- name: Flatpak installed
+  become: true
+  package:
+    name: flatpak
+
 - name: Use Flathub as a repo
   become: true
   command:
@@ -20,3 +25,8 @@
 - name : Mailspring installed
   flatpak:
     name: com.getmailspring.Mailspring
+
+- name: Has Vagrant
+  become: true
+  package:
+    name: vagrant
