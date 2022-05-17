@@ -19,10 +19,12 @@
     name: pavucontrol
 
 - name : Discord installed
+  become: true
   flatpak:
     name: com.discordapp.Discord
 
 - name : Mailspring installed
+  become: true
   flatpak:
     name: com.getmailspring.Mailspring
 
