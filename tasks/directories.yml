@@ -5,6 +5,9 @@
   with_items:
     - "~/Coding"
     - "~/Coding/projects"
+    - "~/Pictures"
+    - "~/Pictures/Wallpapers"
+    - "~/Pictures/Screenshots"
 
 - name: Delete unnecessary folders
   file:

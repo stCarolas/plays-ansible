@@ -1,11 +1,14 @@
 $script = <<-'SCRIPT'
-echo "These are my \"quotes\"! I am provisioning my guest."
-sudo dnf -y install git ansible
+run_playbook () {
+  su -c "git clone https://github.com/stCarolas/plays-ansible.git" vagrant
+  cd plays-ansible
+  su -c "ansible-galaxy collection install -r requirements.yml" vagrant
+  su -c "ansible-playbook play.yml" vagrant
+}
+
+dnf -y install git ansible
 cd /tmp
-git clone https://github.com/stCarolas/plays-ansible.git
-cd plays-ansible
-ansible-galaxy collection install -r requirements.yml
-ansible-playbook play.yml
+run_playbook
 SCRIPT
 
 Vagrant.configure("2") do |config|
