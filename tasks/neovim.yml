@@ -41,10 +41,15 @@
     url: "https://github.com/sumneko/lua-language-server/releases/download/3.2.4/lua-language-server-3.2.4-linux-x64.tar.gz"
     dest: "/tmp/lua-lsp.tar.gz"
 
+- name: Exists directory for lua LSP
+  file:
+    path: "~/Coding/libs/lua-language-server"
+    state: directory
+
 - name: Has lua server extracted
   unarchive:
     src: "/tmp/lua-lsp.tar.gz"
-    dest: "~/Coding/libs/"
+    dest: "~/Coding/libs/lua-language-server/"
 
 # - name: Has neovim plugins installed
 #   command:
