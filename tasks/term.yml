@@ -15,6 +15,11 @@
     - bat
     - httpie
 
+- name: Has zsh as default shell
+  become: true
+  command:
+    cmd: "usermod --shell /bin/zsh $(whoami)"
+
 - name: Has zplug installed
   command: ls ~/.zplug
   ignore_errors: True
@@ -23,4 +28,3 @@
 - name: Install zplug
   when: has_zplug is failed
   shell: "curl -sL --proto-redir -all,https https://raw.githubusercontent.com/zplug/installer/master/installer.zsh | zsh"
-

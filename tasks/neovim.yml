@@ -34,23 +34,45 @@
   with_items:
     - prettier
     - prettier-plugin-java
-    - "@fsouza/prettierd"
 
 - name: Has lua server downloaded
   get_url:
     url: "https://github.com/sumneko/lua-language-server/releases/download/3.2.4/lua-language-server-3.2.4-linux-x64.tar.gz"
     dest: "/tmp/lua-lsp.tar.gz"
 
-- name: Exists directory for lua LSP
+- name: Has eclipse jdt.ls downloaded
+  get_url:
+    url: "https://download.eclipse.org/jdtls/snapshots/jdt-language-server-latest.tar.gz"
+    dest: "/tmp/jdt.tar.gz"
+
+- name: Exist directories for LSPs
   file:
-    path: "~/Coding/libs/lua-language-server"
+    path: "~/Coding/libs/{{ item }}"
     state: directory
+  with_item:
+    - lua-language-server
+    - jdt
 
 - name: Has lua server extracted
   unarchive:
     src: "/tmp/lua-lsp.tar.gz"
     dest: "~/Coding/libs/lua-language-server/"
 
-# - name: Has neovim plugins installed
-#   command:
-#     cmd: "nvim --headless -c 'autocmd User PackerComplete quitall' -c 'PackerSync'"
+- name: Has eclipse jdt.ls extracted
+  unarchive:
+    src: "/tmp/jdt.tar.gz"
+    dest: "~/Coding/libs/jdt/"
+
+- name: Has eclipse jdt.ls configured
+  command:
+    chdir: "~/Coding/libs/jdt/plugins"
+    cmd: " ln -s org.eclipse.equinox.launcher_* org.eclipse.equinox.launcher.jar"
+
+- name: Has lombok downloaded
+  get_url:
+    url: "https://projectlombok.org/downloads/lombok.jar"
+    dest: "~/Coding/libs/"
+
+- name: Has neovim plugins installed
+  command:
+    cmd: "nvim --headless -c 'autocmd User PackerComplete quitall' -c 'PackerSync'"
