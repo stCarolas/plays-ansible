@@ -23,8 +23,7 @@
   become: true
   command:
     cmd: "usermod --shell /bin/zsh {{ item }}"
-  with_items:
-    - username.stdout
+  with_items: username.stdout
 
 - name: Has zplug installed
   command: ls ~/.zplug
