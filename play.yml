@@ -18,9 +18,3 @@
     - include_tasks: "./tasks/apps.yml"
     - include_tasks: "./tasks/sshkey.yml"
     - include_tasks: "./tasks/chezmoi.yml"
-
-    - name: Upgrade all packages
-      become: true
-      yum:
-        name: '*'
-        state: latest
