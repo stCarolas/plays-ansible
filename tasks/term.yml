@@ -15,10 +15,15 @@
     - bat
     - httpie
 
+- name: Find current user
+  command: whoami
+  register: username
+
 - name: Has zsh as default shell
   become: true
   command:
-    cmd: "usermod --shell /bin/zsh $(whoami)"
+    cmd: "usermod --shell /bin/zsh {{ username }}"
+  with_item: username.stdout
 
 - name: Has zplug installed
   command: ls ~/.zplug
