@@ -46,6 +46,6 @@
     src: "/tmp/lua-lsp.tar.gz"
     dest: "~/Coding/libs/"
 
-- name: Has neovim plugins installed
-  command:
-    cmd: "nvim --headless -c 'autocmd User PackerComplete quitall' -c 'PackerSync'"
+# - name: Has neovim plugins installed
+#   command:
+#     cmd: "nvim --headless -c 'autocmd User PackerComplete quitall' -c 'PackerSync'"
