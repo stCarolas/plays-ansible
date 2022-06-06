@@ -35,3 +35,17 @@
     - prettier
     - prettier-plugin-java
     - "@fsouza/prettierd"
+
+- name: Has lua server downloaded
+  get_url:
+    url: "https://github.com/sumneko/lua-language-server/releases/download/3.2.4/lua-language-server-3.2.4-linux-x64.tar.gz"
+    dest: "/tmp/lua-lsp.tar.gz"
+
+- name: Has lua server extracted
+  unarchive:
+    src: "/tmp/lua-lsp.tar.gz"
+    dest: "~/Coding/libs/lua-language-server"
+
+- name: Has neovim plugins installed
+  command:
+    cmd: "nvim --headless -c 'autocmd User PackerComplete quitall' -c 'PackerSync'"

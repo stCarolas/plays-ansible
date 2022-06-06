@@ -12,6 +12,6 @@ run_playbook
 SCRIPT
 
 Vagrant.configure("2") do |config|
-  config.vm.box = "generic/fedora35"
+  config.vm.box = "generic/fedora36"
   config.vm.provision "shell", inline: $script
 end
