@@ -22,8 +22,9 @@
 - name: Has zsh as default shell
   become: true
   command:
-    cmd: "usermod --shell /bin/zsh {{ username }}"
-  with_item: username.stdout
+    cmd: "usermod --shell /bin/zsh {{ item }}"
+  with_items:
+    - username.stdout
 
 - name: Has zplug installed
   command: ls ~/.zplug
