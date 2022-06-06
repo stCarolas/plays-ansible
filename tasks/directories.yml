@@ -5,6 +5,7 @@
   with_items:
     - "~/Coding"
     - "~/Coding/projects"
+    - "~/Coding/libs"
     - "~/Pictures"
     - "~/Pictures/Wallpapers"
     - "~/Pictures/Screenshots"

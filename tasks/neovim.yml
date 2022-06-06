@@ -44,7 +44,7 @@
 - name: Has lua server extracted
   unarchive:
     src: "/tmp/lua-lsp.tar.gz"
-    dest: "~/Coding/libs/lua-language-server"
+    dest: "~/Coding/libs/"
 
 - name: Has neovim plugins installed
   command:
