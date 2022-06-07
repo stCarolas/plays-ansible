@@ -64,7 +64,7 @@
     dest: "~/Coding/libs/jdt/"
 
 - name: Has eclipse jdt.ls configured
-  command:
+  shell:
     chdir: "~/Coding/libs/jdt/plugins"
     cmd: " ln -s org.eclipse.equinox.launcher_* org.eclipse.equinox.launcher.jar"
 
