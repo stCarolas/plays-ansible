@@ -49,7 +49,7 @@
   file:
     path: "~/Coding/libs/{{ item }}"
     state: directory
-  with_item:
+  with_items:
     - lua-language-server
     - jdt
 
