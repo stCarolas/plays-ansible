@@ -8,14 +8,39 @@
       community.general.timezone:
         name: Europe/Moscow
 
-    - include_tasks: "./tasks/directories.yml"
-    - include_tasks: "./tasks/rpmfusion.yml"
-    - include_tasks: "./tasks/chezmoi.yml"
+    - name: Has required directories created
+      import_tasks: "./tasks/directories.yml"
+
+    - name: Has RPM Fusion enabled
+      import_tasks: "./tasks/rpmfusion.yml"
+      tags: rpmfusion
+
+    - name: Has chezmoi installed and configs inited
+      import_tasks: "./tasks/chezmoi.yml"
       tags: chezmoi
-    - include_tasks: "./tasks/sway.yml"
-    - include_tasks: "./tasks/browsers.yml"
-    - include_tasks: "./tasks/term.yml"
-    - include_tasks: "./tasks/neovim.yml"
-    - include_tasks: "./tasks/java.yml"
-    - include_tasks: "./tasks/apps.yml"
-    - include_tasks: "./tasks/sshkey.yml"
+
+    - name: Has sway and correlated tools installed
+      import_tasks: "./tasks/sway.yml"
+      tags: sway
+
+    - name: Has browser installed
+      import_tasks: "./tasks/browsers.yml"
+      tags: browsers
+
+    - import_tasks: "./tasks/term.yml"
+      tags: term
+
+    - name: Has neovim with dependencies installed
+      import_tasks: "./tasks/neovim.yml"
+      tags: neovim
+
+    - name: Has java development tools installed
+      import_tasks: "./tasks/java.yml"
+      tags: java
+
+    - name: Has apps installed
+      import_tasks: "./tasks/apps.yml"
+      tags: apps
+
+    - name: Has ssh key generated
+      import_tasks: "./tasks/sshkey.yml"
