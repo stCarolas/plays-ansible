@@ -1,3 +1,3 @@
 su -c "dnf install ansible"
 ansible-galaxy collection install -r requirements.yml
-ansible-playbook play.yml
+ansible-playbook play.yml --become-method=su -K

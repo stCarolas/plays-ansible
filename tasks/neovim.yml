@@ -13,6 +13,16 @@
   package:
     name: nodejs
 
+- name: Has tar
+  become: true
+  package:
+    name: tar
+
+- name: Has unzip
+  become: true
+  package:
+    name: unzip
+
 - name: Has neovim packages installed
   become: true
   package:
