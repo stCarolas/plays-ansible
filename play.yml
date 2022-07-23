@@ -35,8 +35,8 @@
       tags: neovim
 
     - name: Has java development tools installed
-      import_tasks: "./tasks/java.yml"
-      tags: java
+      import_tasks: "./tasks/devtools.yml"
+      tags: devtools
 
     - name: Has apps installed
       import_tasks: "./tasks/apps.yml"

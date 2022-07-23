@@ -10,3 +10,8 @@
     - java-17-openjdk-devel
     - java-latest-openjdk
     - java-latest-openjdk-devel
+
+- name: Has luarocks installed
+  become: true
+  package:
+    name: luarocks
