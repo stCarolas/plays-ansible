@@ -23,11 +23,6 @@
   flatpak:
     name: com.discordapp.Discord
 
-- name : Mailspring installed
-  become: true
-  flatpak:
-    name: com.getmailspring.Mailspring
-
 - name: Has Vagrant
   become: true
   package:

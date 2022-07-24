@@ -77,7 +77,7 @@
 - name: Has eclipse jdt.ls configured
   shell:
     chdir: "~/Coding/libs/jdt/plugins"
-    cmd: " ln -s org.eclipse.equinox.launcher_* org.eclipse.equinox.launcher.jar"
+    cmd: " ln -s --force org.eclipse.equinox.launcher_* org.eclipse.equinox.launcher.jar"
 
 - name: Has lombok downloaded
   get_url:
