@@ -15,3 +15,13 @@
   become: true
   package:
     name: luarocks
+
+- name: Has Vagrant
+  become: true
+  package:
+    name: vagrant
+
+- name: Has k8s tools
+  become: true
+  package:
+    name: kubernetes-client

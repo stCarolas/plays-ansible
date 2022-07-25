@@ -23,7 +23,7 @@
   flatpak:
     name: com.discordapp.Discord
 
-- name: Has Vagrant
+- name: Has openvpn installed
   become: true
   package:
-    name: vagrant
+    name: openvpn
