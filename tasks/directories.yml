@@ -1,4 +1,4 @@
-- name: Exists certain directories
+- name: Certain directories exists
   file:
     path: "{{ item }}"
     state: directory

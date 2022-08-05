@@ -1,6 +1,6 @@
 - name: Has rpmfusion repos
   become: true
-  yum: 
+  yum:
     disable_gpg_check: yes
     name: "{{ item }}"
   loop:

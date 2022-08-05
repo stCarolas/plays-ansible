@@ -16,6 +16,16 @@
   package:
     name: luarocks
 
+- name: Has pip installed
+  become: true
+  package:
+    name: python3-pip
+
+- name: Has node.js and npm installed
+  become: true
+  package:
+    name: nodejs
+
 - name: Has Vagrant
   become: true
   package:

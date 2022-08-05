@@ -3,25 +3,13 @@
   command:
     cmd: dnf copr enable -y agriffis/neovim-nightly
 
-- name: Has pip installed
+- name: Has common system tools
   become: true
   package:
-    name: python3-pip
-
-- name: Has node.js and npm installed
-  become: true
-  package:
-    name: nodejs
-
-- name: Has tar
-  become: true
-  package:
-    name: tar
-
-- name: Has unzip
-  become: true
-  package:
-    name: unzip
+    name: {{ tar }}
+  with_items:
+    - tar
+    - unzip
 
 - name: Has neovim packages installed
   become: true
