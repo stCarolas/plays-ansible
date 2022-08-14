@@ -6,7 +6,7 @@
 - name: Has common system tools
   become: true
   package:
-    name: "{{ name }}"
+    name: "{{ item }}"
   with_items:
     - tar
     - unzip
