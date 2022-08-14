@@ -30,13 +30,13 @@
     - import_tasks: "./tasks/term.yml"
       tags: term
 
+    - name: Has development tools installed
+      import_tasks: "./tasks/devtools.yml"
+      tags: devtools
+
     - name: Has neovim with dependencies installed
       import_tasks: "./tasks/neovim.yml"
       tags: neovim
-
-    - name: Has java development tools installed
-      import_tasks: "./tasks/devtools.yml"
-      tags: devtools
 
     - name: Has apps installed
       import_tasks: "./tasks/apps.yml"
