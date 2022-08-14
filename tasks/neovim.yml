@@ -34,6 +34,12 @@
     - prettier
     - prettier-plugin-java
 
+- name: Has eclint installed
+  become: true
+  npm:
+    global: yes
+    name: eclint
+
 - name: Has lua server downloaded
   get_url:
     url: "https://github.com/sumneko/lua-language-server/releases/download/3.2.4/lua-language-server-3.2.4-linux-x64.tar.gz"
@@ -65,7 +71,7 @@
 - name: Has eclipse jdt.ls configured
   shell:
     chdir: "~/Coding/libs/jdt/plugins"
-    cmd: " ln -s --force org.eclipse.equinox.launcher_* org.eclipse.equinox.launcher.jar"
+    cmd: "ln -s --force org.eclipse.equinox.launcher_* org.eclipse.equinox.launcher.jar"
 
 - name: Has lombok downloaded
   get_url:
