@@ -26,6 +26,14 @@
   pip:
     name: neovim
 
+- name: Has sqlite packages installed
+  package:
+    name: "{{ item }}"
+  with_items:
+    - sqlite
+    - sqlite-devel
+    - sqlite-tcl
+
 - name: Has prettier installed
   become: true
   npm:
@@ -34,4 +42,3 @@
   with_items:
     - prettier
     - prettier-plugin-java
-    - "@fsouza/prettierd"
