@@ -1,10 +1,11 @@
-- name: Exists certain directories
+- name: Certain directories exists
   file:
     path: "{{ item }}"
     state: directory
   with_items:
     - "~/Coding"
     - "~/Coding/projects"
+    - "~/Coding/libs"
     - "~/Pictures"
     - "~/Pictures/Wallpapers"
     - "~/Pictures/Screenshots"

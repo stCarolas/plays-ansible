@@ -3,15 +3,13 @@
   command:
     cmd: dnf copr enable -y agriffis/neovim-nightly
 
-- name: Has pip installed
+- name: Has common system tools
   become: true
   package:
-    name: python3-pip
-
-- name: Has node.js and npm installed
-  become: true
-  package:
-    name: nodejs
+    name: "{{ item }}"
+  with_items:
+    - tar
+    - unzip
 
 - name: Has neovim packages installed
   become: true
@@ -21,6 +19,7 @@
     - neovim
     - glibc-static # needed for treesitter
     - libstdc++-static # needed for treesitter
+    - gcc-c++ # needed for treesitter
 
 - name: Has neovim python package installed
   pip:
@@ -42,3 +41,51 @@
   with_items:
     - prettier
     - prettier-plugin-java
+
+- name: Has eclint installed
+  become: true
+  npm:
+    global: yes
+    name: eclint
+
+- name: Has lua server downloaded
+  get_url:
+    url: "https://github.com/sumneko/lua-language-server/releases/download/3.2.4/lua-language-server-3.2.4-linux-x64.tar.gz"
+    dest: "/tmp/lua-lsp.tar.gz"
+
+- name: Has eclipse jdt.ls downloaded
+  get_url:
+    url: "https://download.eclipse.org/jdtls/snapshots/jdt-language-server-latest.tar.gz"
+    dest: "/tmp/jdt.tar.gz"
+
+- name: Exist directories for LSPs
+  file:
+    path: "~/Coding/libs/{{ item }}"
+    state: directory
+  with_items:
+    - lua-language-server
+    - jdt
+
+- name: Has lua server extracted
+  unarchive:
+    src: "/tmp/lua-lsp.tar.gz"
+    dest: "~/Coding/libs/lua-language-server/"
+
+- name: Has eclipse jdt.ls extracted
+  unarchive:
+    src: "/tmp/jdt.tar.gz"
+    dest: "~/Coding/libs/jdt/"
+
+- name: Has eclipse jdt.ls configured
+  shell:
+    chdir: "~/Coding/libs/jdt/plugins"
+    cmd: "ln -s --force org.eclipse.equinox.launcher_* org.eclipse.equinox.launcher.jar"
+
+- name: Has lombok downloaded
+  get_url:
+    url: "https://projectlombok.org/downloads/lombok.jar"
+    dest: "~/Coding/libs/"
+
+- name: Has neovim plugins installed
+  command:
+    cmd: "nvim --headless -c 'autocmd User PackerComplete quitall' -c 'PackerSync'"

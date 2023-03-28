@@ -1,0 +1,37 @@
+- name: Has java packages installed
+  become: true
+  package:
+    name: "{{ item }}"
+  with_items:
+    - maven
+    - java-11-openjdk
+    - java-11-openjdk-devel
+    - java-17-openjdk
+    - java-17-openjdk-devel
+    - java-latest-openjdk
+    - java-latest-openjdk-devel
+
+- name: Has luarocks installed
+  become: true
+  package:
+    name: luarocks
+
+- name: Has pip installed
+  become: true
+  package:
+    name: python3-pip
+
+- name: Has node.js and npm installed
+  become: true
+  package:
+    name: nodejs
+
+- name: Has Vagrant
+  become: true
+  package:
+    name: vagrant
+
+- name: Has k8s tools
+  become: true
+  package:
+    name: kubernetes-client

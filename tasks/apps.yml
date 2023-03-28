@@ -1,4 +1,4 @@
-- name: Flatpak installed
+- name: Flatpak is installed
   become: true
   package:
     name: flatpak
@@ -8,27 +8,22 @@
   command:
     cmd: flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
 
-- name: Evince installed
+- name: Evince is installed
   become: true
   package:
     name: evince
 
-- name: pavucontrol installed
+- name: pavucontrol is installed
   become: true
   package:
     name: pavucontrol
 
-- name : Discord installed
+- name : Discord is installed
   become: true
   flatpak:
     name: com.discordapp.Discord
 
-- name : Mailspring installed
-  become: true
-  flatpak:
-    name: com.getmailspring.Mailspring
-
-- name: Has Vagrant
+- name: Has openvpn is installed
   become: true
   package:
-    name: vagrant
+    name: openvpn

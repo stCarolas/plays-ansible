@@ -1,9 +1,9 @@
 - name: Has chezmoi repos
   become: true
-  yum: 
+  yum:
     disable_gpg_check: yes
     name: https://github.com/twpayne/chezmoi/releases/download/v1.8.7/chezmoi-1.8.7-x86_64.rpm
-      
+
 - name: Chezmoi inited
   become: false
   command:
