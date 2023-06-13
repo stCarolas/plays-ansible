@@ -26,6 +26,7 @@
     name: neovim
 
 - name: Has sqlite packages installed
+  become: true
   package:
     name: "{{ item }}"
   with_items:
