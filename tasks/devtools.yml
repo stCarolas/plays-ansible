@@ -35,3 +35,8 @@
   become: true
   package:
     name: kubernetes-client
+
+- name: Has podman-compose installed
+  become: true
+  pip:
+    name: podman-compose
