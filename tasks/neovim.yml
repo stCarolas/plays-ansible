@@ -94,3 +94,20 @@
 - name: Has neovim plugins installed
   command:
     cmd: "nvim --headless -c 'autocmd User PackerComplete quitall' -c 'PackerSync'"
+
+- name: Has typescript LSP installed
+  become: true
+  community.general.npm:
+    name: "{{ item }}"
+    global: true
+  with_items:
+    - typescript
+    - typescript-language-server
+
+- name: Has vscode LSPs installed (including css)
+  become: true
+  community.general.npm:
+    name: "{{ item }}"
+    global: true
+  with_items:
+    - vscode-langservers-extracted
