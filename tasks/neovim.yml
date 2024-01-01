@@ -111,3 +111,11 @@
     global: true
   with_items:
     - vscode-langservers-extracted
+
+- name: Has css-modules LSP installed
+  become: true
+  community.general.npm:
+    name: "{{ item }}"
+    global: true
+  with_items:
+    - cssmodules-language-server
