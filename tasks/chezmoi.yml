@@ -2,7 +2,7 @@
   become: true
   yum:
     disable_gpg_check: yes
-    name: https://github.com/twpayne/chezmoi/releases/download/v1.8.7/chezmoi-1.8.7-x86_64.rpm
+    name: https://github.com/twpayne/chezmoi/releases/download/v2.43.0/chezmoi-2.43.0-x86_64.rpm
 
 - name: Chezmoi inited
   become: false
