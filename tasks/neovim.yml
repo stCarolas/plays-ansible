@@ -119,3 +119,9 @@
     global: true
   with_items:
     - cssmodules-language-server
+
+- name: Has Lua formatter
+  community.general.cargo:
+    name: "{{ item }}"
+  with_items:
+    - stylua

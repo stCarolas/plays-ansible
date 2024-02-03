@@ -40,3 +40,8 @@
   become: true
   pip:
     name: podman-compose
+
+- name: Has Cargo
+  become: true
+  package:
+    name: cargo
