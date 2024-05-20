@@ -34,7 +34,10 @@
 - name: Has k8s tools
   become: true
   package:
-    name: kubernetes-client
+    name: "{{ item }}"
+  with_items:
+    - kubernetes-client
+    - helm
 
 - name: Has podman-compose installed
   become: true
