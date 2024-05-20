@@ -9,6 +9,7 @@
     name: "{{ item }}"
   with_items:
     - sway
+    - hyprland
     - rofi
     - xclip
     - light
