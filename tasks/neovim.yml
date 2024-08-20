@@ -91,10 +91,6 @@
     url: "https://projectlombok.org/downloads/lombok.jar"
     dest: "~/Coding/libs/"
 
-- name: Has neovim plugins installed
-  command:
-    cmd: "nvim --headless '+Lazy! install' +qa"
-
 - name: Has typescript LSP installed
   become: true
   community.general.npm:
@@ -112,16 +108,25 @@
   with_items:
     - vscode-langservers-extracted
 
-- name: Has css-modules LSP installed
+- name: Has css-modules LSP and stylelint installed
   become: true
   community.general.npm:
     name: "{{ item }}"
     global: true
   with_items:
     - cssmodules-language-server
+    - stylelint
 
 - name: Has Lua formatter
   community.general.cargo:
     name: "{{ item }}"
   with_items:
     - stylua
+
+- name: Has djlint installed
+  pip:
+    name: djlint
+
+- name: Has neovim plugins installed
+  command:
+    cmd: "nvim --headless '+Lazy! install' +qa"
