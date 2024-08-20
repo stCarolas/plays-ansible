@@ -1,23 +1,29 @@
-- name: Has sway-extras Copr repo
+# vi: ft=yaml.ansible
+
+- name: Has extra Copr repos
   become: true
-  command:
-    cmd: dnf copr enable -y alebastr/sway-extras
+  ansible.builtin.command:
+    cmd: "dnf copr enable -y {{ item.name }}"
+    creates: "{{ item.creates }}"
+  with_items:
+    - name: alebastr/sway-extras
+      creates: /etc/yum.repos.d/_copr:copr.fedorainfracloud.org:alebastr:sway-extras.repo
+    - name: alternateved/keyd
+      creates: /etc/yum.repos.d/_copr:copr.fedorainfracloud.org:alternateved:keyd.repo
 
 - name: Has sway packages installed
   become: true
-  package:
+  ansible.builtin.package:
     name: "{{ item }}"
   with_items:
     - sway
-    - hyprland
     - rofi
     - xclip
     - light
     - wl-clipboard
     - nwg-launchers
     - nwg-wrapper
-    - greetd
-    - greetd-gtkgreet
     - swaylock
     - wlsunset
     - dunst
+    - keyd

@@ -1,0 +1,49 @@
+# vi: ft=yaml.ansible
+---
+- name: Setup workstation
+  hosts: localhost
+  connection: local
+  tasks:
+
+    - name: Has chezmoi installed and configs inited
+      ansible.builtin.import_tasks: "./tasks/chezmoi.yml"
+      tags: chezmoi
+
+    - name: Set timezone to Europe/Moscow
+      become: true
+      community.general.timezone:
+        name: Europe/Moscow
+
+    - name: Has required directories created
+      ansible.builtin.import_tasks: "./tasks/directories.yml"
+
+    - name: Has RPM Fusion enabled
+      ansible.builtin.import_tasks: "./tasks/rpmfusion.yml"
+      tags: rpmfusion
+
+    - name: Has sway and correlated tools installed
+      ansible.builtin.import_tasks: "./tasks/sway.yml"
+      tags: sway
+
+    - name: Has browser installed
+      ansible.builtin.import_tasks: "./tasks/browsers.yml"
+      tags: browsers
+
+    - name: Has terminal configured
+      ansible.builtin.import_tasks: "./tasks/term.yml"
+      tags: term
+
+    - name: Has development tools installed
+      ansible.builtin.import_tasks: "./tasks/devtools.yml"
+      tags: devtools
+
+    - name: Has neovim with dependencies installed
+      ansible.builtin.import_tasks: "./tasks/neovim.yml"
+      tags: neovim
+
+    - name: Has apps installed
+      ansible.builtin.import_tasks: "./tasks/apps.yml"
+      tags: apps
+
+    - name: Has ssh key generated
+      ansible.builtin.import_tasks: "./tasks/sshkey.yml"

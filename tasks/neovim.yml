@@ -1,11 +1,14 @@
+# vi: ft=yaml.ansible
+
 - name: Has neovim-nightly repos
   become: true
-  command:
+  ansible.builtin.command:
     cmd: dnf copr enable -y agriffis/neovim-nightly
+    creates: /etc/yum.repos.d/_copr:copr.fedorainfracloud.org:agriffis:neovim-nightly.repo
 
 - name: Has common system tools
   become: true
-  package:
+  ansible.builtin.package:
     name: "{{ item }}"
   with_items:
     - tar
@@ -13,7 +16,7 @@
 
 - name: Has neovim packages installed
   become: true
-  package:
+  ansible.builtin.package:
     name: "{{ item }}"
   with_items:
     - neovim
@@ -22,12 +25,12 @@
     - gcc-c++ # needed for treesitter
 
 - name: Has neovim python package installed
-  pip:
+  ansible.builtin.pip:
     name: neovim
 
 - name: Has sqlite packages installed
   become: true
-  package:
+  ansible.builtin.package:
     name: "{{ item }}"
   with_items:
     - sqlite
@@ -36,8 +39,8 @@
 
 - name: Has prettier installed
   become: true
-  npm:
-    global: yes
+  community.general.npm:
+    global: true
     name: "{{ item }}"
   with_items:
     - prettier
@@ -45,26 +48,26 @@
 
 - name: Has eclint installed
   become: true
-  npm:
-    global: yes
+  community.general.npm:
+    global: true
     name: eclint
 
 - name: Has lua server downloaded
-  get_url:
+  ansible.builtin.get_url:
     url: "https://github.com/sumneko/lua-language-server/releases/download/3.2.4/lua-language-server-3.2.4-linux-x64.tar.gz"
     dest: "/tmp/lua-lsp.tar.gz"
 
 - name: Has eclipse jdt.ls downloaded
-  get_url:
+  ansible.builtin.get_url:
     url: "https://download.eclipse.org/jdtls/snapshots/jdt-language-server-latest.tar.gz"
     dest: "/tmp/jdt.tar.gz"
 
 - name: Has pylsp installed
-  pip:
+  ansible.builtin.pip:
     name: python-lsp-server
 
 - name: Exist directories for LSPs
-  file:
+  ansible.builtin.file:
     path: "~/Coding/libs/{{ item }}"
     state: directory
   with_items:
@@ -72,22 +75,22 @@
     - jdt
 
 - name: Has lua server extracted
-  unarchive:
+  ansible.builtin.unarchive:
     src: "/tmp/lua-lsp.tar.gz"
     dest: "~/Coding/libs/lua-language-server/"
 
 - name: Has eclipse jdt.ls extracted
-  unarchive:
+  ansible.builtin.unarchive:
     src: "/tmp/jdt.tar.gz"
     dest: "~/Coding/libs/jdt/"
 
 - name: Has eclipse jdt.ls configured
-  shell:
+  ansible.builtin.shell:
     chdir: "~/Coding/libs/jdt/plugins"
     cmd: "ln -s --force $(ls org.eclipse.equinox.launcher_* | tail -n 1) org.eclipse.equinox.launcher.jar"
 
 - name: Has lombok downloaded
-  get_url:
+  ansible.builtin.get_url:
     url: "https://projectlombok.org/downloads/lombok.jar"
     dest: "~/Coding/libs/"
 
@@ -117,6 +120,17 @@
     - cssmodules-language-server
     - stylelint
 
+- name: Has ansible language server installed
+  become: true
+  community.general.npm:
+    name: "@ansible/ansible-language-server"
+    global: true
+
+- name: Has ansible-lint installed
+  become: true
+  ansible.builtin.pip:
+    name: ansible-lint
+
 - name: Has Lua formatter
   community.general.cargo:
     name: "{{ item }}"
@@ -124,9 +138,9 @@
     - stylua
 
 - name: Has djlint installed
-  pip:
+  ansible.builtin.pip:
     name: djlint
 
-- name: Has neovim plugins installed
-  command:
-    cmd: "nvim --headless '+Lazy! install' +qa"
+# - name: Has neovim plugins installed
+#   command:
+#     cmd: "nvim --headless '+Lazy! install' +qa"

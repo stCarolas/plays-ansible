@@ -1,29 +1,32 @@
+# vi: ft=yaml.ansible
+
 - name: Flatpak is installed
   become: true
-  package:
+  ansible.builtin.package:
     name: flatpak
 
 - name: Use Flathub as a repo
   become: true
-  command:
-    cmd: flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
+  community.general.flatpak_remote:
+    flatpakrepo_url: https://flathub.org/repo/flathub.flatpakrepo
+    name: flathub
 
 - name: Evince is installed
   become: true
-  package:
+  ansible.builtin.package:
     name: evince
 
-- name: pavucontrol is installed
+- name: Has pavucontrol installed
   become: true
-  package:
+  ansible.builtin.package:
     name: pavucontrol
 
-- name : Discord is installed
+- name: Discord is installed
   become: true
-  flatpak:
+  community.general.flatpak:
     name: com.discordapp.Discord
 
 - name: Has openvpn is installed
   become: true
-  package:
+  ansible.builtin.package:
     name: openvpn

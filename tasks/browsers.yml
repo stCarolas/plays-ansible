@@ -1,3 +1,5 @@
+# vi: ft=yaml.ansible
+
 - name: Has browser packages installed
   become: true
   package:

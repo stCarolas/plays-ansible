@@ -1,10 +1,12 @@
+# vi: ft=yaml.ansible
+
 - name: Has chezmoi repos
   become: true
-  yum:
-    disable_gpg_check: yes
+  ansible.builtin.yum:
+    disable_gpg_check: true
     name: https://github.com/twpayne/chezmoi/releases/download/v2.43.0/chezmoi-2.43.0-x86_64.rpm
 
 - name: Chezmoi inited
   become: false
-  command:
+  ansible.builtin.command:
     cmd: chezmoi init https://github.com/stCarolas/dotfiles.git --apply

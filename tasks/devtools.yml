@@ -1,11 +1,11 @@
+# vi: ft=yaml.ansible
+
 - name: Has java packages installed
   become: true
-  package:
+  ansible.builtin.package:
     name: "{{ item }}"
   with_items:
     - maven
-    - java-11-openjdk
-    - java-11-openjdk-devel
     - java-17-openjdk
     - java-17-openjdk-devel
     - java-latest-openjdk
@@ -13,27 +13,27 @@
 
 - name: Has luarocks installed
   become: true
-  package:
+  ansible.builtin.package:
     name: luarocks
 
 - name: Has pip installed
   become: true
-  package:
+  ansible.builtin.package:
     name: python3-pip
 
 - name: Has node.js and npm installed
   become: true
-  package:
+  ansible.builtin.package:
     name: nodejs
 
 - name: Has Vagrant
   become: true
-  package:
+  ansible.builtin.package:
     name: vagrant
 
 - name: Has k8s tools
   become: true
-  package:
+  ansible.builtin.package:
     name: "{{ item }}"
   with_items:
     - kubernetes-client
@@ -41,10 +41,10 @@
 
 - name: Has podman-compose installed
   become: true
-  pip:
+  ansible.builtin.package:
     name: podman-compose
 
 - name: Has Cargo
   become: true
-  package:
+  ansible.builtin.package:
     name: cargo

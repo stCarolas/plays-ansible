@@ -1,6 +1,8 @@
+# vi: ft=yaml.ansible
+
 - name: Has terminal tools installed
   become: true
-  package:
+  ansible.builtin.package:
     name: "{{ item }}"
   with_items:
     - foot
@@ -17,19 +19,19 @@
     - httpie
 
 - name: Find current user
-  command: whoami
+  ansible.builtin.command: whoami
   register: username
 
 - name: Has zsh as default shell
   become: true
-  shell:
+  ansible.builtin.shell:
     cmd: "usermod --shell /bin/zsh $(whoami)"
 
 - name: Has zplug installed
-  command: ls ~/.zplug
-  ignore_errors: True
+  ansible.builtin.command: ls ~/.zplug
+  ignore_errors: true
   register: has_zplug
 
 - name: Install zplug
   when: has_zplug is failed
-  shell: "curl -sL --proto-redir -all,https https://raw.githubusercontent.com/zplug/installer/master/installer.zsh | zsh"
+  ansible.builtin.shell: "curl -sL --proto-redir -all,https https://raw.githubusercontent.com/zplug/installer/master/installer.zsh | zsh"

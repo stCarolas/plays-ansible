@@ -1,5 +1,7 @@
+# vi: ft=yaml.ansible
+
 - name: Certain directories exists
-  file:
+  ansible.builtin.file:
     path: "{{ item }}"
     state: directory
   with_items:
@@ -11,7 +13,7 @@
     - "~/Pictures/Screenshots"
 
 - name: Delete unnecessary folders
-  file:
+  ansible.builtin.file:
     path: "{{ item }}"
     state: absent
   with_items:
