@@ -10,6 +10,8 @@
       creates: /etc/yum.repos.d/_copr:copr.fedorainfracloud.org:alebastr:sway-extras.repo
     - name: alternateved/keyd
       creates: /etc/yum.repos.d/_copr:copr.fedorainfracloud.org:alternateved:keyd.repo
+    - name: axeld/eww
+      creates: /etc/yum.repos.d/_copr:copr.fedorainfracloud.org:axeld:eww.repo
 
 - name: Has sway packages installed
   become: true
@@ -22,8 +24,29 @@
     - light
     - wl-clipboard
     - nwg-launchers
-    - nwg-wrapper
     - swaylock
     - wlsunset
     - dunst
     - keyd
+    - eww
+
+- name: Has keyd config
+  become: true
+  ansible.builtin.copy:
+    src: ./configs/keyd.conf
+    dest: /etc/keyd/default.conf
+    mode: '0644'
+
+- name: Has swaycommand script installed
+  become: true
+  ansible.builtin.copy:
+    src: ./configs/swaycommand
+    dest: /usr/bin/swaycommand
+    mode: '0755'
+
+- name: Has keyd daemon enabled and running
+  become: true
+  ansible.builtin.systemd:
+    name: keyd
+    state: started
+    enabled: true

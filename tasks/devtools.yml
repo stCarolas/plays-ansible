@@ -39,11 +39,6 @@
     - kubernetes-client
     - helm
 
-- name: Has podman-compose installed
-  become: true
-  ansible.builtin.package:
-    name: podman-compose
-
 - name: Has Cargo
   become: true
   ansible.builtin.package:

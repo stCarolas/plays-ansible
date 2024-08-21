@@ -54,8 +54,9 @@
 
 - name: Has lua server downloaded
   ansible.builtin.get_url:
-    url: "https://github.com/sumneko/lua-language-server/releases/download/3.2.4/lua-language-server-3.2.4-linux-x64.tar.gz"
+    url: "https://github.com/LuaLS/lua-language-server/releases/download/3.10.5/lua-language-server-3.10.5-linux-x64.tar.gz"
     dest: "/tmp/lua-lsp.tar.gz"
+    mode: "0777"
 
 - name: Has eclipse jdt.ls downloaded
   ansible.builtin.get_url:
@@ -140,6 +141,11 @@
 - name: Has djlint installed
   ansible.builtin.pip:
     name: djlint
+
+- name: Has yaml-language-server installed
+  community.general.yarn:
+    name: yaml-language-server
+    global: true
 
 # - name: Has neovim plugins installed
 #   command:

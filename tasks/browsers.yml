@@ -2,7 +2,7 @@
 
 - name: Has browser packages installed
   become: true
-  package:
+  ansible.builtin.package:
     name: "{{ item }}"
   with_items:
     - firefox

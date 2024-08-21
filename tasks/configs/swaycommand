@@ -1,0 +1,5 @@
+#!/bin/sh
+
+socket=$(ls /run/user/1000/sway-ipc.1000*)
+echo $socket
+swaymsg -s $socket $@
