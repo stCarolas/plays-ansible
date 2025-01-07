@@ -1,12 +1,5 @@
 # vi: ft=yaml.ansible
 
-- name: Has neovim-nightly repos
-  tags: [system]
-  become: true
-  ansible.builtin.command:
-    cmd: dnf copr enable -y agriffis/neovim-nightly
-    creates: /etc/yum.repos.d/_copr:copr.fedorainfracloud.org:agriffis:neovim-nightly.repo
-
 - name: Has common system tools
   tags: [system]
   become: true
