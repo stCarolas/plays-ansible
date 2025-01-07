@@ -1,12 +1,14 @@
 # vi: ft=yaml.ansible
 
 - name: Has neovim-nightly repos
+  tags: [system]
   become: true
   ansible.builtin.command:
     cmd: dnf copr enable -y agriffis/neovim-nightly
     creates: /etc/yum.repos.d/_copr:copr.fedorainfracloud.org:agriffis:neovim-nightly.repo
 
 - name: Has common system tools
+  tags: [system]
   become: true
   ansible.builtin.package:
     name: "{{ item }}"
@@ -15,6 +17,7 @@
     - unzip
 
 - name: Has neovim packages installed
+  tags: [system]
   become: true
   ansible.builtin.package:
     name: "{{ item }}"
@@ -25,10 +28,12 @@
     - gcc-c++ # needed for treesitter
 
 - name: Has neovim python package installed
+  tags: [system]
   ansible.builtin.pip:
     name: neovim
 
 - name: Has sqlite packages installed
+  tags: [system]
   become: true
   ansible.builtin.package:
     name: "{{ item }}"
@@ -38,6 +43,7 @@
     - sqlite-tcl
 
 - name: Has prettier installed
+  tags: [system]
   become: true
   community.general.npm:
     global: true
@@ -47,6 +53,7 @@
     - prettier-plugin-java
 
 - name: Has eclint installed
+  tags: [system]
   become: true
   community.general.npm:
     global: true
@@ -96,6 +103,7 @@
     dest: "~/Coding/libs/"
 
 - name: Has typescript LSP installed
+  tags: [system]
   become: true
   community.general.npm:
     name: "{{ item }}"
@@ -105,6 +113,7 @@
     - typescript-language-server
 
 - name: Has vscode LSPs installed (including css)
+  tags: [system]
   become: true
   community.general.npm:
     name: "{{ item }}"
@@ -113,6 +122,7 @@
     - vscode-langservers-extracted
 
 - name: Has css-modules LSP and stylelint installed
+  tags: [system]
   become: true
   community.general.npm:
     name: "{{ item }}"
@@ -122,27 +132,32 @@
     - stylelint
 
 - name: Has ansible language server installed
+  tags: [system]
   become: true
   community.general.npm:
     name: "@ansible/ansible-language-server"
     global: true
 
 - name: Has ansible-lint installed
+  tags: [system]
   become: true
   ansible.builtin.pip:
     name: ansible-lint
 
 - name: Has Lua formatter
+  tags: [system]
   community.general.cargo:
     name: "{{ item }}"
   with_items:
     - stylua
 
 - name: Has djlint installed
+  tags: [system]
   ansible.builtin.pip:
     name: djlint
 
 - name: Has yaml-language-server installed
+  tags: [system]
   community.general.yarn:
     name: yaml-language-server
     global: true
