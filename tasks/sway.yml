@@ -1,6 +1,7 @@
 # vi: ft=yaml.ansible
 
 - name: Has extra Copr repos
+  tags: [system]
   become: true
   ansible.builtin.command:
     cmd: "dnf copr enable -y {{ item.name }}"
@@ -14,6 +15,7 @@
       creates: /etc/yum.repos.d/_copr:copr.fedorainfracloud.org:axeld:eww.repo
 
 - name: Has sway packages installed
+  tags: [system]
   become: true
   ansible.builtin.package:
     name: "{{ item }}"
@@ -30,11 +32,13 @@
     - eww
 
 - name: Certain directories exists
+  tags: [system]
   ansible.builtin.file:
     path: /etc/keyd
     state: directory
 
 - name: Has keyd config
+  tags: [system]
   become: true
   ansible.builtin.copy:
     src: ./configs/keyd.conf
@@ -42,6 +46,7 @@
     mode: '0644'
 
 - name: Has swaycommand script installed
+  tags: [system]
   become: true
   ansible.builtin.copy:
     src: ./configs/swaycommand
@@ -49,6 +54,7 @@
     mode: '0755'
 
 - name: Has keyd daemon enabled
+  tags: [system]
   become: true
   ansible.builtin.systemd:
     name: keyd
