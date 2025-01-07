@@ -6,8 +6,6 @@
     name: "{{ item }}"
   with_items:
     - maven
-    - java-17-openjdk
-    - java-17-openjdk-devel
     - java-latest-openjdk
     - java-latest-openjdk-devel
 
@@ -26,20 +24,9 @@
   ansible.builtin.package:
     name: nodejs
 
-- name: Has Vagrant
-  become: true
-  ansible.builtin.package:
-    name: vagrant
-
 - name: Has k8s tools
   become: true
   ansible.builtin.package:
     name: "{{ item }}"
   with_items:
     - kubernetes-client
-    - helm
-
-- name: Has Cargo
-  become: true
-  ansible.builtin.package:
-    name: cargo
