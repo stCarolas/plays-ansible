@@ -1,11 +1,11 @@
 # vi: ft=yaml.ansible
 
 - name: Has terminal tools installed
+  tags: [system]
   become: true
   ansible.builtin.package:
     name: "{{ item }}"
   with_items:
-    - foot
     - kitty
     - zsh
     - fzf
