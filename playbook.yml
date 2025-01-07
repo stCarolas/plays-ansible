@@ -7,7 +7,7 @@
 
     - name: Has chezmoi installed and configs inited
       ansible.builtin.import_tasks: "./tasks/chezmoi.yml"
-      tags: [chezmoi,system]
+      tags: [chezmoi]
 
     - name: Set timezone to Europe/Moscow
       tags: [system]
@@ -28,7 +28,13 @@
 
     - name: Has browser installed
       ansible.builtin.import_tasks: "./tasks/browsers.yml"
-      tags: [browsers,system]
+      tags: [browsers]
+
+    - name: Has ansible installed
+      tags: [system]
+      become: true
+      ansible.builtin.package:
+        name: "ansible"
 
     - name: Has terminal configured
       ansible.builtin.import_tasks: "./tasks/term.yml"
