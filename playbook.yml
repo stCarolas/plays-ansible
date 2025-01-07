@@ -7,9 +7,10 @@
 
     - name: Has chezmoi installed and configs inited
       ansible.builtin.import_tasks: "./tasks/chezmoi.yml"
-      tags: chezmoi
+      tags: [chezmoi,system]
 
     - name: Set timezone to Europe/Moscow
+      tags: [system]
       become: true
       community.general.timezone:
         name: Europe/Moscow
@@ -19,31 +20,31 @@
 
     - name: Has RPM Fusion enabled
       ansible.builtin.import_tasks: "./tasks/rpmfusion.yml"
-      tags: rpmfusion
+      tags: [rpmfusion,system]
 
     - name: Has sway and correlated tools installed
       ansible.builtin.import_tasks: "./tasks/sway.yml"
-      tags: sway
+      tags: [sway,system]
 
     - name: Has browser installed
       ansible.builtin.import_tasks: "./tasks/browsers.yml"
-      tags: browsers
+      tags: [browsers,system]
 
     - name: Has terminal configured
       ansible.builtin.import_tasks: "./tasks/term.yml"
-      tags: term
+      tags: [term,system]
 
     - name: Has development tools installed
       ansible.builtin.import_tasks: "./tasks/devtools.yml"
-      tags: devtools
+      tags: [devtools,system]
 
     - name: Has neovim with dependencies installed
       ansible.builtin.import_tasks: "./tasks/neovim.yml"
-      tags: neovim
+      tags: [system,neovim]
 
     - name: Has apps installed
       ansible.builtin.import_tasks: "./tasks/apps.yml"
-      tags: apps
+      tags: [apps,system]
 
     - name: Has ssh key generated
       ansible.builtin.import_tasks: "./tasks/sshkey.yml"
