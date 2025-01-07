@@ -1,6 +1,7 @@
 # vi: ft=yaml.ansible
 
 - name: Has rpmfusion repos
+  tags: [system]
   become: true
   ansible.builtin.yum:
     disable_gpg_check: true
