@@ -36,15 +36,15 @@
 
     - name: Has development tools installed
       ansible.builtin.import_tasks: "./tasks/devtools.yml"
-      tags: [devtools,system]
+      tags: [devtools]
 
     - name: Has neovim with dependencies installed
       ansible.builtin.import_tasks: "./tasks/neovim.yml"
-      tags: [system,neovim]
+      tags: [neovim]
 
     - name: Has apps installed
       ansible.builtin.import_tasks: "./tasks/apps.yml"
-      tags: [apps,system]
+      tags: [apps]
 
     - name: Has ssh key generated
       ansible.builtin.import_tasks: "./tasks/sshkey.yml"
