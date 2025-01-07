@@ -1,22 +1,26 @@
 # vi: ft=yaml.ansible
 
 - name: Flatpak is installed
+  tags: [system]
   become: true
   ansible.builtin.package:
     name: flatpak
 
 - name: Use Flathub as a repo
+  tags: [system]
   become: true
   community.general.flatpak_remote:
     flatpakrepo_url: https://flathub.org/repo/flathub.flatpakrepo
     name: flathub
 
 - name: Evince is installed
+  tags: [system]
   become: true
   ansible.builtin.package:
     name: evince
 
 - name: Has pavucontrol installed
+  tags: [system]
   become: true
   ansible.builtin.package:
     name: pavucontrol
@@ -27,6 +31,7 @@
     name: com.discordapp.Discord
 
 - name: Has openvpn is installed
+  tags: [system]
   become: true
   ansible.builtin.package:
     name: openvpn
