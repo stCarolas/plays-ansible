@@ -1,6 +1,7 @@
 # vi: ft=yaml.ansible
 
 - name: Has java packages installed
+  tags: [system]
   become: true
   ansible.builtin.package:
     name: "{{ item }}"
@@ -10,21 +11,25 @@
     - java-latest-openjdk-devel
 
 - name: Has luarocks installed
+  tags: [system]
   become: true
   ansible.builtin.package:
     name: luarocks
 
 - name: Has pip installed
+  tags: [system]
   become: true
   ansible.builtin.package:
     name: python3-pip
 
 - name: Has node.js and npm installed
+  tags: [system]
   become: true
   ansible.builtin.package:
     name: nodejs
 
 - name: Has k8s tools
+  tags: [system]
   become: true
   ansible.builtin.package:
     name: "{{ item }}"
