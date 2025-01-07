@@ -48,9 +48,8 @@
     dest: /usr/bin/swaycommand
     mode: '0755'
 
-- name: Has keyd daemon enabled and running
+- name: Has keyd daemon enabled
   become: true
   ansible.builtin.systemd:
     name: keyd
-    state: started
     enabled: true
