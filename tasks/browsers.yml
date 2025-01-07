@@ -1,6 +1,7 @@
 # vi: ft=yaml.ansible
 
-- name: Has browser packages installed
+- name: Has browser packages installed\
+  tags: [system]
   become: true
   ansible.builtin.package:
     name: "{{ item }}"
