@@ -19,7 +19,6 @@
     name: "{{ item }}"
   with_items:
     - sway
-    - rofi
     - xclip
     - light
     - wl-clipboard
@@ -29,6 +28,11 @@
     - dunst
     - keyd
     - eww
+
+- name: Certain directories exists
+  ansible.builtin.file:
+    path: /etc/keyd
+    state: directory
 
 - name: Has keyd config
   become: true
