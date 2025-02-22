@@ -13,6 +13,8 @@
       creates: /etc/yum.repos.d/_copr:copr.fedorainfracloud.org:alternateved:keyd.repo
     - name: axeld/eww
       creates: /etc/yum.repos.d/_copr:copr.fedorainfracloud.org:axeld:eww.repo
+    - name: materka/starship
+      creates: /etc/yum.repos.d/_copr:copr.fedorainfracloud.org:materka:starship.repo
 
 - name: Has sway packages installed
   tags: [system]
@@ -30,6 +32,9 @@
     - dunst
     - keyd
     - eww
+    - hyprland
+    - swww
+    - lxpolkit
 
 - name: Certain directories exists
   tags: [system]

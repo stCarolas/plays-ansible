@@ -16,6 +16,18 @@
   ansible.builtin.package:
     name: luarocks
 
+- name: Has cargo installed
+  tags: [system]
+  become: true
+  ansible.builtin.package:
+    name: cargo
+
+- name: Has yarn installed
+  tags: [system]
+  become: true
+  ansible.builtin.package:
+    name: yarnpkg
+
 - name: Has pip installed
   tags: [system]
   become: true

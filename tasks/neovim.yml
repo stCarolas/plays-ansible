@@ -155,6 +155,8 @@
     name: yaml-language-server
     global: true
 
-# - name: Has neovim plugins installed
-#   command:
-#     cmd: "nvim --headless '+Lazy! install' +qa"
+- name: Has LazyVim installed
+  ansible.builtin.git:
+    repo: "https://github.com/LazyVim/starter"
+    dest: ~/.config/nvim
+    update: false

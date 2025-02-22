@@ -17,6 +17,13 @@
     - ripgrep
     - bat
     - httpie
+    - starship
+
+- name: Download font
+  become: true
+  ansible.builtin.get_url:
+    url: "https://github.com/ryanoasis/nerd-fonts/releases/download/v3.3.0/IntelOneMono.zip"
+    dest: /usr/share/fonts
 
 - name: Find current user
   ansible.builtin.command: whoami
