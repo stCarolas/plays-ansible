@@ -35,3 +35,8 @@
   become: true
   ansible.builtin.package:
     name: openvpn
+
+- name: Has waydroid installed
+  become: true
+  ansible.builtin.package:
+    name: waydroid

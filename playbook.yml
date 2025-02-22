@@ -20,11 +20,11 @@
 
     - name: Has RPM Fusion enabled
       ansible.builtin.import_tasks: "./tasks/rpmfusion.yml"
-      tags: [rpmfusion,system]
+      tags: [rpmfusion, system]
 
-    - name: Has sway and correlated tools installed
-      ansible.builtin.import_tasks: "./tasks/sway.yml"
-      tags: [sway,system]
+    - name: Has WM and correlated tools installed
+      ansible.builtin.import_tasks: "./tasks/wm.yml"
+      tags: [wm, system]
 
     - name: Has browser installed
       ansible.builtin.import_tasks: "./tasks/browsers.yml"
@@ -38,7 +38,7 @@
 
     - name: Has terminal configured
       ansible.builtin.import_tasks: "./tasks/term.yml"
-      tags: [term,system]
+      tags: [term, system]
 
     - name: Has development tools installed
       ansible.builtin.import_tasks: "./tasks/devtools.yml"

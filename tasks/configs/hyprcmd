@@ -1,0 +1,4 @@
+#!/bin/sh
+
+socket=$(ls /run/user/1000/hypr/)
+echo "$@" | socat - UNIX-CONNECT:/run/user/1000/hypr/$socket/.socket.sock

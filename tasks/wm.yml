@@ -50,13 +50,19 @@
     dest: /etc/keyd/default.conf
     mode: '0644'
 
-- name: Has swaycommand script installed
+- name: Has hyprcmd script installed
   tags: [system]
   become: true
   ansible.builtin.copy:
-    src: ./configs/swaycommand
-    dest: /usr/bin/swaycommand
+    src: ./configs/hyprcmd
+    dest: /usr/bin/hyprcmd
     mode: '0755'
+
+- name: Has socat installed
+  tags: [system]
+  become: true
+  ansible.builtin.package:
+    name: socat
 
 - name: Has keyd daemon enabled
   tags: [system]
